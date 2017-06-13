@@ -16,8 +16,11 @@
                <img src="/assets/images/logo-noname.svg" alt="">
             </div>
          </div>
+         <div class="slds-global-header__item slds-align--absolute-center slds-text-heading_large">
+            Heroku SE Toolkit
+         </div>
          <div class="slds-global-header__item">
-            {{title}}
+            <a href="/login"><button class="slds-button">Login</button></a>
          </div>
       </div>
    </header>
@@ -25,7 +28,7 @@
       <div class="slds-context-bar__primary slds-context-bar__item_divider-right">
          <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover slds-context-bar__item_divider-right">
             <div class="slds-context-bar__icon-action">
-               <button class="slds-button slds-icon-waffle_container slds-context-bar__button" title="Description of the icon when needed">
+               <button id="all-resources-btn" class="slds-button slds-icon-waffle_container slds-context-bar__button" title="All the resources you need">
                   <span class="slds-icon-waffle">
                      <span class="slds-r1"></span>
                      <span class="slds-r2"></span>
@@ -47,44 +50,100 @@
       </div>
       <nav class="slds-context-bar__secondary" role="navigation">
          <ul class="slds-grid">
-            <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-               <a href="/architecture" class="slds-context-bar__label-action" title="Architecture">
-                  <span class="slds-truncate" title="Home">What is Heroku?</span>
+            <li class="slds-context-bar__item slds-context-bar__item_divider-right {{why_style}}" >
+               <a href="/" class="slds-context-bar__label-action nav-item" title="Why Heroku">
+                  <span class="slds-truncate" title="Home">Why Heroku</span>
                </a>
             </li>
-            <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-               <a href="/data" class="slds-context-bar__label-action" title="Data Services">
-                  <span class="slds-truncate" title="Data Services">Data Services</span>
-               </a>
-            </li>
-            <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-               <a href="/demos" class="slds-context-bar__label-action" title="Demos">
+            <li class="slds-context-bar__item slds-context-bar__item_divider-right {{demo_style}}" >
+               <a href="/demos" class="slds-context-bar__label-action nav-item" title="Demos">
                   <span class="slds-truncate" title="Demos">Demos</span>
                </a>
-            </li>                  
-            <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-               <a href="/dynos" class="slds-context-bar__label-action" title="Dynos">
-                  <span class="slds-truncate" title="Dynos Explained">Dynos Explained</span>
+            </li>             
+            <li class="slds-context-bar__item slds-context-bar__item_divider-right {{dynos_style}}" >
+               <a href="/dynos" class="slds-context-bar__label-action nav-item" title="Dynos">
+                  <span class="slds-truncate" title="Dynos Explained">Dynos</span>
                </a>
-            </li>
-            <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-               <a href="/events" class="slds-context-bar__label-action" title="Apache Kafka on Heroku">
+            </li>            
+            <li class="slds-context-bar__item slds-context-bar__item_divider-right {{data_style}}" >
+               <a href="/data" class="slds-context-bar__label-action nav-item" title="Data Services">
+                  <span class="slds-truncate" title="Data Services">Data Services</span>
+               </a>
+            </li>               
+            <li class="slds-context-bar__item slds-context-bar__item_divider-right {{events_style}}" >
+               <a href="/events" class="slds-context-bar__label-action nav-item" title="Apache Kafka on Heroku">
                   <span class="slds-truncate" title="Events and Kafka">Events and Kafka</span>
                </a>
             </li>
-            <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-               <a href="/resources" class="slds-context-bar__label-action" title="Resources">
-                  <span class="slds-truncate" title="Learn MOre">Learn More</span>
-               </a>
-            </li>
-            <li class="slds-context-bar__item slds-context-bar__item_divider-right">
-               <a href="/video" class="slds-context-bar__label-action" title="Video">
-                  <span class="slds-truncate" title="Video">Video</span>
-               </a>
-            </li>
+            {{#if authenticated}}
+               <li class="slds-context-bar__item slds-context-bar__item_divider-right {{competitive_style}}" >
+                  <a href="/competitive" class="slds-context-bar__label-action nav-item" title="Competitive">
+                     <span class="slds-truncate" title="Competitive">Competitive</span>
+                  </a>
+               </li>              
+               <li class="slds-context-bar__item slds-context-bar__item_divider-right {{calculator_style}}" >
+                  <a href="/calculators" class="slds-context-bar__label-action nav-item" title="Calculators">
+                     <span class="slds-truncate" title="Events and Kafka">Calculators</span>
+                  </a>
+               </li>
+               <li class="slds-context-bar__item slds-context-bar__item_divider-right {{architecture_style}}" >
+                  <a href="/architecture" class="slds-context-bar__label-action nav-item" title="Architecture">
+                     <span class="slds-truncate" title="Home">Common Uses</span>
+                  </a>
+               </li>
+            {{/if}}           
          </ul>
       </nav>
    </div>
    {{{body}}}
+
+   <div id="modal" style="display:none">
+      <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+         <div class="slds-modal__container">
+            <header class="slds-modal__header">
+               <button id="modal-close-btn" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                  <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                  </svg>
+                  <span class="slds-assistive-text">Close</span>
+               </button>
+               <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Modal Header</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+               <p>Here is the content</p>
+            </div>
+         </div>
+      </section>
+      <div class="slds-backdrop slds-backdrop_open"></div>
+   </div>   
+
+   <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+
+   <script type="text/javascript">
+
+      $(document).ready(function() {
+         $("#all-resources-btn").click(function() {
+            toggleModal();
+         });
+         $("#modal-close-btn").click(function() {
+            toggleModal();
+         });
+         $("li[class~='slds-context-bar__item']").click(function() {
+            let selected = this;
+            $("li[class~='slds-context-bar__item']").each(function() {
+               if(this == selected) {
+                  $(this).addClass('slds-is-active');
+               } else {
+                  $(this).removeClass('slds-is-active');
+               }
+            })
+         });
+      });
+
+      function toggleModal() {
+         $("#modal").toggle();
+      }
+
+   </script>
 </body>
 </html>

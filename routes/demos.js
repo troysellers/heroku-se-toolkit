@@ -1,10 +1,15 @@
+'use strict'
+
 var express = require('express');
 var router = express.Router();
 
 /* GET Demos page. */
 router.get('/', function(req, res, next) {
-   console.log('functioning..');
-  res.render('demos', { title: 'Heroku Demos' });
+   let data = {};
+   data.title = 'Heroku Demos';
+   data.demo_style = 'slds-is-active';
+
+  res.render('demos', data);
 });
 
 module.exports = router;

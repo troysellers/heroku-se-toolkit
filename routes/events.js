@@ -1,9 +1,15 @@
+'use strict'
+
 var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('events', { title: 'Bulding Apps with Events' });
+   let data = {};
+   data.title = 'Building Apps with Events';
+   data.events_style = 'slds-is-active';
+   
+  res.render('events', data);
 });
 
 module.exports = router;

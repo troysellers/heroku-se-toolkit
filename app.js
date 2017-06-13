@@ -2,8 +2,15 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+// var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var helmet = require('helmet');
+var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
+const uuidV1 = require('uuid/v1');
+
+// load environment from .env file
+require('dotenv').config();
 
 var index = require('./routes/index');
 var architecture = require('./routes/architecture');
@@ -11,31 +18,57 @@ var data = require('./routes/data');
 var demos = require('./routes/demos');
 var dynos = require('./routes/dynos');
 var events = require('./routes/events');
-var resources = require('./routes/resources');
-var video = require('./routes/video');
+var calculators = require('./routes/calculators');
 var data = require('./routes/data');
+var competitive = require('./routes/competitive');
+var login = require('./routes/login');
+var authFilter = require('./bin/authFilter');
 
 var app = express();
+
+let redis_url = process.env.REDIS_URL ? process.env.REDIS_URL : 'redis://localhost:6379'
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+app.use(helmet());
+app.set('trust proxy', 1); // trust first proxy
+app.use(session({
+   secret: 'mySecret',
+   name: 'sessionId',
+   genid: function(req) {
+      return uuidV1();
+   },
+   cookie: {
+      path: '/',
+      httpOnly: true,
+      secure: false,
+      maxAge: 60000
+   }, 
+   resave: false,
+   saveUninitialized: true,
+   store: new RedisStore({
+      url: redis_url
+   })
+}));
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(authFilter);
 
-app.use('/architecture', architecture);
+app.use('/auth/architecture', architecture);
 app.use('/data', data);
 app.use('/demos', demos);
 app.use('/dynos', dynos);
 app.use('/events', events);
-app.use('/resources', resources);
-app.use('/video', video);
+app.use('/auth/calculators', calculators);
+app.use('/auth/competitive', competitive);
+app.use('/login', login);
 
 app.use('/', index);
 

@@ -1,5 +1,5 @@
 {
-  "name": "SDO Heroku App",
+  "name": "sdoHerokuApp",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,11 +8,17 @@
   "dependencies": {
     "@salesforce-ux/design-system": "^2.3.1",
     "body-parser": "~1.15.2",
+    "connect-redis": "^3.3.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
+    "dotenv": "^4.0.0",
     "express": "~4.14.0",
+    "express-session": "^1.15.3",
     "hbs": "~4.0.1",
+    "helmet": "^3.6.1",
+    "jquery": "^3.2.1",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "uuid": "^3.0.1"
   }
 }

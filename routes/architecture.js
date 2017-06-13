@@ -1,9 +1,15 @@
+'use strict'
+
 var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'How to use Heroku' });
+   let data = {};
+   data.title = 'Common Architectures';
+   data.architecture_style = 'slds-is-active';
+
+   res.render('architecture', data);
 });
 
 module.exports = router;
