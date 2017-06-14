@@ -4,10 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var helmet = require('helmet');
+/*
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 const uuidV1 = require('uuid/v1');
-
+*/
 // load environment from .env file
 require('dotenv').config();
 
@@ -33,6 +34,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 app.use(helmet());
+/*
 app.set('trust proxy', 1); // trust first proxy
 app.use(session({
    secret: 'mySecret',
@@ -52,6 +54,7 @@ app.use(session({
       url: redis_url
    })
 }));
+*/
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
