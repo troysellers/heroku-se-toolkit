@@ -5,11 +5,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-   let data = {};
-   data.title = 'Building Apps with Events';
-   data.events_style = 'slds-is-active';
+
+   req.data.title = 'Building Apps with Events';
+   req.data.events_style = 'slds-is-active';
    
-  res.render('events', data);
+   res.render('events', req.data);
 });
 
 module.exports = router;

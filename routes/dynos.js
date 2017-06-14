@@ -5,11 +5,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-   let data = {};
-   data.title = 'What are Dynos';
-   data.dynos_style = 'slds-is-active';
-   
-  res.render('dynos', data);
+
+   req.data.title = 'What are Dynos';
+   req.data.dynos_style = 'slds-is-active';
+
+   res.render('dynos', req.data);
 });
 
 module.exports = router;

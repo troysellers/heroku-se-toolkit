@@ -2,7 +2,6 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-// var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var helmet = require('helmet');
 var session = require('express-session');
@@ -21,8 +20,9 @@ var events = require('./routes/events');
 var calculators = require('./routes/calculators');
 var data = require('./routes/data');
 var competitive = require('./routes/competitive');
-var login = require('./routes/login');
-var authFilter = require('./bin/authFilter');
+var requestAnArchitect = require('./routes/requestAnArchitect');
+
+var resourceFilter = require('./bin/resourceFilter');
 
 var app = express();
 
@@ -53,22 +53,21 @@ app.use(session({
    })
 }));
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(authFilter);
+app.use(resourceFilter); // load resource modal content from JSON file
 
-app.use('/auth/architecture', architecture);
+app.use('/architecture', architecture);
 app.use('/data', data);
 app.use('/demos', demos);
 app.use('/dynos', dynos);
 app.use('/events', events);
-app.use('/auth/calculators', calculators);
-app.use('/auth/competitive', competitive);
-app.use('/login', login);
+app.use('/calculators', calculators);
+app.use('/competitive', competitive);
+app.use('/requestAnArchitect', requestAnArchitect);
 
 app.use('/', index);
 

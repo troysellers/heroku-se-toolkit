@@ -19,9 +19,6 @@
          <div class="slds-global-header__item slds-align--absolute-center slds-text-heading_large">
             Heroku SE Toolkit
          </div>
-         <div class="slds-global-header__item">
-            <a href="/login"><button class="slds-button">Login</button></a>
-         </div>
       </div>
    </header>
    <div class="slds-context-bar">
@@ -75,30 +72,28 @@
                   <span class="slds-truncate" title="Events and Kafka">Events and Kafka</span>
                </a>
             </li>
-            {{#if authenticated}}
-               <li class="slds-context-bar__item slds-context-bar__item_divider-right {{competitive_style}}" >
-                  <a href="/competitive" class="slds-context-bar__label-action nav-item" title="Competitive">
-                     <span class="slds-truncate" title="Competitive">Competitive</span>
-                  </a>
-               </li>              
-               <li class="slds-context-bar__item slds-context-bar__item_divider-right {{calculator_style}}" >
-                  <a href="/calculators" class="slds-context-bar__label-action nav-item" title="Calculators">
-                     <span class="slds-truncate" title="Events and Kafka">Calculators</span>
-                  </a>
-               </li>
-               <li class="slds-context-bar__item slds-context-bar__item_divider-right {{architecture_style}}" >
-                  <a href="/architecture" class="slds-context-bar__label-action nav-item" title="Architecture">
-                     <span class="slds-truncate" title="Home">Common Uses</span>
-                  </a>
-               </li>
-            {{/if}}           
+            <li class="slds-context-bar__item slds-context-bar__item_divider-right {{competitive_style}}" >
+               <a href="/competitive" class="slds-context-bar__label-action nav-item" title="Competitive">
+                  <span class="slds-truncate" title="Competitive">Competitive</span>
+               </a>
+            </li>              
+            <li class="slds-context-bar__item slds-context-bar__item_divider-right {{calculator_style}}" >
+               <a href="/calculators" class="slds-context-bar__label-action nav-item" title="Calculators">
+                  <span class="slds-truncate" title="Events and Kafka">Calculators</span>
+               </a>
+            </li>
+            <li class="slds-context-bar__item slds-context-bar__item_divider-right {{architecture_style}}" >
+               <a href="/architecture" class="slds-context-bar__label-action nav-item" title="Architecture">
+                  <span class="slds-truncate" title="Home">Common Uses</span>
+               </a>
+            </li>         
          </ul>
       </nav>
    </div>
    {{{body}}}
 
    <div id="modal" style="display:none">
-      <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+      <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-modal_large slds-fade-in-open">
          <div class="slds-modal__container">
             <header class="slds-modal__header">
                <button id="modal-close-btn" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
@@ -107,10 +102,28 @@
                   </svg>
                   <span class="slds-assistive-text">Close</span>
                </button>
-               <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Modal Header</h2>
+               <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Heroku Resources</h2>
             </header>
-            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
-               <p>Here is the content</p>
+
+            <div class="slds-modal__content slds-p-vertical_medium" id="modal-content-id-1">
+               <div class="slds-grid slds-wrap ">
+               {{#each resources}}
+                  <div class="slds-col slds-size_1-of-4 slds-m-top_small slds-p-horizontal_medium slds-grid_vertical-stretch" style="max-width: 25%">
+                     <a href="{{this.url}}" target="_blank" class="slds-box slds-box_link slds-box_x-small slds-media">
+                     <div class="slds-media__figure slds-avatar slds-avatar_large slds-align_absolute-center">
+                        <span class="slds-icon_container slds-icon-utility-knowledge_base" title="{{this.title}}">
+                           <img src="{{this.image}}"/>
+                           <span class="slds-assistive-text">{{this.title}}</span>
+                        </span>
+                     </div>
+                     <div class="slds-media__body slds-border_left slds-p-around_small">
+                        <h2 class="slds-truncate slds-text-heading_small" title="Share the knowledge">{{this.title}}</h2>
+                        <p class="slds-m-top_small">{{this.description}}</p>
+                     </div>
+                     </a>
+                  </div>
+               {{/each}}   
+               </div>       
             </div>
          </div>
       </section>

@@ -5,11 +5,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-   let data = {};
-   data.title = 'Data Services';
-   data.data_style = 'slds-is-active';
+
+   req.data.title = 'Data Services';
+   req.data.data_style = 'slds-is-active';
    
-  res.render('data', data);
+  res.render('data', req.data);
 });
 
 module.exports = router;

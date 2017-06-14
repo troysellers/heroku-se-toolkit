@@ -1,0 +1,64 @@
+[{
+		"title": "Dreamhouse",
+		"description": "DreamHouse is a sample application that demonstrates the unique value proposition of the Salesforce Platform for building apps.",
+      "url":"https://developer.salesforce.com/dreamhouse/",
+      "image":"/images/dreamhouse-logo.png"
+	},
+{
+		"title": "Dyno Sizing",
+		"description": "Wondering about what different sizes of dynos exist? Check this page to see all the options for sizing dynos in the Common Runtime",
+      "url":"https://devcenter.heroku.com/articles/dyno-types",
+      "image":"/images/dyno.png"
+	},
+{
+		"title": "Private Dynos",
+		"description": "Remember that sizing dynos in Private Spaces is a little different, this is your reference when thinking about Private Dynos.",
+      "url":"https://devcenter.heroku.com/articles/heroku-enterprise#available-dyno-types",
+      "image":"/images/dyno.png"
+	},{
+		"title": "Postgres Plans",
+		"description": "Deploy the worlds leading open source database hosted by the worlds leading Postgres experts! Check you private plans here and make sure.",
+      "url":"https://devcenter.heroku.com/articles/heroku-postgres-plans#premium-tier",
+      "image":"/images/postgres.png"
+	},{
+		"title": "Private Postgres Plans",
+		"description": "Just like our Private Dynos, the Private Postgres plans are slightly different, make sure you know yours when thinking about sizing.",
+      "url":"https://devcenter.heroku.com/articles/heroku-postgres-and-private-spaces#plans",
+      "image":"/images/postgres.png"
+	},{
+		"title": "Heroku Devcenter",
+		"description": "Pretty much every question you are going to ask about Heroku can be answered by an article found on the Heroku Devcenter. Go on, have a look! ",
+      "url":"https://devcenter.heroku.com/categories/reference",
+      "image":"/images/heroku.png"
+	},{
+		"title": "Heroku Chatter",
+		"description": "Jump over to our Org62 Chatter group and find all you need about Selling Heroku. First call decks, customer win stories and your Heroku Co-prime team.",
+      "url":"https://org62.lightning.force.com/one/one.app#/sObject/0F9300000008R3ZCAU/view",
+      "image":"/images/sf-heroku.png"
+	},{
+		"title": "The Nibs Demo",
+		"description": "The classic Heroku demo that was the showcase demo before the Dreamhouse was built. Feeling nostalgic? Head on over and grab some Nibs.",
+      "url":"http://heroku.github.io/nibs/",
+      "image":"/images/nibs.png"
+	},{
+		"title": "Heroku Dashboard",
+		"description": "So you have just deployed this app and now you are getting questions about where is it? Head over to the Heroku dashboartd",
+      "url":"https://dashboard.heroku.com/apps",
+      "image":"/images/heroku.png"
+	},{
+		"title": "Customer Stories",
+		"description": "The full, publicly available list of customers doing amazing things on the Heroku Platform. Even has a neat search function!",
+      "url":"https://www.heroku.com/customers",
+      "image":"/images/heroku.png"
+	},{
+		"title": "Supported Languages",
+		"description": "Get started developing on Heroku today in one of eight different languages! Follow the step by step instructions to live deployment in minutes.",
+      "url":"https://devcenter.heroku.com/start",
+      "image":"/images/heroku.png"
+	},{
+		"title": "Need an Architect?",
+		"description": "Found a customer who wants to dive into the details about how to build, deploy, scale and manage beautiful web applications? We'll call you, just fill out the form.",
+      "url":"/requestAnArchitect",
+      "image":"/images/heroku.png"
+	}
+]
