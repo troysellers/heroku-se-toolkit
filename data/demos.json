@@ -1,0 +1,38 @@
+[{
+		"title": "The Heroku CLI",
+		"description": "The reason that Heroku is loved by developers worldwide? The Heroku CLI. Have a look at this commandline tool that is the envy of all others! And remember, the CLI is cool because anything that is here can be scripted and automated to save your developers time.",
+      "setup":"some setup url",
+      "video":"some video url",
+      "image":"/images/heroku.png"
+	},{
+		"title": "The Heroku Dashboard",
+		"description": "Come take a tour of the most developer friendly PaaS on the market today. It is hard to understand just how easy it is to manage a complete fleet of production applications unless you have seen it for yourself. Heroku takes the hard work out of it, leaving you to just focus on the features your customers need.",
+      "setup":"some setup url",
+      "video":"some video url",
+      "image":"/images/heroku.png"
+	},{
+		"title": "Heroku Pipelines",
+		"description": "Have you ever wished your developers could just focus on building features rather than spend countless hours on the operations to maintain their development pipeline? Take a short tour of the Heroku Pipelines and see how your developers can get back to hassle free, quality controlled code deployments. Built right into the platform!",
+      "setup":"some setup url",
+      "video":"some video url",
+      "image":"/images/pipelines.png"
+	},{
+		"title": "Heroku Connect",
+		"description": "Do you have Salesforce? Got some open source developers? Heroku Connect is the tool for you! Allow your developers access to your Salesforce data in the way they know and love, direct to the database. Just the thing if you are thinking about how to build a Customer Service in your platform that needs to be faster than the Salesforce API.",
+      "setup":"some setup url",
+      "video":"some video url",
+      "image":"/images/connect.png"
+	},{
+		"title": "Heroku Enterprise",
+		"description": "Heroku have been the choice for startups for 10 years, but now many large scale enterprises are capturing that startup spirit by unleashing their developers on the Heroku Enterprise Platform. In this demo see the Enterprise features that everyone from Toyota to KFC are talking about.",
+      "setup":"some setup url",
+      "video":"some video url",
+      "image":"/images/enterprise.png"
+	},{
+		"title": "Heroku Kafka",
+		"description": "Event driven architectures are powering some of the largest and most powerful applications of web technology today, quite often backed by Apache Kafka (including the Salesforce event bus, Platform Events!). With this demo we see just how quick and easy setting up your own Kafka instance can be. Oh, just want a little bit? Then perhaps the Multi-Tenant Kafka is for you!",
+      "setup":"some setup url",
+      "video":"some video url",
+      "image":"/images/kafka.png"
+	}
+]

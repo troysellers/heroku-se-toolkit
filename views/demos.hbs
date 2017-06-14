@@ -1,2 +1,50 @@
-<h1>{{title}}</h1>
-<p>This is the {{title}}</p>
+<div class="slds-grid slds-wrap slds-align_absolute-center">
+   <div class="slds-size_1-of-1 slds-text-heading_large slds-align_absolute-center slds-m-top_large">
+      {{title}}
+   </div>
+   <div class="slds-size_1-of-1 slds-align_absolute-center">
+      <div class="slds-m-top_large">
+         Below we have compiled a list of our most popular Heroku demos that show applications running on the platform but more importantly, the process of how to build, deploy and scale these applications using Heroku.<br />
+         Each of these demos comes with both operating instructions if you are the "hands on" type as well as a full recorded runthrough to help you get up to speed on the easy way to build scalable apps. 
+      </div>
+   </div>
+   <div class="slds-grid slds-wrap slds-grid_pull-padded-medium slds-m-top_large slds-size_4-of-5 slds-grid slds-grid_vertical-stretch">
+
+      {{#each demos}}
+         <div class="slds-col slds-box slds-size_1-of-4 slds-m-horizontal_medium slds-m-top_small ">
+            <div class="slds-align_absolute-center slds-text-heading_medium slds-border_bottom slds-p-bottom_x-small">
+               {{this.title}}
+            </div>
+            <div class="slds-media slds-m-top_medium">
+               <div class="slds-media__figure">
+                  <span class="slds-avatar slds-avatar_large">
+                  <img alt="{{this.title}}" src="{{this.image}}" title="{{this.title}}">
+                  </span>
+               </div>
+               <div class="slds-media__body">
+                  <p>{{this.description}}</p>
+               </div>
+            </div>
+            <div class="slds-grid slds-p-top_small">
+               <div class="slds-size_1-of-2 slds-align_absolute-center">
+                  <button class="slds-button slds-button_neutral ">
+                     <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#setup"></use>
+                     </svg>
+                     Setup
+                  </button>
+               </div>
+               <div class="slds-size_1-of-2 slds-align_absolute-center">
+                  <button class="slds-button slds-button_neutral ">
+                     <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" 
+                        xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#video"></use>
+                     </svg>
+                     Video
+                  </button>
+               </div>
+            </div>
+         </div>
+      {{/each}}
+   </div>
+</div>

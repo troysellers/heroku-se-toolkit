@@ -6,10 +6,10 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-   req.data.title = 'Building Apps with Events';
-   req.data.events_style = 'slds-is-active';
+   req.data.title = 'Heroku Connect';
+   req.data.connect_style = 'slds-is-active';
    
-   res.render('events', req.data);
+   res.render('connect', req.data);
 });
 
 module.exports = router;
