@@ -16,7 +16,7 @@
                <img src="/assets/images/logo-noname.svg" alt="">
             </div>
          </div>
-         <div class="slds-global-header__item slds-align--absolute-center slds-text-heading_large">
+         <div class="slds-global-header__item slds-align--absolute-center slds-text-heading_small">
             Heroku SE Toolkit
          </div>
       </div>
@@ -92,7 +92,7 @@
    </div>
    {{{body}}}
 
-   <div id="modal" style="display:none">
+   <div id="modal" style="display:none;">
       <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-modal_large slds-fade-in-open">
          <div class="slds-modal__container">
             <header class="slds-modal__header">
@@ -106,22 +106,20 @@
             </header>
 
             <div class="slds-modal__content slds-p-vertical_medium" id="modal-content-id-1">
-               <div class="slds-grid slds-wrap ">
+               <div class="slds-grid slds-wrap slds-grid_vertical-stretch">
                {{#each resources}}
-                  <div class="slds-col slds-size_1-of-4 slds-m-top_small slds-p-horizontal_medium slds-grid_vertical-stretch" style="max-width: 25%">
-                     <a href="{{this.url}}" target="_blank" class="slds-box slds-box_link slds-box_x-small slds-media">
-                     <div class="slds-media__figure slds-avatar slds-avatar_large slds-align_absolute-center">
-                        <span class="slds-icon_container slds-icon-utility-knowledge_base" title="{{this.title}}">
-                           <img src="{{this.image}}"/>
-                           <span class="slds-assistive-text">{{this.title}}</span>
-                        </span>
-                     </div>
-                     <div class="slds-media__body slds-border_left slds-p-around_small">
-                        <h2 class="slds-truncate slds-text-heading_small" title="Share the knowledge">{{this.title}}</h2>
-                        <p class="slds-m-top_small">{{this.description}}</p>
-                     </div>
-                     </a>
+                  <a href="{{this.url}}" target="_blank" class=" slds-box_link slds-box_x-small slds-media slds-col slds-size_1-of-4 slds-m-top_small slds-p-horizontal_medium ">
+                  <div class="slds-media__figure slds-avatar slds-avatar_large slds-align_absolute-center">
+                     <span class="slds-icon_container slds-icon-utility-knowledge_base" title="{{this.title}}">
+                        <img src="{{this.image}}"/>
+                        <span class="slds-assistive-text">{{this.title}}</span>
+                     </span>
                   </div>
+                  <div class="slds-media__body slds-border_left slds-p-around_small">
+                     <h2 class="slds-truncate slds-text-heading_small" title="Share the knowledge">{{this.title}}</h2>
+                     <p class="slds-m-top_small">{{this.description}}</p>
+                  </div>
+                  </a>
                {{/each}}   
                </div>       
             </div>
