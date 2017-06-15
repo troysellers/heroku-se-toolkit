@@ -45,7 +45,7 @@
 		"description": "Never speak to a software vendor again! Well, maybe not but at least your developers will be free to choose from over 150 different addon providers. Whether your app needs a place to send its logs, an email sender, a message queue or perhaps you need a Graph database, Heroku Addons have you covered.",
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/1WkosF-OVzci_okLXitjydNYj44cBeJY1itB8PbmZAqA/edit?usp=sharing",
       "video":"some video url",
-      "image":"/images/heroku.png"
+      "image":"/images/level-up.png"
 	},{
 		"title": "Heroku Container Registry",
 		"description": "Got containers? Heroku Container Registry allows you to bring your Docker containers to the Heroku Platform. See how easy it is to build and deploy your Docker containers on the Heroku platform.",

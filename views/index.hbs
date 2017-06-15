@@ -1,4 +1,47 @@
 
+<style>
+   .center {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+   }
+   .main-heading{ 
+      font-size: 32px
+   }
+   .sub-heading {
+      font-size: 20px;
+      padding-left: 2em;
+   }
+   .img {
+      margin-top: -210px;
+      margin-left: -250px;
+   }
+   .dev-faster {
+      margin-top: -19em;
+      margin-left: -49em;
+   }
+   .data-services {
+      margin-top: -19em;
+      margin-left: 9em;
+   }
+   .infrastructure{
+      margin-top: -2em;
+      margin-left: -54em;
+   }
+   .dev-best-practice{
+      margin-top: -2em;
+      margin-left: 17em;
+   }
+   .sforce-int{
+      margin-top:15em;
+      margin-left: -52em;
+   }  
+   .plat-sec{
+      margin-top: 15em;
+      margin-left: 10em;
+   }    
+</style>
+
 <div class="slds-grid slds-wrap">
    <div class="slds-size_1-of-1 slds-text-heading_large slds-align_absolute-center slds-m-top_large">
       {{title}}
@@ -7,14 +50,35 @@
       <a href="javascript:toggle();" class="slds-text-link_reset">TOPICS</a> | <a href="javascript:toggle();" class="slds-text-link_reset">SLIDES</a>
    </div>
    <div id="topics" class="slds-size_1-of-1 slds-align_absolute-center">
-      <ul>
-         <li>Developers Go Faster on Heroku</li>
-         <li>Scalable, Elastic Infrastructure</li>
-         <li>Development Best Practices included</li>
-         <li>World Class Data Services</li>
-         <li>Platform Security included</li>
-         <li>Point &amp; Click Salesforce Integration</li>
-      </ul>
+
+         <div class="center img">
+            <img src="/images/heroku-platform.png" width="500px"/>
+         </div>
+         <div class="center dev-faster">
+            <span class="main-heading">Developers go faster on Heroku</span><br />
+            <span class="sub-heading">More features released in every sprint</span>
+         </div>
+         <div class="center data-services" >
+            <span class="main-heading">World Class Data Services</span><br />
+            <span class="sub-heading">Fully managed and maintained for you</span>
+         </div>
+         <div class="center infrastructure" >
+            <span class="main-heading">Scalable, Elastic Infrastructure</span><br />
+            <span class="sub-heading">Resource based licensing model</span>
+         </div>
+         <div class="center dev-best-practice" >
+            <span class="main-heading">Development Best Practices included</span><br />
+            <span class="sub-heading">CI and automatic deployments to drive quality</span>
+         </div>
+         <div class="center sforce-int" >
+            <span class="main-heading">Point &amp; Click Salesforce Integration</span><br />
+            <span class="sub-heading">Unlock you Salesforce data to your developers</span>
+         </div>
+         <div class="center plat-sec" >
+            <span class="main-heading">Platform Security included</span><br />
+            <span class="sub-heading">OS and DB patching as standard</span>
+         </div>
+
    </div>
    <div id="slides" class="slds-size_1-of-1" style="display:none;">
       <div class="slds-size_1-of-1 slds-align_absolute-center" >
