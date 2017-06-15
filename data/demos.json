@@ -3,7 +3,7 @@
 		"description": "The reason that Heroku is loved by developers worldwide? The Heroku CLI. Have a look at this commandline tool that is the envy of all others! And remember, the CLI is cool because anything that is here can be scripted and automated to save your developers time.",
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/17U3zM0lpXyitJimYsa5dmcLaruIVr3Y1G88Zjb5U_4U/edit?usp=sharing",
       "video":"some video url",
-      "image":"/images/heroku.png"
+      "image":"/images/cli.png"
 	},{
 		"title": "The Heroku Dashboard",
 		"description": "Come take a tour of the most developer friendly PaaS on the market today. It is hard to understand just how easy it is to manage a complete fleet of production applications unless you have seen it for yourself. Heroku takes the hard work out of it, leaving you to just focus on the features your customers need.",
