@@ -7,7 +7,7 @@
 {
 		"title": "Dyno Sizing",
 		"description": "Wondering about what different sizes of dynos exist? Check this page to see all the options for sizing dynos in the Common Runtime",
-      "url":"https://devcenter.heroku.com/articles/dyno-types",
+      "url":"https://devcenter.heroku.com/articles/dyno-types#available-dyno-types",
       "image":"/images/dyno.png"
 	},
 {
