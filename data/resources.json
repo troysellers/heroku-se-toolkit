@@ -17,7 +17,7 @@
       "image":"/images/spaces.png"
 	},{
 		"title": "Postgres Plans",
-		"description": "Deploy the worlds leading open source database hosted by the worlds leading Postgres experts! Check you private plans here and make sure.",
+		"description": "Deploy the worlds leading open source database hosted by the worlds leading Postgres experts! Get the right size Postgres for your need today.",
       "url":"https://devcenter.heroku.com/articles/heroku-postgres-plans#premium-tier",
       "image":"/images/postgres.png"
 	},{
