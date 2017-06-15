@@ -1,6 +1,6 @@
 [{
 		"title": "Dreamhouse",
-		"description": "DreamHouse is a sample application that demonstrates the unique value proposition of the Salesforce Platform for building apps.",
+		"description": "DreamHouse is the sample application that demonstrates the unique value proposition of the Salesforce Platform for building apps.",
       "url":"https://developer.salesforce.com/dreamhouse/",
       "image":"/images/dreamhouse-logo.png"
 	},
@@ -42,7 +42,7 @@
       "image":"/images/nibs.png"
 	},{
 		"title": "Heroku Dashboard",
-		"description": "So you have just deployed this app and now you are getting questions about where is it? Head over to the Heroku dashboartd",
+		"description": "So you have just deployed this app and now you are getting questions about where is it? Head over to your Heroku dashboard and show it off",
       "url":"https://dashboard.heroku.com/apps",
       "image":"/images/metrics.png"
 	},{
