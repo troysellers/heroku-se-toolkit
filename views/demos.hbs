@@ -19,17 +19,17 @@
             </div>
             <div class="slds-grid slds-p-top_small">
                <div class="slds-size_1-of-2 slds-align_absolute-center">
-                  <a href="{{this.setup}}" target="_blank">
-                  <button class="slds-button slds-button_neutral">
+          
+                  <button class="slds-button slds-button_neutral setup-btn" data-link="{{this.setup}}" data-name="{{this.name}}">
                      <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#setup"></use>
                      </svg>
                      Setup
                   </button>
-                  </a>
+   
                </div>
                <div class="slds-size_1-of-2 slds-align_absolute-center">
-                  <button class="slds-button slds-button_neutral ">
+                  <button class="slds-button slds-button_neutral video-btn" data-link="{{this.video}}" data-name="{{this.name}}">
                      <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" 
                         xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#video"></use>
@@ -42,3 +42,17 @@
       {{/each}}
    </div>
 </div>
+<script typt="text/javascript" src="https://play.vidyard.com/v0/api.js"></script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("button[class~='setup-btn']").click(function() {
+         var url = $(this).data('link'); 
+         window.open(url, '_blank');
+         ga('send', 'event', $(this).data('name'), 'setup');
+      });
+      $("button[class~='video-btn']").click(function() {
+         alert($(this).data('link'));
+         ga('send', 'event', $(this).data('name'), 'video');
+      });
+   });
+</script>

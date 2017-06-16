@@ -7,6 +7,19 @@
    <meta charset="utf-8" />
    <meta http-equiv="x-ua-compatible" content="ie=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1" />    
+   <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+   <!-- Google Analytics -->
+   <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+   ga('create', process.env.GOOGLE_ANALYTICS_TRACKING_ID, 'auto');
+   ga('send', 'pageview');
+
+   </script>
+   <!-- End Google Analytics -->   
 </head>
 <body>
    <header class="slds-global-header_container">
@@ -131,8 +144,6 @@
       Built and maintained by &nbsp;<a href="/requestAnArchitect">HEAT</a>
    </div>
 
-   <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
-
    <script type="text/javascript">
 
       $(document).ready(function() {
@@ -154,10 +165,25 @@
          });
       });
 
+
+   function slides(page) {
+      if($("#topics").is(':visible')) {
+         $("#topics").hide();
+         $("#slides").show();     
+         ga('send', 'event', page, 'show-slides');
+      }
+   }    
+   function topics(page) {
+      if($("#slides").is(':visible')) {
+         $("#topics").show();
+         $("#slides").hide();     
+         ga('send', 'event', page, 'show-topics');
+      }
+   }
       function toggleModal() {
          $("#modal").toggle();
       }
-
    </script>
+
 </body>
 </html>
