@@ -12,6 +12,8 @@ let resourceFilter = function (req, res, next) {
       req.data = {};
    }
    req.data.resources = jsonfile.readFileSync(file);
+   req.data.analytics = process.env.GOOGLE_ANALYTICS_TRACKING_ID;
+   
    next();
 }
 

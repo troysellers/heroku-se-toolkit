@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
 
    req.data.title = 'Common Architectures';
    req.data.architecture_style = 'slds-is-active';
+   
 
    res.render('architecture', req.data);
 });
