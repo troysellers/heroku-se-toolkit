@@ -22,6 +22,7 @@ var calculators = require('./routes/calculators');
 var data = require('./routes/data');
 var competitive = require('./routes/competitive');
 var requestAnArchitect = require('./routes/requestAnArchitect');
+var requestSubmit = require('./routes/requestSubmit');
 
 var resourceFilter = require('./bin/resourceFilter');
 
@@ -71,6 +72,7 @@ app.use('/connect', connect);
 app.use('/calculators', calculators);
 app.use('/competitive', competitive);
 app.use('/requestAnArchitect', requestAnArchitect);
+app.use('/submitForm', requestSubmit);
 
 app.use('/', index);
 
