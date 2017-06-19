@@ -4,18 +4,19 @@
       <a href="javascript:topics('architecture');" class="slds-text-link_reset">TOPICS</a> | <a href="javascript:slides('architecture');" class="slds-text-link_reset">SLIDES</a>
    </div>
    <div id="topics" class="slds-size_1-of-1 slds-align_absolute-center slds-grid slds-wrap">
-      <div class="slds-size_1-of-1 slds-align_absolute-center">
-         <ul>
-            <li>High Volume portals</li>
-            <li>Data Archiving</li>
-            <li>Microservices</li>
-            <li>IoT</li>
-            <li>Vidoe on Demand</li>
-            <li>API Gateway</li>
-            <li>Marketing Cloud Plugin</li>
-            <li>File Processing</li>
-            <li>Mobile App Platform</li>
-         </ul>
+      <div class="slds-size_1-of-1 slds-grid slds-wrap slds-size_4-of-5  slds-grid_vertical-stretch">
+
+         {{#each architectures}}
+            <a class="slds-box slds-box_link slds-box_x-small slds-col slds-m-around_small slds-size_1-of-4 clickable-box" data-title="{{this.title}}" data-drawing="{{this.drawing}}">
+               <div class="slds-align_absolute-center slds-text-heading_medium slds-border_bottom slds-p-bottom_x-small">
+                  <p>{{this.title}}</p>
+               </div>
+               <div class="slds-media slds-m-top_medium">
+                  <p>{{this.description}}</p>
+               </div>
+            </a>
+         {{/each}}
+
       </div>
    </div>
    <div id="slides" class="slds-size_1-of-1" style="display:none;">
@@ -26,5 +27,50 @@
          Not seeing slides? Perhaps you need to authenticate to your Salesforce &nbsp;<a href="https://drive.google.com/drive/u/0/" target="_blank">GDrive</a>
       </div>
 </div>
+
+<div id="architectureModal" style="display:none;">
+   <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-modal_large slds-fade-in-open">
+      <div class="slds-modal__container">
+         <header class="slds-modal__header">
+            <button id="arch-modal-close-btn" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+               <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+               </svg>
+               <span class="slds-assistive-text">Close</span>
+            </button>
+            <h2 id="arch-modal-heading" class="slds-text-heading_medium slds-hyphenate">SOME TITLE</h2>
+         </header>
+
+         <div class="slds-modal__content slds-p-vertical_medium" id="modal-content-id-1">
+            <div id="arch-modal-content" class="slds-grid slds-wrap slds-grid_vertical-stretch">
+               SOME CONTENT
+            </div>       
+         </div>
+      </div>
+   </section>
+   <div class="slds-backdrop slds-backdrop_open"></div>
+</div>  
+
+<script type="text/javascript">
+   $(document).ready(function(){
+
+      $("a[class~=clickable-box]").click(function() {
+
+         $("#arch-modal-heading").html($(this).data('title'));
+         $("#arch-modal-content").html($(this).data('drawing'));
+         ga('send', 'event', $(this).data('title'), 'show drawing');
+         toggleArchModal();
+      });
+
+      $("#arch-modal-close-btn").click(function() {
+         toggleArchModal();
+      });
+   });
+
+   function toggleArchModal() {
+      $("#architectureModal").toggle();
+   }
+</script>
+
 
 

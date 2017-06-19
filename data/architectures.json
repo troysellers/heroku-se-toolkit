@@ -1,0 +1,47 @@
+[{
+		"title": "High Volume Portals",
+      "name": "high-volume-portals",
+		"description": "Customers who need to engage many millions of users often turn to Heroku to help. This pattern allows you to close the loop through the clouds with massive customer audiences.",
+      "drawing":"/images/cli.png"
+	},{
+		"title": "Data Management",
+      "name": "data-archiving",
+		"description": "Quite often customers will either need to archive data or store large amounts of data near to the Salesforce Platform. This allows them to expose this data to Salesforce users without incurring the costs in spend and performance that large data volumes can incur.",
+      "drawing":"/images/cli.png"
+	},{
+		"title": "Microservices",
+      "name": "microservices",
+		"description": "Customers are starting to build digital platforms out of discrete components, allowing for agility and re-use across their infrastructure. This drawing details an example microservices platform built out of Salesforce technology.",
+      "drawing":"/images/cli.png"
+	},{
+		"title": "IoT",
+      "name": "iot",
+		"description": "IoT customers need to manage their devices and capture that data as it comes from the field. This drawing shows how Heroku and Xively can provide a complete IoT landscape for your customer.",
+      "drawing":"/images/cli.png"
+	},{
+		"title": "Video Processing",
+      "name": "video-processing",
+		"description": "Streaming video services require a different class of technology than core salesforce can provide. This drawing shows how you can process and stream video using Heroku",
+      "drawing":"/images/cli.png"
+	},{
+		"title": "An API Gateway",
+      "name": "apr-gateway",
+		"description": "Do you need to expose an API to the world? Here is how you can use Heroku to achieve this",
+      "drawing":"/images/cli.png"
+	},{
+		"title": "Marketing Cloud Plugin",
+      "name": "marketing-cloud-plugin",
+		"description": "Marketing Cloud customers often need custom functionality to be executed as part of a Journey. This is how you can deploy a small custom app to be exposed to the Journey Builder",
+      "drawing":"/images/cli.png"
+	},{
+		"title": "File Processing",
+      "name": "file-processing",
+		"description": "Reading and writing information from files is a very common use case. This drawing shows how to use S3 to process files.",
+      "drawing":"/images/cli.png"
+	},{
+		"title": "Change Data Capture",
+      "name": "change-data",
+		"description": "In modern enterprises quite often the concept of a Single Source of Truth for data is an un-achievable goal. See how an event bus can distribute information about data change through the organisation",
+      "drawing":"/images/cli.png"
+	}
+]
