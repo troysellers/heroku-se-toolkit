@@ -43,7 +43,6 @@
    </div>
 </div>
 
-<iframe src="https://drive.google.com/file/d/0B3a8rtxyKB8kd0RwQUE3TGtTR1U" width="640" height="480"></iframe>
 
    <div id="modal" style="display:none;">
       <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-modal_large slds-fade-in-open">
@@ -79,7 +78,7 @@
          var videoId = $(this).data('link');
          var name = $(this).data('name');
          $("#modal-video-heading").html(name);
-         $("#video-content").html('<iframe src="https://drive.google.com/file/d/'+videoId+'" width="640" height="480"></iframe>');
+         $("#video-content").html('need to embed a video here..');
          $("#modal").toggle();
          ga('send', 'event', $(this).data('name'), 'video');
       });
