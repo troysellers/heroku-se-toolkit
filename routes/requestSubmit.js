@@ -3,15 +3,15 @@
 var express = require('express');
 var router = express.Router();
 var jsonfile = require('jsonfile');
-var file = './data/architectures.json';
-
 var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
 var helper = require('sendgrid').mail;
 
+var file = './data/architectures.json';
+
 /* GET home page. */
 router.post('/', function(req, res, next) {
-   console.log(req.body);
 
+   var message = 'We have received your request! A member of the Heroku Architect Team will contact you soon.'
    // if we have Sendgrid.
    if(process.env.SENDGRID_API_KEY) {
       console.log(`We have SENDGRID API KEY`);
@@ -38,10 +38,11 @@ router.post('/', function(req, res, next) {
       });
    } else {
       console.log(`Failed to post to sendgrid with API Key [${process.env.SENDGRID_API_KEY}]`);
+      message = 'There is no email service configured on this application, your email has not been sent';
    }
 
    res.send({
-      message: 'We have received your request! A member of the Heroku Architect Team will contact you soon.'
+      message: message
    });
 });
 
