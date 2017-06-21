@@ -1,4 +1,9 @@
 
+<style>
+   .langBtn {
+      width:9em;
+   }
+</style>
 
 <div class="slds-grid slds-wrap slds-align_absolute-center">
    <div class="slds-size_1-of-1 slds-align_absolute-center slds-m-vertical_xx-large">
@@ -7,8 +12,75 @@
 
    <div class="slds-form slds-form_horizontal slds-size_2-of-5">
       <div class="slds-form-element slds-m-bottom_small">
+         <label class="slds-form-element__label">
+            Programming Language
+         </label>             
+         <div class="slds-form-element__control">
+            <div class="slds-radio_button-group">
+               <span class="slds-button slds-radio_button">
+                  <input type="radio" name="radio" id="java" />
+                  <label class="slds-radio_button__label langBtn" for="java">
+                     <img src="/images/java.png" width="20px" class="slds-p-left_xx-small"/>
+                     <span class="slds-radio_faux">Java</span>
+                  </label>
+               </span>
+               <span class="slds-button slds-radio_button">
+                  <input type="radio" name="radio" id="golang" />
+                  <label class="slds-radio_button__label langBtn" for="golang">
+                     <img src="/images/go.png" width="20px" class="slds-p-left_xx-small"/>                     
+                     <span class="slds-radio_faux">Go</span>
+                  </label>
+               </span>               
+               <span class="slds-button slds-radio_button">
+                  <input type="radio" name="radio" id="ruby">
+                  <label class="slds-radio_button__label langBtn" for="ruby">
+                     <img src="/images/ruby.png" width="20px" class="slds-p-left_xx-small"/>   
+                     <span class="slds-radio_faux">Ruby</span>
+                  </label>
+               </span>
+               <span class="slds-button slds-radio_button">
+                  <input type="radio" name="radio" id="clojure">
+                  <label class="slds-radio_button__label langBtn" for="clojure">
+                     <img src="/images/clojure.png" width="20px" class="slds-p-left_xx-small"/>
+                     <span class="slds-radio_faux">Clojure</span>
+                  </label>
+               </span>               
+            </div>
+            <div class="slds-radio_button-group">
+               <span class="slds-button slds-radio_button">
+                  <input type="radio" name="radio" id="node" />
+                  <label class="slds-radio_button__label langBtn" for="node">
+                     <img src="/images/js.png" width="20px" class="slds-p-left_xx-small"/>
+                     <span class="slds-radio_faux">Node</span>
+                  </label>
+               </span>
+               <span class="slds-button slds-radio_button">
+                  <input type="radio" name="radio" id="php" />
+                  <label class="slds-radio_button__label langBtn" for="php">
+                     <img src="/images/php.png" width="20px" class="slds-p-left_xx-small"/>                     
+                     <span class="slds-radio_faux">PHP</span>
+                  </label>
+               </span>               
+               <span class="slds-button slds-radio_button">
+                  <input type="radio" name="radio" id="python">
+                  <label class="slds-radio_button__label langBtn" for="python">
+                     <img src="/images/python.png" width="20px" class="slds-p-left_xx-small"/>   
+                     <span class="slds-radio_faux">Python</span>
+                  </label>
+               </span>
+               <span class="slds-button slds-radio_button">
+                  <input type="radio" name="radio" id="scala">
+                  <label class="slds-radio_button__label langBtn" for="scala">
+                     <img src="/images/scala.png" width="20px" class="slds-p-left_xx-small"/>
+                     <span class="slds-radio_faux">Scala</span>
+                  </label>
+               </span>               
+            </div>            
+         </div>
+      </div>      
+      <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label" for="requests-per-second">
-            <abbr class="slds-required" title="required">*</abbr>Requests per Second
+            Requests per Second
          </label>             
          <div class="slds-form-element__control">
             <input type="text" id="requests-per-second" class="slds-input">
@@ -21,7 +93,8 @@
          <div class="slds-form-element__control">
             <input type="text" id="time-per-request" class="slds-input">
          </div> 
-      </div>       
+      </div>  
+      <!--     
       <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label" for="concurrency-per-dyno">
             Concurrency per Dyno
@@ -30,6 +103,7 @@
             <input type="text" id="concurrency-per-dyno" class="slds-input">
          </div> 
       </div> 
+      -->
       <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label" for="private-space">
             Private Space?
