@@ -46,7 +46,7 @@
                   </label>
                </span>               
             </div>
-            <div class="slds-radio_button-group">
+            <div class="slds-radio_button-group slds-m-top_xx-small">
                <span class="slds-button slds-radio_button">
                   <input type="radio" name="radio" id="node" />
                   <label class="slds-radio_button__label langBtn" for="node">
@@ -80,7 +80,7 @@
       </div>    
       <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label" for="private-space">
-            Private Space?
+            Private Space
          </label>
          <div class="slds-form-element__control">
                <input type="checkbox" id="private-space" >
@@ -88,7 +88,7 @@
       </div>
       <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label" for="shield">
-            Shield?
+            Shield
          </label>
          <div class="slds-form-element__control">
                <input type="checkbox" id="shield" >
@@ -130,7 +130,7 @@
       </div>      
       <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label" for="heroku-connect">
-            Heroku Connect?
+            Heroku Connect
          </label>
          <div class="slds-form-element__control">
                <input type="checkbox" id="heroku-connect" >
@@ -252,7 +252,7 @@
                $("#dyno-type").append($("<option></option>").attr("value", value).text(key));
             });
             $('#kafka-plan').empty();
-            $('#kafka-plan').append($("<option></option>").attr("disabled","").attr("selected","").text("-- shielded kafka unavailable --"));
+            $('#kafka-plan').append($("<option></option>").attr("disabled","").attr("selected","").text("-- shielded kafka unavailable today --"));
          } else {
             $.each(commonOptions, function(key,value) {
                $("#dyno-type").append($("<option></option>").attr("value", value).text(key));
