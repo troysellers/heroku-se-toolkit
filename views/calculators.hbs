@@ -6,11 +6,11 @@
 </style>
 
 <div class="slds-grid slds-wrap slds-align_absolute-center">
-   <div class="slds-size_1-of-1 slds-align_absolute-center slds-m-vertical_xx-large">
-      <img src="/images/platform-simple-1400.png" width="600px"/>
+   <div class="slds-size_1-of-1 slds-align_absolute-center slds-m-vertical_xx-large ">
+      <img src="/images/platform-simple-1400.png" width="600px" />
    </div>
 
-   <div class="slds-form slds-form_horizontal slds-size_2-of-5">
+   <div class="slds-form slds-form_horizontal slds-size_2-of-5 ">
       <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label">
             Programming Language
@@ -77,7 +77,23 @@
                </span>               
             </div>            
          </div>
-      </div>      
+      </div>    
+      <div class="slds-form-element slds-m-bottom_small">
+         <label class="slds-form-element__label" for="private-space">
+            Private Space?
+         </label>
+         <div class="slds-form-element__control">
+               <input type="checkbox" id="private-space" >
+         </div>
+      </div>
+      <div class="slds-form-element slds-m-bottom_small">
+         <label class="slds-form-element__label" for="shield">
+            Shield?
+         </label>
+         <div class="slds-form-element__control">
+               <input type="checkbox" id="shield" >
+         </div>
+      </div>          
       <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label" for="requests-per-second">
             Requests per Second
@@ -94,32 +110,6 @@
             <input type="text" id="time-per-request" class="slds-input">
          </div> 
       </div>  
-      <!--     
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label" for="concurrency-per-dyno">
-            Concurrency per Dyno
-         </label>             
-         <div class="slds-form-element__control">
-            <input type="text" id="concurrency-per-dyno" class="slds-input">
-         </div> 
-      </div> 
-      -->
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label" for="private-space">
-            Private Space?
-         </label>
-         <div class="slds-form-element__control">
-               <input type="checkbox" id="private-space" >
-         </div>
-      </div>
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label" for="shield">
-            Shield?
-         </label>
-         <div class="slds-form-element__control">
-               <input type="checkbox" id="shield" >
-         </div>
-      </div>         
       <div class="slds-form-element slds-m-bottom_small">
             <label class="slds-form-element__label" for="dyno-type">Dyno Type</label>
             <div class="slds-form-element__control">
@@ -129,7 +119,15 @@
                   </select>
                </div>
             </div>
-      </div>
+      </div>      
+      <div class="slds-form-element slds-m-bottom_small">
+         <label class="slds-form-element__label" for="postgres-size">
+            Size of Database
+         </label>             
+         <div class="slds-form-element__control">
+            <input type="text" id="postgres-size" class="slds-input">
+         </div> 
+      </div>      
       <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label" for="heroku-connect">
             Heroku Connect?
@@ -145,18 +143,28 @@
          <div class="slds-form-element__control">
             <input type="text" id="heroku-connect-rows" class="slds-input">
          </div> 
-      </div>     
+      </div>    
       <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label" for="postgres-size">
-            Size of Database
-         </label>             
+         <label class="slds-form-element__label" for="kafka">
+            Kafka
+         </label>
          <div class="slds-form-element__control">
-            <input type="text" id="postgres-size" class="slds-input">
-         </div> 
-      </div>   
+               <input type="checkbox" id="kafka" >
+         </div>
+      </div>    
+      <div id="kafka-plans-select" class="slds-form-element slds-m-bottom_small slds-hide">
+            <label class="slds-form-element__label" for="kafka-plan">Kafka Plan</label>
+            <div class="slds-form-element__control">
+               <div class="slds-select_container">
+                  <select class="slds-select" id="kafka-plan">
+                     <option disabled selected value> -- select an option -- </option>
+                  </select>
+               </div>
+            </div>
+      </div>             
       <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label" for="addons">
-            Need AddOns?
+            AddOns
          </label>             
          <div class="slds-form-element__control">
             <input type="text" id="addons" class="slds-input">
@@ -191,7 +199,7 @@
       $("#shield").change(function() {
          $("#private-space").prop('checked', false);
          updateSelectOptions();
-      })
+      });
       $("#heroku-connect").change(function() {
          if($("#heroku-connect").prop('checked')) {
             $("#heroku-connect-input").removeClass('slds-hide');
@@ -199,17 +207,19 @@
             $("#heroku-connect-rows").val('');
             $("#heroku-connect-input").addClass('slds-hide');
          }
-      })
-      $("#submit_btn").click(function() {
-         $("#submit_btn").addClass('slds-hide');
-         $.post( "/submitForm", { email: $("#your_email").val(), customer: $("#customer").val(), region: $("#region").val() }, (data) => {
-            $("#response_msg").html(data.message);
-            $("#form_submit_msg").removeClass('slds-hidden');
-         } );
       });
 
+      $("#kafka").change(function() {
+         if($("#kafka").prop('checked')) {
+            $("#kafka-plans-select").removeClass('slds-hide');
+         } else {
+            $("#kafka-plans-select").addClass('slds-hide');
+         }
+      })
+
+
       function updateSelectOptions() {
-         console.log('updating select options');
+   
          var commonOptions = {"1x (512MB RAM)": "1x",
             "2x (1GB RAM)": "2x",
             "Performance - M (2.5GB RAM)": "performance-m",
@@ -219,21 +229,37 @@
             "Private - M (2.5GB RAM)": "private-m",
             "Private - L (14GB RAM)": "private-l"
          };
-         var shieldOptions = {"Shield - M (2.5GB RAM)": "shield-m", "Shield - L (14GB RAM)": "shield-l"}
+         var shieldOptions = {"Shield - M (2.5GB RAM)": "shield-m", "Shield - L (14GB RAM)": "shield-l"};
+
+         var kafkaOptions = {"Standard-0":"standard-0", "Standard-1":"standard-1","Standard-2":"standard-2","Extended-0":"extended-0","Extended-1":"extended-1","Extended-2":"extended-2"};
+         var kafkaPrivateOptions = {"Private Standard-0":"private-standard-0", "Private Standard-1":"private-standard-1","Private Standard-2":"private-standard-2","Private Extended-0":"private-extended-0","Private Extended-1":"private-extended-1","Private Extended-2":"private-extended-2"};
+
          $('#dyno-type').empty();
+         $('#kafka-plan').empty();
+
          $("#dyno-type").append($("<option></option>").attr("disabled","").attr("selected","").text("-- select an option --"));
+         $('#kafka-plan').append($("<option></option>").attr("disabled","").attr("selected","").text("-- select an option --"));
+
          if($("#private-space").prop('checked')) {
             $.each(privateOptions, function(key,value) {
                $("#dyno-type").append($("<option></option>").attr("value", value).text(key));
+            });
+            $.each(kafkaPrivateOptions, function(key,value) {
+               $("#kafka-plan").append($("<option></option>").attr("value", value).text(key));
             });
          } else if($("#shield").prop('checked')) {
             $.each(shieldOptions, function(key,value) {
                $("#dyno-type").append($("<option></option>").attr("value", value).text(key));
             });
+            $('#kafka-plan').empty();
+            $('#kafka-plan').append($("<option></option>").attr("disabled","").attr("selected","").text("-- shielded kafka unavailable --"));
          } else {
             $.each(commonOptions, function(key,value) {
                $("#dyno-type").append($("<option></option>").attr("value", value).text(key));
             });
+            $.each(kafkaOptions, function(key,value) {
+               $("#kafka-plan").append($("<option></option>").attr("value", value).text(key));
+            });            
          }
       }
    })
