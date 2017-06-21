@@ -3,7 +3,9 @@
       "name": "heroku-cli-demo",
 		"description": "The reason that Heroku is loved by developers worldwide? The Heroku CLI. Have a look at this commandline tool that is the envy of all others! And remember, the CLI is cool because anything that is here can be scripted and automated to save your developers time.",
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/17U3zM0lpXyitJimYsa5dmcLaruIVr3Y1G88Zjb5U_4U/edit?usp=sharing",
-      "video":"0B3a8rtxyKB8kd0RwQUE3TGtTR1U",
+      "vidyard_id":"vidyard_embed_code_Kquvnouipe1SsxkxpmK4ir",
+      "vidyard_src":"//play.vidyard.com/Kquvnouipe1SsxkxpmK4ir.js?v=3.1.1&type=lightbox",
+      "vidyard_click":"fn_vidyard_Kquvnouipe1SsxkxpmK4ir();",
       "image":"/images/cli.png"
 	},{
 		"title": "Heroku Dashboard",

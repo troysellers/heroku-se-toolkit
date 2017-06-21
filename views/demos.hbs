@@ -29,7 +29,8 @@
    
                </div>
                <div class="slds-size_1-of-2 slds-align_absolute-center">
-                  <button class="slds-button slds-button_neutral video-btn" data-video="{{this.video}}" data-name="{{this.name}}">
+                  <script type="text/javascript" id="{{vidyard_id}}" src="{{vidyard_src}}"></script>
+                  <button class="slds-button slds-button_neutral video-btn" onclick="{{vidyard_click}}" data-name="{{name}}">
                      <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" 
                         xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#video"></use>
@@ -43,30 +44,8 @@
    </div>
 </div>
 
-
-   <div id="modal" style="display:none;">
-      <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-modal_large slds-fade-in-open">
-         <div class="slds-modal__container">
-            <header class="slds-modal__header">
-               <button id="video-modal-close-btn" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
-                  <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
-                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
-                  </svg>
-                  <span class="slds-assistive-text">Close</span>
-               </button>
-               <h2 id="modal-video-heading" class="slds-text-heading_medium slds-hyphenate"></h2>
-            </header>
-
-            <div class="slds-modal__content slds-p-vertical_medium">
-               <div id="video-content"></div>
-            </div>
-         </div>
-      </section>
-      <div class="slds-backdrop slds-backdrop_open"></div>
-   </div>  
-
-
 <script typt="text/javascript" src="https://play.vidyard.com/v0/api.js"></script>
+
 <script type="text/javascript">
    $(document).ready(function() {
       $("button[class~='setup-btn']").click(function() {
@@ -74,16 +53,10 @@
          window.open(url, '_blank');
          ga('send', 'event', $(this).data('name'), 'setup');
       });
+      
       $("button[class~='video-btn']").click(function() {
-         var videoId = $(this).data('link');
          var name = $(this).data('name');
-         $("#modal-video-heading").html(name);
-         $("#video-content").html('need to embed a video here..');
-         $("#modal").toggle();
          ga('send', 'event', $(this).data('name'), 'video');
-      });
-      $("#video-modal-close-btn").click(function(){
-         $("#modal").toggle();
       });
    });
 

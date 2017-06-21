@@ -1,2 +1,149 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+
+
+<div class="slds-grid slds-wrap slds-align_absolute-center">
+   <div class="slds-size_1-of-1 slds-align_absolute-center slds-m-vertical_xx-large">
+      <img src="/images/platform-simple-1400.png" width="600px"/>
+   </div>
+
+   <div class="slds-form slds-form_horizontal slds-size_2-of-5">
+      <div class="slds-form-element slds-m-bottom_medium">
+         <label class="slds-form-element__label" for="requests-per-second">
+            <abbr class="slds-required" title="required">*</abbr>Requests per Second
+         </label>             
+         <div class="slds-form-element__control">
+            <input type="text" id="requests-per-second" class="slds-input">
+         </div> 
+      </div>  
+      <div class="slds-form-element slds-m-bottom_medium">
+         <label class="slds-form-element__label" for="time-per-request">
+            <abbr class="slds-required" title="required">*</abbr>Time per Request (ms)
+         </label>             
+         <div class="slds-form-element__control">
+            <input type="text" id="time-per-request" class="slds-input">
+         </div> 
+      </div>    
+      <div class="slds-form-element slds-m-bottom_medium">
+         <label class="slds-form-element__label" for="private-space">
+            Private Space?
+         </label>
+         <div class="slds-form-element__control">
+               <input type="checkbox" id="private-space" >
+         </div>
+      </div>
+      <div class="slds-form-element slds-m-bottom_medium">
+         <label class="slds-form-element__label" for="concurrency-per-dyno">
+            Concurrency per Dyno
+         </label>             
+         <div class="slds-form-element__control">
+            <input type="text" id="concurrency-per-dyno" class="slds-input">
+         </div> 
+      </div> 
+      <div class="slds-form-element slds-m-bottom_medium">
+            <label class="slds-form-element__label" for="dyno-type">Dyno Type</label>
+            <div class="slds-form-element__control">
+               <div class="slds-select_container">
+                  <select class="slds-select" id="dyno-type">
+                     <option disabled selected value> -- select an option -- </option>
+                  </select>
+               </div>
+            </div>
+      </div>
+      <div class="slds-form-element slds-m-bottom_medium">
+         <label class="slds-form-element__label" for="heroku-connect">
+            Heroku Connect?
+         </label>
+         <div class="slds-form-element__control">
+               <input type="checkbox" id="heroku-connect" >
+         </div>
+      </div> 
+      <div id="heroku-connect-input" class="slds-form-element slds-m-bottom_medium slds-hide">
+         <label class="slds-form-element__label" for="heroku-connect-rows">
+            Number of Rows
+         </label>             
+         <div class="slds-form-element__control">
+            <input type="text" id="heroku-connect-rows" class="slds-input">
+         </div> 
+      </div>     
+      <div class="slds-form-element slds-m-bottom_medium">
+         <label class="slds-form-element__label" for="postgres-size">
+            Size of Database
+         </label>             
+         <div class="slds-form-element__control">
+            <input type="text" id="postgres-size" class="slds-input">
+         </div> 
+      </div>   
+      <div class="slds-form-element slds-m-bottom_medium">
+         <label class="slds-form-element__label" for="addons">
+            Need AddOns?
+         </label>             
+         <div class="slds-form-element__control">
+            <input type="text" id="addons" class="slds-input">
+         </div> 
+      </div>  
+      <div class="slds-form-element slds-m-bottom_medium">
+         <label class="slds-form-element__label" for="staging-env">
+            Number of Staging Environments
+         </label>             
+         <div class="slds-form-element__control">
+            <input type="text" id="staging-env" class="slds-input">
+         </div> 
+      </div>    
+      <div class="slds-form-element slds-m-bottom_medium">
+         <label class="slds-form-element__label" for="developer-env">
+            Number of Developer Environments
+         </label>             
+         <div class="slds-form-element__control">
+            <input type="text" id="developer-env" class="slds-input">
+         </div> 
+      </div>                                                      
+   </div>
+</div>
+
+<script type="text/javascript">
+   $(document).ready(function() {
+      updateSelectOptions();
+      $("#private-space").change(function() {
+         updateSelectOptions();
+      });
+
+      $("#heroku-connect").change(function() {
+         if($("#heroku-connect").prop('checked')) {
+            $("#heroku-connect-input").removeClass('slds-hide');
+         } else {
+            $("#heroku-connect-rows").val('');
+            $("#heroku-connect-input").addClass('slds-hide');
+         }
+      })
+      $("#submit_btn").click(function() {
+         $("#submit_btn").addClass('slds-hide');
+         $.post( "/submitForm", { email: $("#your_email").val(), customer: $("#customer").val(), region: $("#region").val() }, (data) => {
+            $("#response_msg").html(data.message);
+            $("#form_submit_msg").removeClass('slds-hidden');
+         } );
+      });
+
+      function updateSelectOptions() {
+         console.log('updating select options');
+         var commonOptions = {"1x": "1x",
+            "2x": "2x",
+            "Performance - M": "performance-m",
+            "Performance - L": "performance-l"
+         };
+         var privateOptions = {"Private - S": "private-s",
+            "Private - M": "private-m",
+            "Private - L": "private-l"
+         };
+         $('#dyno-type').empty();
+         $("#dyno-type").append($("<option></option>").attr("disabled","").attr("selected","").text("-- select an option --"));
+         if($("#private-space").prop('checked')) {
+            $.each(privateOptions, function(key,value) {
+               $("#dyno-type").append($("<option></option>").attr("value", value).text(key));
+            });
+         } else {
+            $.each(commonOptions, function(key,value) {
+               $("#dyno-type").append($("<option></option>").attr("value", value).text(key));
+            });
+         }
+      }
+   })
+</script>
