@@ -5,9 +5,39 @@
       left: 50%;
    }
    .img {
-      margin-top: -280px;
-      margin-left: -400px;
+      margin-top: -210px;
+      margin-left: -300px;
    }   
+   .main-heading{ 
+      font-size: 24px
+   }
+   .sub-heading {
+      font-size: 16px;
+   }
+   .heroku-postgres {
+      margin-top: -16em;
+      margin-left: -51em;
+   }
+   .under-the-hood {
+      margin-top: -16em;
+      margin-left: 15em;
+   }
+   .vertically-scale {
+      margin-top: -3em;
+      margin-left: -47em;
+   }
+   .horziontally-scale {
+      margin-top: -3em;
+      margin-left: 25em;
+   }
+   .platform-services {
+      margin-top: 10em;
+      margin-left: -40em;
+   }  
+   .metrics-logging {
+      margin-top: 10em;
+      margin-left: 15em;
+   }      
 </style>
 
 <div class="slds-grid slds-wrap">
@@ -15,16 +45,28 @@
       <a href="javascript:topics('data');" class="slds-text-link_reset">TOPICS</a> | <a href="javascript:slides('data');" class="slds-text-link_reset">SLIDES</a>
    </div>
    <div id="topics" class="slds-size_1-of-1 slds-align_absolute-center">
-      <!--
-      <ul>
-         <li>Heroku Postgres</li>
-         <li>Heroku Redis</li>
-         <li>Heroku Kafka</li>
-         <li>The Data Dashboard</li>
-         <li>AddOns</li>
-      </ul>-->
       <div class="center img">
-         <img src="/images/dataservices-1200.png" width="800px"/>
+         <img src="/images/dataservices-1200.png" width="600px"/>
+      </div>
+      <div class="center heroku-postgres slds-text-align_right">
+         <span class="main-heading">Heroku Postgres</span><br />
+         <span class="sub-heading">World leading open source database, ran as a service</span>
+      </div>
+      <div class="center under-the-hood slds-text-align_left" >
+         <span class="main-heading">Heroku Redis</span><br />
+         <span class="sub-heading">In memory key-value database, ran as a service</span>
+      </div>
+      <div class="center vertically-scale slds-text-align_right" >
+         <span class="main-heading">Heroku Kafka</span><br />
+         <span class="sub-heading">Massive scale event bas, ran as a service</span>
+      </div>
+      <div class="center horziontally-scale slds-text-align_left" >
+         <span class="main-heading">The Data Dashboard</span><br />
+         <span class="sub-heading">See deep into your data services for management</span>
+      </div>
+      <div class="center platform-services slds-text-align_right" >
+         <span class="main-heading">AddOns</span><br />
+         <span class="sub-heading">Need other services, try the 150+ Heroku Elements </span>
       </div>
    </div>
    <div id="slides" class="slds-size_1-of-1" style="display:none;">

@@ -23,6 +23,7 @@ var data = require('./routes/data');
 var competitive = require('./routes/competitive');
 var requestAnArchitect = require('./routes/requestAnArchitect');
 var requestSubmit = require('./routes/requestSubmit');
+var customers = require('./routes/customers');
 
 var resourceFilter = require('./bin/resourceFilter');
 
@@ -73,6 +74,7 @@ app.use('/calculators', calculators);
 app.use('/competitive', competitive);
 app.use('/requestAnArchitect', requestAnArchitect);
 app.use('/submitForm', requestSubmit);
+app.use('/customers', customers);
 
 app.use('/', index);
 
