@@ -283,16 +283,7 @@
       $("input[class~='calc-field']").change(() => calculate());
 
       function calculate() {
-         var threads = {
-            python : {"1x" : 2, "2x" : 5, "performance-m": 10, "performance-l" : 25, "private-s": 5, "private-m": 10, "private-l" : 25},
-            ruby : {"1x" : 2, "2x" : 5, "performance-m": 10, "performance-l" : 25, "private-s": 5, "private-m": 10, "private-l" : 25},
-            java : {"1x" : 2, "2x" : 5, "performance-m": 10, "performance-l" : 25, "private-s": 5, "private-m": 10, "private-l" : 25},
-            go : {"1x" : 2, "2x" : 5, "performance-m": 10, "performance-l" : 25, "private-s": 5, "private-m": 10, "private-l" : 25},
-            clojure : {"1x" : 2, "2x" : 5, "performance-m": 10, "performance-l" :25, "private-s": 5, "private-m": 10, "private-l" : 25},
-            scala : {"1x" : 2, "2x" : 5, "performance-m": 10, "performance-l" : 25, "private-s": 5, "private-m": 10, "private-l" : 25},
-            node : {"1x" : 2, "2x" : 5, "performance-m": 10, "performance-l" : 25, "private-s": 5, "private-m": 10, "private-l" : 25},
-            php : {"1x" : 2, "2x" : 5, "performance-m": 10, "performance-l" : 25, "private-s": 5, "private-m": 10, "private-l" : 25}
-         };
+         var threads = {"1x" : 150, "2x" : 500, "performance-m": 16000, "performance-l" : 32000, "private-s": 500, "private-m": 16000, "private-l" : 32000};
 
          var language = $("input:radio[name ='radio']:checked").val();
          var privateSpace = $("#private-space").prop('checked');
@@ -309,7 +300,7 @@
 
          console.log("lang ["+language+"] private-space ["+privateSpace+"] shield ["+shield+"] rps ["+reqPerSecond+"] tpr ["+timePerRequest+"] dt["+dynoType+"] postgres ["+postgresSize+"] heroku-connect ["+herokuConnect+"] kafka ["+kafkaPlan+"] dev ["+devEnv+"] staging ["+stagingEnv+"]");
 
-
+         
       }
 
       function testNumber(field) {

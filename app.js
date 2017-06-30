@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var helmet = require('helmet');
+var expressLogging = require('express-logging');
+var logger = require('logops');
 /*
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
@@ -28,6 +30,7 @@ var customers = require('./routes/customers');
 var resourceFilter = require('./bin/resourceFilter');
 
 var app = express();
+app.use(expressLogging(logger));
 
 let redis_url = process.env.REDIS_URL ? process.env.REDIS_URL : 'redis://localhost:6379'
 
