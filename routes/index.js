@@ -9,7 +9,6 @@ router.get('/', function(req, res, next) {
    req.data.title = 'Why Heroku?';
    req.data.page = 'home';
    req.data.why_style = 'slds-is-active';
-   console.log(req.data.resources);
    res.render('index', req.data);
 });
 
