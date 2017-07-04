@@ -5,7 +5,7 @@ Not something I imagine is too useful for external to Salesforce users..
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-If you want to deploy this as a Docker container, steps described [here](https://devcenter.heroku.com/articles/container-registry-and-runtime) will help. 
+If you want to deploy this as a Docker container, steps described [here](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/) [here](https://devcenter.heroku.com/articles/container-registry-and-runtime) will explain what was changed for this app to work in Heroku. 
 
 When running locally using Docker 
 

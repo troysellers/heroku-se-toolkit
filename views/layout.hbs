@@ -152,6 +152,7 @@
    <script type="text/javascript">
 
       $(document).ready(function() {
+         ga('send', 'pageview', '{{page}}', { title : '{{title}}', page : '{{page}}'});
          $("#all-resources-btn").click(function() {
             toggleModal();
          });

@@ -7,6 +7,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
    req.data.title = 'Competitive';
+   req.data.page = 'competitive';
    req.data.competitive_style = 'slds-is-active';
    
    res.render('competitive', req.data);

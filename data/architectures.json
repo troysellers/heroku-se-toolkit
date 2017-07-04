@@ -39,9 +39,9 @@
 		"description": "Reading and writing information from files is a very common use case. This drawing shows how to use S3 to process files.",
       "drawing":"/images/cli.png"
 	},{
-		"title": "Change Data Capture",
-      "name": "change-data",
-		"description": "In modern enterprises quite often the concept of a Single Source of Truth for data is an un-achievable goal. See how an event bus can distribute information about data change through the organisation",
-      "drawing":"/images/cli.png"
+		"title": "Salesforce SDO Tools",
+      "name": "sdo-tools",
+		"description": "The Salesforce instance you are probably looking at now has been created from a base image called the Simple Demo Org. The team that maintains this image use a number of Heroku apps to help this process.",
+      "drawing":"/images/architectures/sdo.png"
 	}
 ]

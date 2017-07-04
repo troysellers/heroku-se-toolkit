@@ -8,6 +8,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
    req.data.title = 'Request an Architect';
+   req.data.page = 'requestArchitect';
    res.render('requestAnArchitect', req.data);
 });
 

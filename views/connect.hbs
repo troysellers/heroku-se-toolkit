@@ -8,6 +8,22 @@
       margin-top: -180px;
       margin-left: -200px;
    }   
+   .main-heading{ 
+      font-size: 24px
+   }
+   .sub-heading {
+      font-size: 16px;
+   }   
+   .synchronise-data {
+      margin-top: 0em;
+      margin-left: -48em;
+      width: 30em;
+   }
+   .odata-connector {
+      margin-top: 0em;
+      margin-left: 18em;
+      width: 30em;
+   }
 </style>
 <div class="slds-grid slds-wrap">
    <div class="slds-size_1-of-1 slds-col_bump-left slds-text-align_right">
@@ -24,6 +40,14 @@
       -->
       <div class="center img">
          <img src="/images/connect-sync.png" width="400px"/>
+      </div>
+      <div class="center synchronise-data slds-text-align_right" >
+         <span class="main-heading">Synchronise Data</span><br />
+         <span class="sub-heading">Heroku Connect allows you to bi-directionally synchronise data between Salesforce and an Heroku Postgres database. Expose your Salesforce data into a standard relational database.</span>
+      </div>
+      <div class="center odata-connector slds-text-align_left" >
+         <span class="main-heading">oData Endpoint</span><br />
+         <span class="sub-heading">Expose Postgres data to Salesforce via an oData endpoint. Allow storage of millions of data rows to be viewed and acted upon within the Salesforce UI, without storing the data in Salesforce. </span>
       </div>
    </div>
    <div id="slides" class="slds-size_1-of-1" style="display:none;">

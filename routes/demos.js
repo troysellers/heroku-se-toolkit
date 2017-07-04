@@ -8,6 +8,7 @@ var file = './data/demos.json';
 router.get('/', function(req, res, next) {
 
    req.data.title = 'Heroku Demos';
+   req.data.page = 'demos';
    req.data.demo_style = 'slds-is-active';
    req.data.demos = jsonfile.readFileSync(file);
 

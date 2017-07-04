@@ -7,6 +7,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
    req.data.title = 'Customer Stories';
+   req.data.page = 'customers';
    req.data.customer_style = 'slds-is-active';
 
    res.render('customers', req.data);

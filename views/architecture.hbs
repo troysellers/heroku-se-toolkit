@@ -42,7 +42,7 @@
          </header>
 
          <div class="slds-modal__content slds-p-vertical_medium" id="modal-content-id-1">
-            <div id="arch-modal-content" class="slds-grid slds-wrap slds-grid_vertical-stretch">
+            <div id="arch-modal-content" class="slds-grid slds-wrap slds-grid_vertical-stretch slds-align_absolute-center">
                SOME CONTENT
             </div>       
          </div>
@@ -57,7 +57,7 @@
       $("a[class~=clickable-box]").click(function() {
 
          $("#arch-modal-heading").html($(this).data('title'));
-         $("#arch-modal-content").html($(this).data('drawing'));
+         $("#arch-modal-content").html('<img src="'+$(this).data('drawing')+'" />');
          ga('send', 'event', $(this).data('title'), 'show drawing');
          toggleArchModal();
       });

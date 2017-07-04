@@ -7,6 +7,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
    req.data.title = 'Heroku Connect';
+   req.data.page = 'connect';
    req.data.connect_style = 'slds-is-active';
    
    res.render('connect', req.data);

@@ -283,7 +283,16 @@
       $("input[class~='calc-field']").change(() => calculate());
 
       function calculate() {
-         var threads = {"1x" : 150, "2x" : 500, "performance-m": 16000, "performance-l" : 32000, "private-s": 500, "private-m": 16000, "private-l" : 32000};
+         var requestsPerSecond = {
+               "java" : {"1x" : 150, "2x" : 500, "performance-m": 16000, "performance-l" : 32000, "private-s": 500, "private-m": 16000, "private-l" : 32000},
+               "ruby" : {"1x" : 150, "2x" : 500, "performance-m": 16000, "performance-l" : 32000, "private-s": 500, "private-m": 16000, "private-l" : 32000},
+               "clojure" : {"1x" : 150, "2x" : 500, "performance-m": 16000, "performance-l" : 32000, "private-s": 500, "private-m": 16000, "private-l" : 32000},
+               "python" : {"1x" : 30, "2x" : 50, "performance-m": 250, "performance-l" : 500, "private-s": 100, "private-m": 250, "private-l" : 500},
+               "node" : {"1x" : 1, "2x" : 2, "performance-m": 5, "performance-l" : 28, "private-s": 2, "private-m": 5, "private-l" : 28},
+               "golang" : {"1x" : 1, "2x" : 2, "performance-m": 5, "performance-l" : 28, "private-s": 2, "private-m": 5, "private-l" : 28},
+               "scala" : {"1x" : 1, "2x" : 2, "performance-m": 5, "performance-l" : 28, "private-s": 2, "private-m": 5, "private-l" : 28},
+               "php" : {"1x" : 1, "2x" : 2, "performance-m": 5, "performance-l" : 28, "private-s": 2, "private-m": 5, "private-l" : 28}
+         };
 
          var language = $("input:radio[name ='radio']:checked").val();
          var privateSpace = $("#private-space").prop('checked');

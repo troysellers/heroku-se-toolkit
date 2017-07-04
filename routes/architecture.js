@@ -9,6 +9,7 @@ var file = './data/architectures.json';
 router.get('/', function(req, res, next) {
 
    req.data.title = 'Common Architectures';
+   req.data.page = 'architectures';
    req.data.architecture_style = 'slds-is-active';
    req.data.architectures = jsonfile.readFileSync(file);
 

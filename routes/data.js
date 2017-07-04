@@ -7,6 +7,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
    req.data.title = 'Data Services';
+   req.data.page = 'data';
    req.data.data_style = 'slds-is-active';
    
   res.render('data', req.data);
