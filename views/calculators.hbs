@@ -134,10 +134,10 @@
          </div>
       </div>          
       <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label tooltip" for="requests-per-second">
-            Requests per Second
+         <label class="slds-form-element__label tooltip" for="requests-per-day">
+            Average Requests per day
             <span class="tooltiptext">
-               How many http requests do you need to serve every second? This should be an average, not your peak expected loads as Heroku can scale to meet the occasional peak.
+               How many customer requests per day will this application be handling? This should be an average as Heroku can autoscale to handle the high water mark.
             </span>              
          </label>             
          <div class="slds-form-element__control">
@@ -279,25 +279,26 @@
             $("#kafka-plans-select").addClass('slds-hide');
          }
       });
+
       $("select[class~='calc-field'").change(() => calculate());
       $("input[class~='calc-field']").change(() => calculate());
 
       function calculate() {
          var requestsPerSecond = {
-               "java" : {"1x" : 150, "2x" : 500, "performance-m": 16000, "performance-l" : 32000, "private-s": 500, "private-m": 16000, "private-l" : 32000},
-               "ruby" : {"1x" : 150, "2x" : 500, "performance-m": 16000, "performance-l" : 32000, "private-s": 500, "private-m": 16000, "private-l" : 32000},
-               "clojure" : {"1x" : 150, "2x" : 500, "performance-m": 16000, "performance-l" : 32000, "private-s": 500, "private-m": 16000, "private-l" : 32000},
-               "python" : {"1x" : 30, "2x" : 50, "performance-m": 250, "performance-l" : 500, "private-s": 100, "private-m": 250, "private-l" : 500},
-               "node" : {"1x" : 1, "2x" : 2, "performance-m": 5, "performance-l" : 28, "private-s": 2, "private-m": 5, "private-l" : 28},
-               "golang" : {"1x" : 1, "2x" : 2, "performance-m": 5, "performance-l" : 28, "private-s": 2, "private-m": 5, "private-l" : 28},
-               "scala" : {"1x" : 1, "2x" : 2, "performance-m": 5, "performance-l" : 28, "private-s": 2, "private-m": 5, "private-l" : 28},
-               "php" : {"1x" : 1, "2x" : 2, "performance-m": 5, "performance-l" : 28, "private-s": 2, "private-m": 5, "private-l" : 28}
+               "java" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
+               "ruby" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
+               "clojure" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
+               "python" : {"1x" : 30, "2x" : 50, "performance-m": 250, "performance-l" : 500, "private-s": 100, "private-m": 250, "private-l" : 500,  "shield-m": 100, "shield-l":300},
+               "node" : {"1x" : 30, "2x" : 50, "performance-m": 250, "performance-l" : 500, "private-s": 100, "private-m": 250, "private-l" : 500,  "shield-m": 100, "shield-l":300},
+               "golang" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
+               "scala" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
+               "php" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300}
          };
 
          var language = $("input:radio[name ='radio']:checked").val();
          var privateSpace = $("#private-space").prop('checked');
          var shield = $("#shield").prop('checked');
-         var reqPerSecond = testNumber($("#requests-per-second"));
+         var reqPerDay = testNumber($("#requests-per-day"));
          var timePerRequest = testNumber($("#time-per-request"));
          var dynoType = $("#dyno-type").val();
          var postgresSize = testNumber($("#postgres-size").val());
@@ -309,7 +310,29 @@
 
          console.log("lang ["+language+"] private-space ["+privateSpace+"] shield ["+shield+"] rps ["+reqPerSecond+"] tpr ["+timePerRequest+"] dt["+dynoType+"] postgres ["+postgresSize+"] heroku-connect ["+herokuConnect+"] kafka ["+kafkaPlan+"] dev ["+devEnv+"] staging ["+stagingEnv+"]");
 
-         
+         if(language && dynoType && reqPerDay && timePerRequest) {
+            console.log('can calculate dyno loads');
+         } 
+         if(herokuConnect) {
+            console.log('can estimate HC rows');
+         }
+         if(postgresSize && reqPerDay) {
+            console.log('can estimate postgres DB - think about requests for connection limits');
+         }
+         if(kafkaPlan) {
+            console.log('addon kafka');
+         }
+         if(addons) {
+            console.log('estimate addons');
+         }
+         if(devEnv) {
+            console.log('guess for dev env');
+         }
+         if(stagingEnv) {
+            console.log('guess for staging');
+         }
+
+
       }
 
       function testNumber(field) {
