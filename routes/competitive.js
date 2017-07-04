@@ -10,7 +10,8 @@ router.get('/', function(req, res, next) {
    req.data.page = 'competitive';
    req.data.competitive_style = 'slds-is-active';
    
-   res.render('competitive', req.data);
+   //res.render('competitive', req.data);
+   res.redirect('/');
 });
 
 module.exports = router;
