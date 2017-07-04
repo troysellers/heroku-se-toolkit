@@ -115,7 +115,7 @@
          <label class="slds-form-element__label tooltip" for="private-space">
             Private Space
             <span class="tooltiptext">
-               A private space is required if you are going to be running your apps in Sydney, Tokyo, Frankfurt, Oregon or Dublin
+               A <a href="https://devcenter.heroku.com/articles/private-spaces" target="_blank">Private Space</a> is required if you are going to be running your apps in Sydney, Tokyo, Frankfurt, Oregon or Dublin
             </span>            
          </label>
          <div class="slds-form-element__control">
@@ -126,7 +126,7 @@
          <label class="slds-form-element__label tooltip" for="shield">
             Shield
             <span class="tooltiptext">
-               Shield is only necessary for apps that require HIPPA level compliance.
+               <a href="https://devcenter.heroku.com/articles/private-spaces#shield-private-spaces" target="_blank">Shield</a> is only necessary for apps that require HIPPA level compliance.
             </span>   
          </label>
          <div class="slds-form-element__control">
@@ -141,7 +141,7 @@
             </span>              
          </label>             
          <div class="slds-form-element__control">
-            <input type="text" id="requests-per-second" class="slds-input calc-field" placeholder="Enter a number">
+            <input type="text" id="requests-per-day" class="slds-input calc-field" placeholder="Enter a number">
          </div> 
       </div>  
       <div class="slds-form-element slds-m-bottom_small">
@@ -159,7 +159,7 @@
             <label class="slds-form-element__label tooltip" for="dyno-type">
                Dyno Type
                <span class="tooltiptext">
-                  What size of dyno is required? If unknown, we will attempt to determine the best fit for your expected load.
+                  What size of <a href="https://devcenter.heroku.com/articles/heroku-enterprise#available-dyno-types" target="_blank">dyno</a> is required? If unknown, we will attempt to determine the best fit for your expected load.
                </span>                  
             </label>
             <div class="slds-form-element__control">
@@ -169,12 +169,35 @@
                   </select>
                </div>
             </div>
-      </div>      
+      </div>   
+      <div class="slds-form-element slds-m-bottom_small">
+         <label class="slds-form-element__label tooltip" for="workers">
+            Workers
+            <span class="tooltiptext">
+               It is quite common in Heroku to deploy apps using the <a href="https://devcenter.heroku.com/articles/background-jobs-queueing" target="_blank">Web/Worker</a> pattern.
+            </span>              
+         </label>
+         <div class="slds-form-element__control">
+               <input type="checkbox" id="workers">
+         </div>
+      </div> 
+      <div id="number-of-workers-input" class="slds-form-element slds-m-bottom_small  slds-hide">
+         <label class="slds-form-element__label tooltip" for="number-of-workers">
+            Number of Workers
+            <span class="tooltiptext">
+               This calculator will assume smallest production dyno for Workers. i.e. In the common runtime this would be a Performance-M dyno, in a Private Space it will be Private-S.
+            </span>             
+         </label>             
+         <div class="slds-form-element__control">
+            <input type="text" id="number-of-workers" class="slds-input calc-field" placeholder="Enter a number">
+         </div> 
+      </div>       
+
       <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label tooltip" for="postgres-size">
             Size of Database
             <span class="tooltiptext">
-               The size of the database in GB if known. If you are looking at this option for Heroku Connect database sizing, then the size of the data in Salesforce would be an indication. 
+               The size of the database in GB. This is not the only consideration when looking at <a href="https://devcenter.heroku.com/articles/heroku-postgres-plans" target="_blank">Postgres Plans</a>, but a good starting point. If you are looking at this option for Heroku Connect database sizing, then the size of the data in Salesforce would be an indication. 
             </span>               
          </label>             
          <div class="slds-form-element__control">
@@ -182,8 +205,11 @@
          </div> 
       </div>      
       <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label" for="heroku-connect">
+         <label class="slds-form-element__label tooltip" for="heroku-connect">
             Heroku Connect
+            <span class="tooltiptext">
+               <a href="https://devcenter.heroku.com/articles/heroku-connect" target="_blank">Heroku Connect</a> performs two functions. It will syncrhonise Salesforce data in a Postgres database AND it will also expose Postgres data tables and views as oData endpoints for consumption by services like <a href="https://help.salesforce.com/articleView?id=platform_connect_about.htm&r=https%3A%2F%2Fwww.google.com.au%2F&type=0" target="_blank">Salesforce Connect</a>
+            </span>
          </label>
          <div class="slds-form-element__control">
                <input type="checkbox" id="heroku-connect">
@@ -204,7 +230,7 @@
          <label class="slds-form-element__label tooltip" for="kafka">
             Kafka
             <span class="tooltiptext">
-               Apache Kafka on Heroku is an event bus that can be used for a number of different integration use cases. See the documentation for the details on which plans fit.
+               Apache Kafka on Heroku is an event bus that can be used for a number of different integration use cases. See the <a href="https://devcenter.heroku.com/articles/kafka-on-heroku#plans-and-configurations" target="_blank">documentation</a> for the details on which plans fit.
             </span>  
          </label>
          <div class="slds-form-element__control">
@@ -225,7 +251,7 @@
          <label class="slds-form-element__label tooltip" for="addons">
             AddOns
             <span class="tooltiptext">
-               Addons are purchased in blocks of $1000 per month and can be used for an of the addons that exist. e.g. you might want $300 or Papertrail and $600 of CloudAMQP = $900 worth of addons = 1 addon credit. 
+               <a href="https://devcenter.heroku.com/articles/heroku-enterprise#add-on-credits" target="_blank">Addons</a> are purchased in blocks of $1000 per month and can be used for an of the addons that exist. e.g. you might want $300 or Papertrail and $600 of CloudAMQP = $900 worth of addons = 1 addon credit. 
             </span>              
          </label>             
          <div class="slds-form-element__control">
@@ -263,6 +289,14 @@
          $("#private-space").prop('checked', false);
          updateSelectOptions();
       });
+      $("#workers").change(function() {
+         if($("#workers").prop('checked')) {
+            $("#number-of-workers-input").removeClass('slds-hide');
+         } else {
+            $("#number-of-workers").val('');
+            $("#number-of-workers-input").addClass('slds-hide');
+         }
+      });
       $("#heroku-connect").change(function() {
          if($("#heroku-connect").prop('checked')) {
             $("#heroku-connect-input").removeClass('slds-hide');
@@ -284,6 +318,7 @@
       $("input[class~='calc-field']").change(() => calculate());
 
       function calculate() {
+         // assumption is for an app that takes 1 second to return, these are good guidelines for amount of requests that a dyno could handle
          var requestsPerSecond = {
                "java" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
                "ruby" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
@@ -300,15 +335,23 @@
          var shield = $("#shield").prop('checked');
          var reqPerDay = testNumber($("#requests-per-day"));
          var timePerRequest = testNumber($("#time-per-request"));
+         var requiredPerSecond = Math.floor((reqPerDay / (43200)) * (1000/timePerRequest)); // requests per second * 1/number of seconds a request takes
          var dynoType = $("#dyno-type").val();
-         var postgresSize = testNumber($("#postgres-size").val());
+         var numberOfWorkers = $("#number-of-workers").val();
+         var postgresSize = testNumber($("#postgres-size"));
          var herokuConnect = testNumber($("#heroku-connect-rows"));
          var kafkaPlan = $("#kafka-plan").val();
-         var addons = testNumber($("#addons").val());
+         var addons = testNumber($("#addons"));
          var devEnv = testNumber($("#developer-env"));
          var stagingEnv = testNumber($("#staging-env"));
 
-         console.log("lang ["+language+"] private-space ["+privateSpace+"] shield ["+shield+"] rps ["+reqPerSecond+"] tpr ["+timePerRequest+"] dt["+dynoType+"] postgres ["+postgresSize+"] heroku-connect ["+herokuConnect+"] kafka ["+kafkaPlan+"] dev ["+devEnv+"] staging ["+stagingEnv+"]");
+         console.log(`lang [${language}] private-space [${privateSpace}] shield [${shield}] requestsPerDay [${reqPerDay}] requestPerSecond[${requiredPerSecond}] tpr [${timePerRequest}] dt[${dynoType}] numberOfWorkers [${numberOfWorkers}] postgres [${postgresSize}] heroku-connect [${herokuConnect}] kafka [${kafkaPlan}] dev [${devEnv}] staging [${stagingEnv}]`);
+
+         var numberOfDynos;
+         var dynoUnits;
+         var dataAddons;
+         var connectRows;
+         var partnerAddons;
 
          if(language && dynoType && reqPerDay && timePerRequest) {
             console.log('can calculate dyno loads');
