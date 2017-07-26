@@ -327,7 +327,7 @@
                "node" : {"1x" : 30, "2x" : 50, "performance-m": 250, "performance-l" : 500, "private-s": 100, "private-m": 250, "private-l" : 500,  "shield-m": 100, "shield-l":300},
                "golang" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
                "scala" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
-               "php" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300}
+               "php" : {"1x" : 8, "2x" : 16, "performance-m": 40, "performance-l" : 224, "private-s": 20, "private-m": 40, "private-l" : 224, "shield-m": 40, "shield-l":224}
          };
 
          var language = $("input:radio[name ='radio']:checked").val();
@@ -355,6 +355,7 @@
 
          if(language && dynoType && reqPerDay && timePerRequest) {
             console.log('can calculate dyno loads');
+            
          } 
          if(herokuConnect) {
             console.log('can estimate HC rows');
@@ -375,6 +376,9 @@
             console.log('guess for staging');
          }
 
+         $.post("http://localhost:8081/calculate", function(data)  {
+            console.log(data);
+         })
 
       }
 

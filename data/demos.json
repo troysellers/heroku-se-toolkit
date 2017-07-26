@@ -26,7 +26,9 @@
       "name": "heroku-connect-demo",
 		"description": "Do you have Salesforce? Got some open source developers? Heroku Connect is the tool for you! Allow your developers access to your Salesforce data in the way they know and love, direct to the database. Just the thing if you are thinking about how to build a Customer Service in your platform that needs to be faster than the Salesforce API.",
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/18513Tztn5rfUE4pey5yGNkpiXI94jA1YJtR22oQkkFQ/edit?usp=sharing",
-      "video":"some video url",
+      "vidyard_id":"vidyard_embed_code_2GiwnigiECYm7RbG9pRSjw",
+      "vidyard_src":"//play.vidyard.com/2GiwnigiECYm7RbG9pRSjw.js?v=3.1.1&type=lightbox",
+      "vidyard_click":"fn_vidyard_2GiwnigiECYm7RbG9pRSjw();",
       "image":"/images/connect.png"
 	},{
 		"title": "Heroku Enterprise",
