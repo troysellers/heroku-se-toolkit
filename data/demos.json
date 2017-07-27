@@ -19,7 +19,9 @@
       "name": "heroku-pipelines-demo",
 		"description": "Have you ever wished your developers could just focus on building features rather than spend countless hours on the operations to maintain their development pipeline? Take a short tour of the Heroku Pipelines and see how your developers can get back to hassle free, quality controlled code deployments. Built right into the platform!",
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/1f0bfzHz5rQMgHI7vfg2UV45jnLhjLoWLU30-qgIVM-A/edit?usp=sharing",
-      "video":"some video url",
+      "vidyard_id":"vidyard_embed_code_c2w4BcMEUg47B8Ats4AG96",
+      "vidyard_src":"//play.vidyard.com/c2w4BcMEUg47B8Ats4AG96.js?v=3.1.1&type=lightbox",
+      "vidyard_click":"fn_vidyard_c2w4BcMEUg47B8Ats4AG96();",
       "image":"/images/pipelines.png"
 	},{
 		"title": "Heroku Connect",
