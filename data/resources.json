@@ -31,10 +31,10 @@
       "url":"https://devcenter.heroku.com/categories/reference",
       "image":"/images/support.png"
 	},{
-		"title": "Heroku Chatter",
-		"description": "Jump over to our Org62 Chatter group and find all you need about Selling Heroku. First call decks, customer win stories and your Heroku Co-prime team.",
-      "url":"https://org62.lightning.force.com/one/one.app#/sObject/0F9300000008R3ZCAU/view",
-      "image":"/images/sf-heroku.png"
+		"title": "Heroku Vimeo Channel",
+		"description": "See all the latest video demos and customer stories curated by the Heroku team on Vimeo.",
+      "url":"https://vimeo.com/heroku",
+      "image":"/images/heroku_vimeo.webp"
 	},{
 		"title": "The Nibs Demo",
 		"description": "The classic Heroku demo that was the showcase demo before the Dreamhouse was built. Feeling nostalgic? Head on over and grab some Nibs.",

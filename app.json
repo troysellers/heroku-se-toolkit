@@ -3,5 +3,11 @@
   "description": "Application for installation by Salesforce SEs who want to demo Heroku",
   "repository": "https://github.com/ibigfoot/heroku-se-toolkit",
   "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "env": {
+    "REQUEST_ENDPOINT": {
+      "description": "The API Endpoint for requesting an architect.",
+      "value": "localhost:3001/request"
+    }
+  },
   "keywords": ["node", "express", "static"]
 }
