@@ -41,7 +41,7 @@
       Partner Addons : <span id="partner-addons"></span><br />
    </div>
    <div class="slds-form slds-form_horizontal slds-size_2-of-5 ">
-      <div class="slds-form-element slds-m-bottom_small">
+      <!-- <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label tooltip">
             Programming Language
             <span class="tooltiptext">
@@ -110,7 +110,7 @@
                </span>               
             </div>            
          </div>
-      </div>    
+      </div>   -->
       <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label tooltip" for="private-space">
             Private Space
@@ -319,6 +319,8 @@
 
       function calculate() {
          // assumption is for an app that takes 1 second to return, these are good guidelines for amount of requests that a dyno could handle
+
+         /*
          var requestsPerSecond = {
                "java" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
                "ruby" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
@@ -328,9 +330,11 @@
                "golang" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
                "scala" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
                "php" : {"1x" : 8, "2x" : 16, "performance-m": 40, "performance-l" : 224, "private-s": 20, "private-m": 40, "private-l" : 224, "shield-m": 40, "shield-l":224}
-         };
+         }; */
 
-         var language = $("input:radio[name ='radio']:checked").val();
+         var requestPerSecond = {"1x" : 30, "2x" : 50, "performance-m" : 250, "performance-l" : 500, "private-s" : 50, "private-m" : 250, "private-l" : 500, "shield-m" : 250, "shield-l" : 500}
+
+         // var language = $("input:radio[name ='radio']:checked").val();
          var privateSpace = $("#private-space").prop('checked');
          var shield = $("#shield").prop('checked');
          var reqPerDay = testNumber($("#requests-per-day"));
@@ -345,7 +349,7 @@
          var devEnv = testNumber($("#developer-env"));
          var stagingEnv = testNumber($("#staging-env"));
 
-         console.log(`lang [${language}] private-space [${privateSpace}] shield [${shield}] requestsPerDay [${reqPerDay}] requestPerSecond[${requiredPerSecond}] tpr [${timePerRequest}] dt[${dynoType}] numberOfWorkers [${numberOfWorkers}] postgres [${postgresSize}] heroku-connect [${herokuConnect}] kafka [${kafkaPlan}] dev [${devEnv}] staging [${stagingEnv}]`);
+         console.log(`private-space [${privateSpace}] shield [${shield}] requestsPerDay [${reqPerDay}] requestPerSecond[${requiredPerSecond}] tpr [${timePerRequest}] dt[${dynoType}] numberOfWorkers [${numberOfWorkers}] postgres [${postgresSize}] heroku-connect [${herokuConnect}] kafka [${kafkaPlan}] dev [${devEnv}] staging [${stagingEnv}]`);
 
          var numberOfDynos;
          var dynoUnits;
@@ -353,8 +357,10 @@
          var connectRows;
          var partnerAddons;
 
-         if(language && dynoType && reqPerDay && timePerRequest) {
+         if(dynoType && reqPerDay && timePerRequest) {
             console.log('can calculate dyno loads');
+
+            var rps = requestPerSecond[dynoType];
             
          } 
          if(herokuConnect) {
@@ -375,10 +381,6 @@
          if(stagingEnv) {
             console.log('guess for staging');
          }
-
-         $.post("http://localhost:8081/calculate", function(data)  {
-            console.log(data);
-         })
 
       }
 
