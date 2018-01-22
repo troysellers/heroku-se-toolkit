@@ -4,3 +4,4 @@ npm-debug.log
 .dockerignore
 .DS_Store
 dyno calc.xlsx
+package-lock.json
