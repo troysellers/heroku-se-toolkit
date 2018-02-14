@@ -1,38 +1,38 @@
 [{
-		"title": "High Volume Portals",
-      "name": "high-volume-portals",
-		"description": "Customers who need to engage many millions of users often turn to Heroku to help. This pattern allows you to close the loop through the clouds with massive customer audiences.",
-      "drawing":"/images/cli.png"
+		"title": "Archiving / Near-line data",
+      "name": "archiving-data",
+		"description": "Every now and then, Salesforce customers will want to use data from other sources in their Salesforce org. Things like line item data, archived records or views of data from other agregated systems can be exposed to Salesforce users with this pattern. It solves for challenges with Large Data installs of Salesforce as well as providing a much more cost effective mechanism of storing data. The trade off here is you can't point and click run workflows against this data and analytics would need to be done through Einstein Analytcis, rather than the standard reports and dashboards. Data can be synchronised to core Salesforce (aggregated data recommended), directly into Marketing Cloud or into Einstein Analytics",
+      "drawing":"/images/architectures/archiving-data.png"
 	},{
-		"title": "Data Management",
-      "name": "data-archiving",
-		"description": "Quite often customers will either need to archive data or store large amounts of data near to the Salesforce Platform. This allows them to expose this data to Salesforce users without incurring the costs in spend and performance that large data volumes can incur.",
-      "drawing":"/images/cli.png"
+		"title": "Data Processing",
+      "name": "data-processing",
+		"description": "A common enough pattern of growth for Salesforce customers can revolve around the usage of the aggregation features within Salesforce. Aggregation of data comes in many forms in Salesforce, workflows / flows, roll-up summary fields, Apex triggers and scheduled and batch Apex. As customers grow, either in data or configuration requirements within Salesforce, some will start to experience some of the limits for configruation or govenors. A great solution for this is to sync data into your private Heroku space, allowing any amount of processing logic to be executed on the data set. An excellent example of the flexibility this gives a user is pictured as you can also load data from other sources to be processed alongside your CRM data, then the aggregations can be synced back to your CRM for use by the business users.",
+      "drawing":"/images/architectures/data-processing.png"
 	},{
-		"title": "Microservices",
-      "name": "microservices",
-		"description": "Customers are starting to build digital platforms out of discrete components, allowing for agility and re-use across their infrastructure. This drawing details an example microservices platform built out of Salesforce technology.",
-      "drawing":"/images/cli.png"
+		"title": "Simple File Generation",
+      "name": "simple-file-generation",
+		"description": "There are plenty of great options for generating documents within Salesforce. You can use templates, construct some Visualforce to render as a PDF, include one of the many awesome document generation tools or leverage Heroku to create your own document rendered. Some customers have requirements or the capability to do this themselves, and having a simple API endpoint exposed in Heroku will allow them to do this. Having a message queue in this architecture ensures that if a large load of requests is generated, the system will not buckle under that pressure. Once generated, documents can be attached back to the Salesforce record that is relevant to why the document was generated. ",
+      "drawing":"/images/architectures/simple-file-generation.png"
 	},{
 		"title": "IoT",
-      "name": "iot",
-		"description": "IoT customers need to manage their devices and capture that data as it comes from the field. This drawing shows how Heroku and Xively can provide a complete IoT landscape for your customer.",
-      "drawing":"/images/cli.png"
+      "name": "iot-ingest",
+		"description": "Salesforce IoT Explorer offers business a new and powerful mechanism of defining actionable business rules based on IoT signals in their environment. But how do you get these signals into the Salesforce cloud? There are two different challenges that this architecture helps to solve for. Firstly, a lot of IoT device solutions actually don't communciate real-time but rather with batches of files, e.g. sent every 15 minutes. This architecture shows how you can read this file and turn it into an event stream for processing by multiple services. An important service here is the one that filters out 'non-critical' events from the stream passing only the events that we are going to execute business logic against to the IoT Explorer.",
+      "drawing":"/images/architectures/iot-ingest.png"
 	},{
-		"title": "Video Processing",
-      "name": "video-processing",
-		"description": "Streaming video services require a different class of technology than core salesforce can provide. This drawing shows how you can process and stream video using Heroku",
-      "drawing":"/images/cli.png"
+		"title": "Bulk File Generation",
+      "name": "bulk-file-generation",
+		"description": "We have seen above how to generate a single file, but what about the scenario when you want to generate thousands of files and distribute these to your users. You might want to generate a bill run for example and allow your customers to download these from within your community. This architecture describes how a collection of lines in a data file can be combined with your customer store to retrieve communcation and delivery preferences that guide delivery. Generation is handled by scalable services to ensure loads can be completely timely and storage of the generated documents is handled off platform in S3. Marketing Cloud is positioned as the engine that handles notifications to customers about delivery and the Customer Community handles authenticated distribution of the final document.",
+      "drawing":"/images/architectures/bulk-file-generation.png"
 	},{
-		"title": "An API Gateway",
-      "name": "apr-gateway",
-		"description": "Do you need to expose an API to the world? Here is how you can use Heroku to achieve this",
-      "drawing":"/images/cli.png"
+		"title": "Portals, Web and Mobile",
+      "name": "portals-web-mobile",
+		"description": "If you have decided to put the customer first in everything you do eventually you will want to expose some parts of your CRM to them as well. Typically, this will happen through some type of portal, mobile application or API layer that other developers can consume. As usual, there is options when using Salesforce to achieve this. Some use cases, a self-service bot driven customer service portal for example, demand to have the Salesforce Community deployed. Other times, customers have scenarios that are extremely customised, extremely large scale (everyone in India you say?) or they just want to leverage some open source developers they have in house. Whatever the case, this architecture describes how you can synchronise your CRM data into Heroku and build a scalable web facing endpoint to satisfy these business needs. Combining this with the standards based Salesforce Identity is an excellent mechanism for tying your customer profile records directly into your business CRM, ensuring you remain connected  with your customer.",
+      "drawing":"/images/architectures/portals-web-mobile.png"
 	},{
-		"title": "Marketing Cloud Plugin",
-      "name": "marketing-cloud-plugin",
-		"description": "Marketing Cloud customers often need custom functionality to be executed as part of a Journey. This is how you can deploy a small custom app to be exposed to the Journey Builder",
-      "drawing":"/images/cli.png"
+		"title": "B2C Loyalty",
+      "name": "b2c-loyalty",
+		"description": "This architecture is really just a combination of those you have seen before, how to build a scalable back end for a mobile applciation that is integrated to your core business systems. ",
+      "drawing":"/images/architectures/b2c-loyalty.png"
 	},{
 		"title": "File Processing",
       "name": "file-processing",
