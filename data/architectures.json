@@ -31,17 +31,17 @@
 	},{
 		"title": "B2C Loyalty",
       "name": "b2c-loyalty",
-		"description": "This architecture is really just a combination of those you have seen before, how to build a scalable back end for a mobile applciation that is integrated to your core business systems. ",
+		"description": "This architecture is really just a combination of those you have seen before, how to build a scalable back end for a mobile applciation that is integrated to your core business systems. Loyalty applications often require real-time or batch integration with POS systems, robust identity integration with Social Media sites and are usually deployed either on a native or hybrid mobile architecture. This particular example is drawn assuming responsive web or single page application, but the pattern would be very similar for a native application. A real advantage of the Salesforce Platform for loyalty is the addition of the Salesforce DMP, allowing customers to segment and monetise the output of their loyalty platform.",
       "drawing":"/images/architectures/b2c-loyalty.png"
 	},{
-		"title": "File Processing",
-      "name": "file-processing",
-		"description": "Reading and writing information from files is a very common use case. This drawing shows how to use S3 to process files.",
-      "drawing":"/images/cli.png"
+		"title": "Multi-Instance Salesforce",
+      "name": "multi-instance-salesforce",
+		"description": "A lot of larger Salesforce customers have more than one instance of Salesforce deployed in their organisation. While this pattern of Salesforce usage is common, it does raise the question of how can you automate the monitoring of things like the Security Health Check across all instances. This architecture proposes a mechanism of using OAuth Refresh Tokens and queued workers to do things like call the Health Check API, aggregate the Event Monitoring data and even do a real-time federated search across all instances. This is probably not for everyone, but a good example of how you can extend your CRM using Heroku.",
+      "drawing":"/images/architectures/multi-instance.png"
 	},{
-		"title": "Salesforce SDO Tools",
+		"title": "Microservices",
       "name": "sdo-tools",
-		"description": "The Salesforce instance you are probably looking at now has been created from a base image called the Simple Demo Org. The team that maintains this image use a number of Heroku apps to help this process.",
+		"description": "The Salesforce Solution Engineering team have a trick up their sleve, it's called the Simple Demo Org. The SDO, as it's known internally, is the swiss army knife of Salesforce functionality and configuration allowing an SE to demo all kinds of scenarios at the drop of a hat. The magic behind this is a lot of automated configuration (things like demo reset tools, local data packs etc) that is built and running in Heroku. The Q-Branch team have built a set of services, sitting behind an authentication service, that allow SEs to continue to do what they do best.",
       "drawing":"/images/architectures/sdo.png"
 	}
 ]
