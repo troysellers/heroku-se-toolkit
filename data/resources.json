@@ -11,6 +11,12 @@
       "image":"/images/dyno.png"
 	},
 {
+		"title": "App Sizing",
+		"description": "Need to size an app? Have concrete performance data, and want to be able to come up with a size estimate? (Herokai login required)",
+      "url":"https://heroku-quotes.herokuapp.com",
+      "image":"/images/dyno.png"
+	},	
+{
 		"title": "Private Dynos",
 		"description": "Remember that sizing dynos in Private Spaces is a little different, this is your reference when thinking about Private Dynos.",
       "url":"https://devcenter.heroku.com/articles/heroku-enterprise#available-dyno-types",
