@@ -33,6 +33,31 @@
    <div class="slds-size_1-of-1 slds-align_absolute-center slds-m-vertical_xx-large ">
       <img src="/images/platform-simple-1400.png" width="600px" />
    </div>
+   <div class="slds-size_3-of-5 slds slds-text-heading_medium slds-m-around_large">
+         This is a calculator that will help you estimate how much Heroku resource you might need for a particular application. Please be aware that the emphasis here is on the word <strong>"ESTIMATE"</strong>.
+         <a href="https://devcenter.heroku.com/articles/optimizing-dyno-usage">performance of anything deployed to Heroku</a> is dependent on many things including the code you are running, the problem you are solving for and the amount of data you are moving around. 
+         Some factors that are totally independent of the Heroku resource that will infuence performance: 
+   </div>
+   <div class="slds-size_3-of-5 slds-text-heading_medium slds-m-around_x-small instructions">
+         <ul>
+            <li><strong>Programming Language & framework</strong>
+                  <ul class="slds-list_dotted"><li>e.g. Rails is notoriously memory hungry, Go is quite fast, Node is out of the box reactive</li></ul>
+            </li>
+            <li><strong>Application Design</strong>
+                  <ul class="slds-list_dotted"><li>Have you built your application to be a performant 12 Factor app?</li></ul>
+            </li>        
+            <li><strong>Database Requirements</strong>
+                  <ul class="slds-list_dotted"><li>Are you moving large amounts of data around for processing?</li></ul>
+            </li>   
+            </li>        
+            <li><strong>Calling Other Services</strong>
+                  <ul class="slds-list_dotted"><li>Does the application use blocking calls to other external services?</li></ul>
+            </li>               
+         </ul>
+   </div>
+   <div class="slds-size_3-of-5 slds-align_absolute-center instructions">
+         <button class="slds-button slds-button_neutral" id="agree">I Agree, Performance is Not a Factor of the Platform</button>
+   </div>
    <div class="slds-size_1-of-1 slds-box slds-hide">
       Results:<br />
       Dyno Type : <span id="dyno"></span><br />
@@ -40,8 +65,8 @@
       Data Addons : <span id="data-addons"></span><br />
       Partner Addons : <span id="partner-addons"></span><br />
    </div>
-   <div class="slds-form slds-form_horizontal slds-size_2-of-5 ">
-      <!-- <div class="slds-form-element slds-m-bottom_small">
+   <div class="slds-form slds-form_horizontal slds-size_3-of-5 slds-hide calculator">
+      <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label tooltip">
             Programming Language
             <span class="tooltiptext">
@@ -110,7 +135,7 @@
                </span>               
             </div>            
          </div>
-      </div>   -->
+      </div> 
       <div class="slds-form-element slds-m-bottom_small">
          <label class="slds-form-element__label tooltip" for="private-space">
             Private Space
@@ -281,6 +306,12 @@
 <script type="text/javascript">
    $(document).ready(function() {
       updateSelectOptions();
+
+      $("#agree").click(function() {
+            $(".instructions").addClass('slds-hide');
+            $(".calculator").removeClass('slds-hide');
+      })
+
       $("#private-space").change(function() {
          $("#shield").prop('checked', false);
          updateSelectOptions();
