@@ -38,7 +38,7 @@
          <a href="https://devcenter.heroku.com/articles/optimizing-dyno-usage">performance of anything deployed to Heroku</a> is dependent on many things including the code you are running, the problem you are solving for and the amount of data you are moving around. 
          Some factors that are totally independent of the Heroku resource that will infuence performance: 
    </div>
-   <div class="slds-size_3-of-5 slds-text-heading_medium slds-m-around_x-small instructions">
+   <div class="slds-size_3-of-5 slds-text-heading_medium slds-m-around_x-small instructions slds-align_absolute-center">
          <ul>
             <li><strong>Programming Language & framework</strong>
                   <ul class="slds-list_dotted"><li>e.g. Rails is notoriously memory hungry, Go is quite fast, Node is out of the box reactive</li></ul>
@@ -55,9 +55,31 @@
             </li>               
          </ul>
    </div>
-   <div class="slds-size_3-of-5 slds-align_absolute-center instructions slds-m-top_large">
-         <button class="slds-button slds-button_neutral slds-text-heading_large" id="agree">
-               I understand that this is an ESTIMATE only</button>
+  </div>
+<div class="slds-grid slds-wrap"> 
+   <div class="slds-form slds-form_horizontal slds-size_1-of-1 instructions slds-m-top_large slds-align_absolute-center">
+		<div class="slds-size_3-of-5 slds-m-right_xx-large">
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label" for="pae-name">
+					Your Name
+				</label>             
+				<div class="slds-form-element__control">
+					<input type="text" id="pae-name" class="slds-input calc-field" placeholder="Your Name">
+				</div> 
+			</div>  
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label" for="customer-name">
+					Customer Name
+				</label>             
+				<div class="slds-form-element__control">
+					<input type="text" id="customer-name" class="slds-input calc-field" placeholder="Customer Name">
+				</div> 
+			</div>  
+		</div>
+		<div class="slds-size_1-of-1 slds-align_absolute-center"></div>
+			<button class="slds-button slds-button_neutral slds-text-heading_large" id="agree">
+				I understand that this is an ESTIMATE only</button>
+		</div>
    </div>
    <div class="slds-size_1-of-1 slds-box slds-hide">
       Results:<br />
@@ -66,247 +88,255 @@
       Data Addons : <span id="data-addons"></span><br />
       Partner Addons : <span id="partner-addons"></span><br />
    </div>
-   <div class="slds-form slds-form_horizontal slds-size_3-of-5 slds-hide calculator">
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label tooltip">
-            Programming Language
-            <span class="tooltiptext">
-               Selecting the programming language that is going to be used for app development allows us to guess at the concurrency that the app will have. i.e. how many threads it can run.
-            </span>
-         </label>               
-         <div class="slds-form-element__control">
-            <div class="slds-radio_button-group">
-               <span class="slds-button slds-radio_button">
-                  <input type="radio" name="radio" id="java" value="java" class="calc-field"/>
-                  <label class="slds-radio_button__label langBtn" for="java">
-                     <img src="/images/java.png" width="20px" class="slds-p-left_xx-small"/>
-                     <span class="slds-radio_faux">Java</span>
-                  </label>
-               </span>
-               <span class="slds-button slds-radio_button">
-                  <input type="radio" name="radio" id="golang" value="golang" class="calc-field" />
-                  <label class="slds-radio_button__label langBtn" for="golang">
-                     <img src="/images/go.png" width="20px" class="slds-p-left_xx-small"/>                     
-                     <span class="slds-radio_faux">Go</span>
-                  </label>
-               </span>               
-               <span class="slds-button slds-radio_button">
-                  <input type="radio" name="radio" id="ruby" value="ruby" class="calc-field">
-                  <label class="slds-radio_button__label langBtn" for="ruby">
-                     <img src="/images/ruby.png" width="20px" class="slds-p-left_xx-small"/>   
-                     <span class="slds-radio_faux">Ruby</span>
-                  </label>
-               </span>
-               <span class="slds-button slds-radio_button">
-                  <input type="radio" name="radio" id="clojure" value="clojure" class="calc-field">
-                  <label class="slds-radio_button__label langBtn" for="clojure">
-                     <img src="/images/clojure.png" width="20px" class="slds-p-left_xx-small"/>
-                     <span class="slds-radio_faux">Clojure</span>
-                  </label>
-               </span>               
-            </div>
-            <div class="slds-radio_button-group slds-m-top_xx-small">
-               <span class="slds-button slds-radio_button">
-                  <input type="radio" name="radio" id="node" value="node" class="calc-field"/>
-                  <label class="slds-radio_button__label langBtn" for="node">
-                     <img src="/images/js.png" width="20px" class="slds-p-left_xx-small"/>
-                     <span class="slds-radio_faux">Node</span>
-                  </label>
-               </span>
-               <span class="slds-button slds-radio_button">
-                  <input type="radio" name="radio" id="php" value="php" class="calc-field"/>
-                  <label class="slds-radio_button__label langBtn" for="php">
-                     <img src="/images/php.png" width="20px" class="slds-p-left_xx-small"/>                     
-                     <span class="slds-radio_faux">PHP</span>
-                  </label>
-               </span>               
-               <span class="slds-button slds-radio_button">
-                  <input type="radio" name="radio" id="python" value="python" class="calc-field">
-                  <label class="slds-radio_button__label langBtn" for="python">
-                     <img src="/images/python.png" width="20px" class="slds-p-left_xx-small"/>   
-                     <span class="slds-radio_faux">Python</span>
-                  </label>
-               </span>
-               <span class="slds-button slds-radio_button">
-                  <input type="radio" name="radio" id="scala" value="scala" class="calc-field">
-                  <label class="slds-radio_button__label langBtn" for="scala">
-                     <img src="/images/scala.png" width="20px" class="slds-p-left_xx-small"/>
-                     <span class="slds-radio_faux">Scala</span>
-                  </label>
-               </span>               
-            </div>            
-         </div>
-      </div> 
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label tooltip" for="private-space">
-            Private Space
-            <span class="tooltiptext">
-               A <a href="https://devcenter.heroku.com/articles/private-spaces" target="_blank">Private Space</a> is required if you are going to be running your apps in Sydney, Tokyo, Frankfurt, Oregon or Dublin
-            </span>            
-         </label>
-         <div class="slds-form-element__control">
-               <input type="checkbox" id="private-space" value="yes" class="calc-field">
-         </div>
-      </div>
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label tooltip" for="shield">
-            Shield
-            <span class="tooltiptext">
-               <a href="https://devcenter.heroku.com/articles/private-spaces#shield-private-spaces" target="_blank">Shield</a> is only necessary for apps that require HIPPA level compliance.
-            </span>   
-         </label>
-         <div class="slds-form-element__control">
-               <input type="checkbox" id="shield" class="calc-field">
-         </div>
-      </div>          
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label tooltip" for="requests-per-day">
-            Average Requests per day
-            <span class="tooltiptext">
-               How many customer requests per day will this application be handling? This should be an average as Heroku can autoscale to handle the high water mark.
-            </span>              
-         </label>             
-         <div class="slds-form-element__control">
-            <input type="text" id="requests-per-day" class="slds-input calc-field" placeholder="Enter a number">
-         </div> 
-      </div>  
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label tooltip" for="time-per-request">
-            <abbr class="slds-required" title="required">*</abbr>Time per Request (ms)
-            <span class="tooltiptext">
-               It is important to have an understanding of just how long a request might take to respond to the user. This number helps us determine how many dynos are required to meet the requests per second load.
-            </span>             
-         </label>             
-         <div class="slds-form-element__control">
-            <input type="text" id="time-per-request" class="slds-input calc-field" placeholder="Enter a number">
-         </div> 
-      </div>  
-      <div class="slds-form-element slds-m-bottom_small">
-            <label class="slds-form-element__label tooltip" for="dyno-type">
-               Dyno Type
-               <span class="tooltiptext">
-                  What size of <a href="https://devcenter.heroku.com/articles/heroku-enterprise#available-dyno-types" target="_blank">dyno</a> is required? If unknown, we will attempt to determine the best fit for your expected load.
-               </span>                  
-            </label>
-            <div class="slds-form-element__control">
-               <div class="slds-select_container">
-                  <select class="slds-select calc-field" id="dyno-type">
-                     <option disabled selected value> -- select an option -- </option>
-                  </select>
-               </div>
-            </div>
-      </div>   
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label tooltip" for="workers">
-            Workers
-            <span class="tooltiptext">
-               It is quite common in Heroku to deploy apps using the <a href="https://devcenter.heroku.com/articles/background-jobs-queueing" target="_blank">Web/Worker</a> pattern.
-            </span>              
-         </label>
-         <div class="slds-form-element__control">
-               <input type="checkbox" id="workers">
-         </div>
-      </div> 
-      <div id="number-of-workers-input" class="slds-form-element slds-m-bottom_small  slds-hide">
-         <label class="slds-form-element__label tooltip" for="number-of-workers">
-            Number of Workers
-            <span class="tooltiptext">
-               This calculator will assume smallest production dyno for Workers. i.e. In the common runtime this would be a Performance-M dyno, in a Private Space it will be Private-S.
-            </span>             
-         </label>             
-         <div class="slds-form-element__control">
-            <input type="text" id="number-of-workers" class="slds-input calc-field" placeholder="Enter a number">
-         </div> 
-      </div>       
-
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label tooltip" for="postgres-size">
-            Size of Database
-            <span class="tooltiptext">
-               The size of the database in GB. This is not the only consideration when looking at <a href="https://devcenter.heroku.com/articles/heroku-postgres-plans" target="_blank">Postgres Plans</a>, but a good starting point. If you are looking at this option for Heroku Connect database sizing, then the size of the data in Salesforce would be an indication. 
-            </span>               
-         </label>             
-         <div class="slds-form-element__control">
-            <input type="text" id="postgres-size" class="slds-input calc-field" placeholder="Enter a number">
-         </div> 
-      </div>      
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label tooltip" for="heroku-connect">
-            Heroku Connect
-            <span class="tooltiptext">
-               <a href="https://devcenter.heroku.com/articles/heroku-connect" target="_blank">Heroku Connect</a> performs two functions. It will syncrhonise Salesforce data in a Postgres database AND it will also expose Postgres data tables and views as oData endpoints for consumption by services like <a href="https://help.salesforce.com/articleView?id=platform_connect_about.htm&r=https%3A%2F%2Fwww.google.com.au%2F&type=0" target="_blank">Salesforce Connect</a>
-            </span>
-         </label>
-         <div class="slds-form-element__control">
-               <input type="checkbox" id="heroku-connect">
-         </div>
-      </div> 
-      <div id="heroku-connect-input" class="slds-form-element slds-m-bottom_medium slds-hide">
-         <label class="slds-form-element__label tooltip" for="heroku-connect-rows">
-            Number of Rows
-            <span class="tooltiptext">
-               Connect is priced by number of records that are "under sync". This is the total of how many records are in each Salesforce table you wish to sync.
-            </span>               
-         </label>             
-         <div class="slds-form-element__control">
-            <input type="text" id="heroku-connect-rows" class="slds-input calc-field" placeholder="Enter a number">
-         </div> 
-      </div>    
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label tooltip" for="kafka">
-            Kafka
-            <span class="tooltiptext">
-               Apache Kafka on Heroku is an event bus that can be used for a number of different integration use cases. See the <a href="https://devcenter.heroku.com/articles/kafka-on-heroku#plans-and-configurations" target="_blank">documentation</a> for the details on which plans fit.
-            </span>  
-         </label>
-         <div class="slds-form-element__control">
-               <input type="checkbox" id="kafka" >
-         </div>
-      </div>    
-      <div id="kafka-plans-select" class="slds-form-element slds-m-bottom_small slds-hide">
-            <label class="slds-form-element__label" for="kafka-plan">Kafka Plan</label>
-            <div class="slds-form-element__control">
-               <div class="slds-select_container">
-                  <select class="slds-select calc-field" id="kafka-plan">
-                     <option disabled selected value> -- select an option -- </option>
-                  </select>
-               </div>
-            </div>
-      </div>             
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label tooltip" for="addons">
-            AddOns
-            <span class="tooltiptext">
-               <a href="https://devcenter.heroku.com/articles/heroku-enterprise#add-on-credits" target="_blank">Addons</a> are purchased in blocks of $1000 per month and can be used for an of the addons that exist. e.g. you might want $300 or Papertrail and $600 of CloudAMQP = $900 worth of addons = 1 addon credit. 
-            </span>              
-         </label>             
-         <div class="slds-form-element__control">
-            <input type="text" id="addons" class="slds-input calc-field" placeholder="Enter a number">
-         </div> 
-      </div>  
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label" for="staging-env">
-            Number of Staging Environments
-         </label>             
-         <div class="slds-form-element__control">
-            <input type="text" id="staging-env" class="slds-input calc-field" placeholder="Enter a number">
-         </div> 
-      </div>    
-      <div class="slds-form-element slds-m-bottom_small">
-         <label class="slds-form-element__label" for="developer-env">
-            Number of Developer Environments
-         </label>             
-         <div class="slds-form-element__control">
-            <input type="text" id="developer-env" class="slds-input calc-field" placeholder="Enter a number">
-         </div> 
-      </div>                                                      
-   </div>
+   <div class="slds-grid slds-wrap slds-align_absolute-center slds-hide calculator">
+		<div class="slds-form slds-form_horizontal slds-size_3-of-5 slds-m-right_xx-large">
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label tooltip">
+					Programming Language
+					<span class="tooltiptext">
+						Selecting the programming language that is going to be used for app development allows us to guess at the concurrency that the app will have. i.e. how many threads it can run.
+					</span>
+				</label>               
+				<div class="slds-form-element__control">
+					<div class="slds-radio_button-group">
+						<span class="slds-button slds-radio_button">
+							<input type="radio" name="radio" id="java" value="java" class="calc-field"/>
+							<label class="slds-radio_button__label langBtn" for="java">
+								<img src="/images/java.png" width="20px" class="slds-p-left_xx-small"/>
+								<span class="slds-radio_faux">Java</span>
+							</label>
+						</span>
+						<span class="slds-button slds-radio_button">
+							<input type="radio" name="radio" id="golang" value="golang" class="calc-field" />
+							<label class="slds-radio_button__label langBtn" for="golang">
+								<img src="/images/go.png" width="20px" class="slds-p-left_xx-small"/>                     
+								<span class="slds-radio_faux">Go</span>
+							</label>
+						</span>               
+						<span class="slds-button slds-radio_button">
+							<input type="radio" name="radio" id="ruby" value="ruby" class="calc-field">
+							<label class="slds-radio_button__label langBtn" for="ruby">
+								<img src="/images/ruby.png" width="20px" class="slds-p-left_xx-small"/>   
+								<span class="slds-radio_faux">Ruby</span>
+							</label>
+						</span>
+						<span class="slds-button slds-radio_button">
+							<input type="radio" name="radio" id="clojure" value="clojure" class="calc-field">
+							<label class="slds-radio_button__label langBtn" for="clojure">
+								<img src="/images/clojure.png" width="20px" class="slds-p-left_xx-small"/>
+								<span class="slds-radio_faux">Clojure</span>
+							</label>
+						</span>               
+					</div>
+					<div class="slds-radio_button-group slds-m-top_xx-small">
+						<span class="slds-button slds-radio_button">
+							<input type="radio" name="radio" id="node" value="node" class="calc-field"/>
+							<label class="slds-radio_button__label langBtn" for="node">
+								<img src="/images/js.png" width="20px" class="slds-p-left_xx-small"/>
+								<span class="slds-radio_faux">Node</span>
+							</label>
+						</span>
+						<span class="slds-button slds-radio_button">
+							<input type="radio" name="radio" id="php" value="php" class="calc-field"/>
+							<label class="slds-radio_button__label langBtn" for="php">
+								<img src="/images/php.png" width="20px" class="slds-p-left_xx-small"/>                     
+								<span class="slds-radio_faux">PHP</span>
+							</label>
+						</span>               
+						<span class="slds-button slds-radio_button">
+							<input type="radio" name="radio" id="python" value="python" class="calc-field">
+							<label class="slds-radio_button__label langBtn" for="python">
+								<img src="/images/python.png" width="20px" class="slds-p-left_xx-small"/>   
+								<span class="slds-radio_faux">Python</span>
+							</label>
+						</span>
+						<span class="slds-button slds-radio_button">
+							<input type="radio" name="radio" id="scala" value="scala" class="calc-field">
+							<label class="slds-radio_button__label langBtn" for="scala">
+								<img src="/images/scala.png" width="20px" class="slds-p-left_xx-small"/>
+								<span class="slds-radio_faux">Scala</span>
+							</label>
+						</span>               
+					</div>            
+				</div>
+			</div> 
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label tooltip" for="private-space">
+					Private Space
+					<span class="tooltiptext">
+						A <a href="https://devcenter.heroku.com/articles/private-spaces" target="_blank">Private Space</a> is required if you are going to be running your apps in Sydney, Tokyo, Frankfurt, Oregon or Dublin
+					</span>            
+				</label>
+				<div class="slds-form-element__control">
+						<input type="checkbox" id="private-space" value="yes" class="calc-field">
+				</div>
+			</div>
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label tooltip" for="shield">
+					Shield
+					<span class="tooltiptext">
+						<a href="https://devcenter.heroku.com/articles/private-spaces#shield-private-spaces" target="_blank">Shield</a> is only necessary for apps that require HIPPA level compliance.
+					</span>   
+				</label>
+				<div class="slds-form-element__control">
+						<input type="checkbox" id="shield" class="calc-field">
+				</div>
+			</div>          
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label tooltip" for="requests-per-day">
+					Average Requests per day
+					<span class="tooltiptext">
+						How many customer requests per day will this application be handling? This should be an average as Heroku can autoscale to handle the high water mark.
+					</span>              
+				</label>             
+				<div class="slds-form-element__control">
+					<input type="text" id="requests-per-day" class="slds-input calc-field" placeholder="Enter a number">
+				</div> 
+			</div>  
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label tooltip" for="time-per-request">
+					<abbr class="slds-required" title="required">*</abbr>Time per Request (ms)
+					<span class="tooltiptext">
+						It is important to have an understanding of just how long a request might take to respond to the user. This number helps us determine how many dynos are required to meet the requests per second load.
+					</span>             
+				</label>             
+				<div class="slds-form-element__control">
+					<input type="text" id="time-per-request" class="slds-input calc-field" placeholder="Enter a number">
+				</div> 
+			</div>  
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label tooltip" for="dyno-type">
+					Dyno Type
+					<span class="tooltiptext">
+						What size of <a href="https://devcenter.heroku.com/articles/heroku-enterprise#available-dyno-types" target="_blank">dyno</a> is required? If unknown, we will attempt to determine the best fit for your expected load.
+					</span>                  
+				</label>
+				<div class="slds-form-element__control">
+					<div class="slds-select_container">
+						<select class="slds-select calc-field" id="dyno-type">
+							<option disabled selected value> -- select an option -- </option>
+						</select>
+					</div>
+				</div>
+			</div>   
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label tooltip" for="workers">
+					Workers
+					<span class="tooltiptext">
+						It is quite common in Heroku to deploy apps using the <a href="https://devcenter.heroku.com/articles/background-jobs-queueing" target="_blank">Web/Worker</a> pattern.
+					</span>              
+				</label>
+				<div class="slds-form-element__control">
+						<input type="checkbox" id="workers">
+				</div>
+			</div> 
+			<div id="number-of-workers-input" class="slds-form-element slds-m-bottom_small  slds-hide">
+				<label class="slds-form-element__label tooltip" for="number-of-workers">
+					Number of Workers
+					<span class="tooltiptext">
+						This calculator will assume smallest production dyno for Workers. i.e. In the common runtime this would be a Performance-M dyno, in a Private Space it will be Private-S.
+					</span>             
+				</label>             
+				<div class="slds-form-element__control">
+					<input type="text" id="number-of-workers" class="slds-input calc-field" placeholder="Enter a number">
+				</div> 
+			</div>       
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label tooltip" for="postgres-size">
+					Size of Database
+					<span class="tooltiptext">
+						The size of the database in GB. This is not the only consideration when looking at <a href="https://devcenter.heroku.com/articles/heroku-postgres-plans" target="_blank">Postgres Plans</a>, but a good starting point. If you are looking at this option for Heroku Connect database sizing, then the size of the data in Salesforce would be an indication. 
+					</span>               
+				</label>             
+				<div class="slds-form-element__control">
+					<input type="text" id="postgres-size" class="slds-input calc-field" placeholder="Enter a number">
+				</div> 
+			</div>      
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label tooltip" for="heroku-connect">
+					Heroku Connect
+					<span class="tooltiptext">
+						<a href="https://devcenter.heroku.com/articles/heroku-connect" target="_blank">Heroku Connect</a> performs two functions. It will syncrhonise Salesforce data in a Postgres database AND it will also expose Postgres data tables and views as oData endpoints for consumption by services like <a href="https://help.salesforce.com/articleView?id=platform_connect_about.htm&r=https%3A%2F%2Fwww.google.com.au%2F&type=0" target="_blank">Salesforce Connect</a>
+					</span>
+				</label>
+				<div class="slds-form-element__control">
+						<input type="checkbox" id="heroku-connect">
+				</div>
+			</div> 
+			<div id="heroku-connect-input" class="slds-form-element slds-m-bottom_medium slds-hide">
+				<label class="slds-form-element__label tooltip" for="heroku-connect-rows">
+					Number of Rows
+					<span class="tooltiptext">
+						Connect is priced by number of records that are "under sync". This is the total of how many records are in each Salesforce table you wish to sync.
+					</span>               
+				</label>             
+				<div class="slds-form-element__control">
+					<input type="text" id="heroku-connect-rows" class="slds-input calc-field" placeholder="Enter a number">
+				</div> 
+			</div>    
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label tooltip" for="kafka">
+					Kafka
+					<span class="tooltiptext">
+						Apache Kafka on Heroku is an event bus that can be used for a number of different integration use cases. See the <a href="https://devcenter.heroku.com/articles/kafka-on-heroku#plans-and-configurations" target="_blank">documentation</a> for the details on which plans fit.
+					</span>  
+				</label>
+				<div class="slds-form-element__control">
+						<input type="checkbox" id="kafka" >
+				</div>
+			</div>    
+			<div id="kafka-plans-select" class="slds-form-element slds-m-bottom_small slds-hide">
+					<label class="slds-form-element__label" for="kafka-plan">Kafka Plan</label>
+					<div class="slds-form-element__control">
+						<div class="slds-select_container">
+							<select class="slds-select calc-field" id="kafka-plan">
+								<option disabled selected value> -- select an option -- </option>
+							</select>
+						</div>
+					</div>
+			</div>             
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label tooltip" for="addons">
+					AddOns
+					<span class="tooltiptext">
+						<a href="https://devcenter.heroku.com/articles/heroku-enterprise#add-on-credits" target="_blank">Addons</a> are purchased in blocks of $1000 per month and can be used for an of the addons that exist. e.g. you might want $300 or Papertrail and $600 of CloudAMQP = $900 worth of addons = 1 addon credit. 
+					</span>              
+				</label>             
+				<div class="slds-form-element__control">
+					<input type="text" id="addons" class="slds-input calc-field" placeholder="Enter a number">
+				</div> 
+			</div>  
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label" for="staging-env">
+					Number of Staging Environments
+				</label>             
+				<div class="slds-form-element__control">
+					<input type="text" id="staging-env" class="slds-input calc-field" placeholder="Enter a number">
+				</div> 
+			</div>    
+			<div class="slds-form-element slds-m-bottom_small">
+				<label class="slds-form-element__label" for="developer-env">
+					Number of Developer Environments
+				</label>             
+				<div class="slds-form-element__control">
+					<input type="text" id="developer-env" class="slds-input calc-field" placeholder="Enter a number">
+				</div> 
+			</div>  
+			<div class="slds-form-element slds-m-bottom_small slds-align_absolute-center">
+					<button id="calculate" class="slds-button slds-button_neutral">Calculate</button>
+			</div> 
+		</div>  
+	</div>                                                 
 
 </div>
 
 <script type="text/javascript">
    $(document).ready(function() {
       updateSelectOptions();
+
+      $("#calculate").click(function() {
+
+      });
 
       $("#agree").click(function() {
             $(".instructions").addClass('slds-hide');
@@ -353,6 +383,19 @@
          // assumption is for an app that takes 1 second to return, these are good guidelines for amount of requests that a dyno could handle
 
          /*
+
+		Concurrency defaults
+		PHP - 1x:4, 2x:8, pm:20, pl:48,
+		Node - 1x:1, 2x:2, pm:5, pl:28,
+		Ruby - 1x:2, 2x:4, pm:8, pl:16,
+		Clojure - ?,
+		Go - ?
+		Python - 1x:2, 2x:4, pm:8, pl:11
+		Scala - ?
+		Java - ?
+
+
+
          var requestsPerSecond = {
                "java" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
                "ruby" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
@@ -365,8 +408,17 @@
          }; */
 
          var requestPerSecond = {"1x" : 30, "2x" : 50, "performance-m" : 250, "performance-l" : 500, "private-s" : 50, "private-m" : 250, "private-l" : 500, "shield-m" : 250, "shield-l" : 500}
-
-         // var language = $("input:radio[name ='radio']:checked").val();
+		var concurrency = {
+               "java" : {"1x" : 1, "2x" : 1, "performance-m": 1, "performance-l" : 1, "private-s": 1, "private-m": 1, "private-l" : 1, "shield-m": 1, "shield-l":1},
+               "ruby" : {"1x" : 2, "2x" : 4, "performance-m": 8, "performance-l" : 16, "private-s": 4, "private-m": 8, "private-l" : 16, "shield-m": 8, "shield-l":16},
+               "clojure" : {"1x" : 1, "2x" :1, "performance-m": 1, "performance-l" : 1, "private-s": 1, "private-m": 1, "private-l" : 1, "shield-m": 1, "shield-l":1},
+               "python" : {"1x" : 2, "2x" : 4, "performance-m": 8, "performance-l" : 11, "private-s": 4, "private-m": 8, "private-l" : 11,  "shield-m": 8, "shield-l":11},
+               "node" : {"1x" : 1, "2x" : 2, "performance-m": 5, "performance-l" : 28, "private-s": 2, "private-m": 5, "private-l" : 28,  "shield-m": 5, "shield-l":28},
+               "golang" : {"1x" : 1, "2x" : 1, "performance-m": 1, "performance-l" : 1, "private-s": 1, "private-m": 1, "private-l" : 1, "shield-m": 1, "shield-l":1},
+               "scala" : {"1x" : 1, "2x" : 1, "performance-m": 1, "performance-l" : 1, "private-s": 1, "private-m": 1, "private-l" : 1, "shield-m": 1, "shield-l":1},
+               "php" : {"1x" : 4, "2x" : 8, "performance-m": 20, "performance-l" : 48, "private-s": 8, "private-m": 20, "private-l" : 48, "shield-m": 20, "shield-l":48}
+		}
+         var language = $("input:radio[name ='radio']:checked").val();
          var privateSpace = $("#private-space").prop('checked');
          var shield = $("#shield").prop('checked');
          var reqPerDay = testNumber($("#requests-per-day"));
@@ -389,10 +441,12 @@
          var connectRows;
          var partnerAddons;
 
-         if(dynoType && reqPerDay && timePerRequest) {
+         if(language && dynoType && reqPerDay && timePerRequest) {
             console.log('can calculate dyno loads');
 
-            var rps = requestPerSecond[dynoType];
+			var langConcurrency = concurrency[langauge];
+			var webConccurrency = langConcurrency[dynoType];
+			alert(`we have ${webConccurrency} for this language and dyno type`); 
             
          } 
          if(herokuConnect) {
