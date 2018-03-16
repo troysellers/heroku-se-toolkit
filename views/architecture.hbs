@@ -1,78 +1,103 @@
 
+<!--
+	Architecture diagrams and content are stored in architectures.json
+-->
 <div class="slds-grid slds-wrap">
-   <div class="slds-size_1-of-1 slds-col_bump-left slds-text-align_right">
-      <a href="javascript:topics('architecture');" class="slds-text-link_reset">TOPICS</a> | <a href="javascript:slides('architecture');" class="slds-text-link_reset">SLIDES</a>
-   </div>
-   <div id="topics" class="slds-size_1-of-1 slds-align_absolute-center slds-grid slds-wrap">
-         <div class="slds-size_1-of-1 slds-grid slds-wrap slds-size_4-of-5 slds-text-heading_medium slds-m-around_large">
-               Provided here are a few of the common use cases we see of customers using both Salesforce and Heroku together. This is a collection of possibilities, not a collection of "Must Do" type suggestions. Behind each of the descriptions is an accompanying architecture drawing, it is hoped that this is used to foster discussion about how to build the solution for your problem. Remeber, Heroku is a platform for developers and as such can be used to solve all sorts of interesting challenges, not just those listed here!
-         </div>
-      <div class="slds-size_1-of-1 slds-grid slds-wrap slds-size_4-of-5  slds-grid_vertical-stretch">
+	<div class="slds-size_1-of-1 slds-col_bump-left slds-text-align_right">
+		<a href="javascript:topics('architecture');" class="slds-text-link_reset">TOPICS</a> | <a href="javascript:slides('architecture');" class="slds-text-link_reset">SLIDES</a>
+	</div>
+	<div id="topics" class="slds-size_1-of-1 slds-align_absolute-center slds-grid slds-wrap">
+		<div class="slds-size_1-of-1 slds-grid slds-wrap slds-size_4-of-5 slds-text-heading_medium slds-m-around_large">
+			Provided here are a few of the common use cases we see of customers using both Salesforce and Heroku together. This is a collection of possibilities, not a collection of "Must Do" type suggestions. Behind each of the descriptions is an accompanying architecture drawing, it is hoped that this is used to foster discussion about how to build the solution for your problem. Remeber, Heroku is a platform for developers and as such can be used to solve all sorts of interesting challenges, not just those listed here!
+		</div>
+		<div class="slds-size_1-of-1 slds-grid slds-wrap slds-size_4-of-5  slds-grid_vertical-stretch ">
 
-         {{#each architectures}}
-            <a class="slds-box slds-box_link slds-box_x-small slds-col slds-m-around_small slds-size_1-of-4 clickable-box" data-title="{{this.title}}" data-drawing="{{this.drawing}}">
-               <div class="slds-align_absolute-center slds-text-heading_medium slds-border_bottom slds-p-bottom_x-small">
-                  <p>{{this.title}}</p>
-               </div>
-               <div class="slds-media slds-m-top_medium">
-                  <p>{{this.description}}</p>
-               </div>
-            </a>
-         {{/each}}
+			{{#each architectures}}
+				<a class="slds-box slds-box_link slds-box_x-small slds-col slds-m-around_small slds-size_1-of-4 clickable-box usecase" data-title="{{this.title}}" data-drawing="{{this.drawing}}">
+					<div class="slds-align_absolute-center slds-text-heading_medium slds-border_bottom slds-p-bottom_x-small">
+						<p>{{this.title}}</p>
+					</div>
+					<div class="slds-media slds-m-top_medium content">
+						<p class="archTxt slds-hide">{{this.description}}</p>
+						<p class="archImg"><img src="{{this.drawing}}"/></p>
+					</div>
+				</a>
+			{{/each}}
 
-      </div>
-   </div>
-   <div id="slides" class="slds-size_1-of-1" style="display:none;">
-      <div class="slds-size_1-of-1 slds-align_absolute-center" >
-         <iframe src="https://docs.google.com/a/salesforce.com/presentation/d/e/2PACX-1vQprl9rabGRneNoPbYE2argpG-y3bpdNPp-KcjwMYlNaInfkfgmDBWVSyUJgWCQmMo-BJRYB01SSRrh/embed?start=true&loop=true&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-      </div>
-      <div class="slds-size_1-of-1 slds-align_absolute-center" >
-         Not seeing slides? Perhaps you need to authenticate to your Salesforce &nbsp;<a href="https://drive.google.com/drive/u/0/" target="_blank">GDrive</a>
-      </div>
-</div>
+		</div>
+	</div>
+	<div id="slides" class="slds-size_1-of-1" style="display:none;">
+		<div class="slds-size_1-of-1 slds-align_absolute-center" >
+			<iframe src="https://docs.google.com/a/salesforce.com/presentation/d/e/2PACX-1vQprl9rabGRneNoPbYE2argpG-y3bpdNPp-KcjwMYlNaInfkfgmDBWVSyUJgWCQmMo-BJRYB01SSRrh/embed?start=true&loop=true&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+		</div>
+		<div class="slds-size_1-of-1 slds-align_absolute-center" >
+			Not seeing slides? Perhaps you need to authenticate to your Salesforce &nbsp;<a href="https://drive.google.com/drive/u/0/" target="_blank">GDrive</a>
+		</div>
+	</div>
 
-<div id="architectureModal" style="display:none;">
-   <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-modal_large slds-fade-in-open">
-      <div class="slds-modal__container">
-         <header class="slds-modal__header">
-            <button id="arch-modal-close-btn" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
-               <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
-                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
-               </svg>
-               <span class="slds-assistive-text">Close</span>
-            </button>
-            <h2 id="arch-modal-heading" class="slds-text-heading_medium slds-hyphenate">SOME TITLE</h2>
-         </header>
+	<div id="architectureModal" style="display:none;">
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-describedby="modal-content-id-1" class="slds-modal slds-modal_large slds-fade-in-open">
+			<div class="slds-modal__container">
+				<header class="slds-modal__header">
+					<button id="arch-modal-close-btn" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+						<svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+							<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+						</svg>
+						<span class="slds-assistive-text">Close</span>
+					</button>
+					<h2 id="arch-modal-heading" class="slds-text-heading_medium slds-hyphenate">SOME TITLE</h2>
+				</header>
 
-         <div class="slds-modal__content slds-p-vertical_medium" id="modal-content-id-1">
-            <div id="arch-modal-content" class="slds-grid slds-wrap slds-grid_vertical-stretch slds-align_absolute-center">
-               SOME CONTENT
-            </div>       
-         </div>
-      </div>
-   </section>
-   <div class="slds-backdrop slds-backdrop_open"></div>
+				<div class="slds-modal__content slds-p-vertical_medium" id="modal-content-id-1">
+					<div id="arch-modal-content" class="slds-grid slds-wrap slds-grid_vertical-stretch slds-align_absolute-center">
+						SOME CONTENT
+					</div>       
+				</div>
+			</div>
+		</section>
+	<div class="slds-backdrop slds-backdrop_open"></div>
 </div>  
 
 <script type="text/javascript">
-   $(document).ready(function(){
+	$(document).ready(function(){
+		/*
+			Bind function to arch box that displays image in large scale modal
+		*/
+		$("a[class~=clickable-box]").click(function() {
+			$("#arch-modal-heading").html($(this).data('title'));
+			$("#arch-modal-content").html('<img src="'+$(this).data('drawing')+'" />');
+			ga('send', 'event', $(this).data('title'), 'show drawing');
+			toggleArchModal();
+		});
+		/*
+			Function to close the modal
+		*/
+		$("#arch-modal-close-btn").click(function() {
+			toggleArchModal();
+		});
+		/*
+			Function to display description text on mouseover of small
+			architecture image
+		*/
+		$("a[class ~= 'usecase']").hover(function (evt) {
+			//console.log(JSON.stringify(evt));
+			 
+			var elements = $(this).children('div[class ~= "content"]').children();
+			console.log(`we have ${elements.length}`);
+			if(evt.type === 'mouseenter') {
+				$(elements[0]).show();
+				$(elements[1]).hide();
+			} else {
+				$(elements[0]).hide();
+				$(elements[1]).show();
+			}
+		});
 
-      $("a[class~=clickable-box]").click(function() {
+});
 
-         $("#arch-modal-heading").html($(this).data('title'));
-         $("#arch-modal-content").html('<img src="'+$(this).data('drawing')+'" />');
-         ga('send', 'event', $(this).data('title'), 'show drawing');
-         toggleArchModal();
-      });
-
-      $("#arch-modal-close-btn").click(function() {
-         toggleArchModal();
-      });
-   });
-
-   function toggleArchModal() {
-      $("#architectureModal").toggle();
-   }
+function toggleArchModal() {
+$("#architectureModal").toggle();
+}
 </script>
 
 
