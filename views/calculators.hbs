@@ -1,94 +1,64 @@
 
-<style>
-   .langBtn {
-      width:9em;
-   }
-.tooltip {
-    position: relative;
-    display: inline-block;
-}
+<style> 
+	.langBtn {
+		width:9em;
+	}
+	.tooltip {
+		position: relative;
+		display: inline-block;
+	}
 
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 250px;
-    background-color: #e0e5ee;
+	.tooltip .tooltiptext {
+		visibility: hidden;
+		width: 250px;
+		background-color: #e0e5ee;
+		text-align: center;
+		border-radius: 5px;
+		padding: 5px;
+		box-shadow: 0 0 3px #0070D2;
+		/* Position the tooltip */
+		position: absolute;
+		margin-left: -20em;
+		z-index: 1;
+	}
 
-    text-align: center;
-    border-radius: 5px;
-    padding: 5px;
-
-    box-shadow: 0 0 3px #0070D2;
-    /* Position the tooltip */
-    position: absolute;
-    margin-left: -20em;
-    z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-}   
+	.tooltip:hover .tooltiptext {
+		visibility: visible;
+	}   
 </style>
 
 <div class="slds-grid slds-wrap slds-align_absolute-center">
-   <div class="slds-size_1-of-1 slds-align_absolute-center slds-m-vertical_xx-large ">
-      <img src="/images/platform-simple-1400.png" width="600px" />
-   </div>
-   <div class="slds-size_3-of-5 slds slds-text-heading_medium slds-m-around_large">
-         This is a calculator that will help you estimate how much Heroku resource you might need for a particular application. Please be aware that the emphasis here is on the word <strong>"ESTIMATE"</strong>.
-         <a href="https://devcenter.heroku.com/articles/optimizing-dyno-usage">performance of anything deployed to Heroku</a> is dependent on many things including the code you are running, the problem you are solving for and the amount of data you are moving around. 
-         Some factors that are totally independent of the Heroku resource that will infuence performance: 
-   </div>
-   <div class="slds-size_3-of-5 slds-text-heading_medium slds-m-around_x-small instructions slds-align_absolute-center">
-         <ul>
-            <li><strong>Programming Language & framework</strong>
-                  <ul class="slds-list_dotted"><li>e.g. Rails is notoriously memory hungry, Go is quite fast, Node is out of the box reactive</li></ul>
-            </li>
-            <li><strong>Application Design</strong>
-                  <ul class="slds-list_dotted"><li>Have you built your application to be a performant 12 Factor app?</li></ul>
-            </li>        
-            <li><strong>Database Requirements</strong>
-                  <ul class="slds-list_dotted"><li>Are you moving large amounts of data around for processing?</li></ul>
-            </li>   
-            </li>        
-            <li><strong>Calling Other Services</strong>
-                  <ul class="slds-list_dotted"><li>Does the application use blocking calls to other external services?</li></ul>
-            </li>               
-         </ul>
-   </div>
-  </div>
-<div class="slds-grid slds-wrap"> 
-   <div class="slds-form slds-form_horizontal slds-size_1-of-1 instructions slds-m-top_large slds-align_absolute-center">
-		<div class="slds-size_3-of-5 slds-m-right_xx-large">
-			<div class="slds-form-element slds-m-bottom_small">
-				<label class="slds-form-element__label" for="pae-name">
-					Your Name
-				</label>             
-				<div class="slds-form-element__control">
-					<input type="text" id="pae-name" class="slds-input calc-field" placeholder="Your Name">
-				</div> 
-			</div>  
-			<div class="slds-form-element slds-m-bottom_small">
-				<label class="slds-form-element__label" for="customer-name">
-					Customer Name
-				</label>             
-				<div class="slds-form-element__control">
-					<input type="text" id="customer-name" class="slds-input calc-field" placeholder="Customer Name">
-				</div> 
-			</div>  
-		</div>
-		<div class="slds-size_1-of-1 slds-align_absolute-center"></div>
-			<button class="slds-button slds-button_neutral slds-text-heading_large" id="agree">
-				I understand that this is an ESTIMATE only</button>
-		</div>
-   </div>
-   <div class="slds-size_1-of-1 slds-box slds-hide">
-      Results:<br />
-      Dyno Type : <span id="dyno"></span><br />
-      Dyno Units : <span id="dyno-units"></span><br />
-      Data Addons : <span id="data-addons"></span><br />
-      Partner Addons : <span id="partner-addons"></span><br />
-   </div>
-   <div class="slds-grid slds-wrap slds-align_absolute-center slds-hide calculator">
+	<div class="slds-size_1-of-1 slds-align_absolute-center slds-m-vertical_xx-large ">
+		<img src="/images/platform-simple-1400.png" width="600px" />
+	</div>
+	<div class="slds-size_3-of-5 slds-text-heading_medium slds-m-around_large">
+		This is a calculator that will help you estimate how much Heroku resource you might need for a particular application. Please be aware that the emphasis here is on the word <strong>"ESTIMATE"</strong>.
+		<a href="https://devcenter.heroku.com/articles/optimizing-dyno-usage">performance of anything deployed to Heroku</a> is dependent on many things including the code you are running, the problem you are solving for and the amount of data you are moving around. 
+		<p>This best mechanism for accurate sizing is to load test your application under simulated production conditions and then calculate from there.</p>
+		<p>With that in mind...</p>
+	</div>
+</div>
+<div class="slds-grid slds-wrap slds-align_absolute-center"> 
+	<div class="slds-form slds-form_horizontal slds-size_1-of-1 instructions slds-m-top_large slds-align_absolute-center">
+		<button class="slds-button slds-button_neutral slds-text-heading_large" id="agree">
+			I understand that this is an ESTIMATE only
+		</button>
+	</div>
+	<div id="resultsDiv" class="slds-size_3-of-5 slds-box slds-m-bottom_x-large slds-hide">
+		Results:<br />
+		<span id="web-dynos">0</span> <span id="web-dyno-type">1x</span> web dynos <br />
+		<span id="worker-dynos">0</span> <span id="worker-dyno-type">1x</span> worker dynos <br />
+		- Heroku Enterprise line items - <br />
+		<strong><span id="dyno-units">0</span> dyno units required</strong> <br />
+		<span id="hc-skus">0</span> blocks of Heroku Connect <br />
+		<span id="data-addons">0</span> data addons <br />
+		<span id="partner-addons">0</span> partner addons <br />
+		<span id="spaces">0</span> Private Space(s) <br />
+		<p>
+			Using <span id="summary-web-dynos">0</span> web <span id="summary-web-dyno-type">1x</span> dynos will leave you with <span id="headroom"></span> requests per second headroom.
+		</p>
+	</div>
+	<div class="slds-grid slds-wrap slds-align_absolute-center slds-hide calculator">
 		<div class="slds-form slds-form_horizontal slds-size_3-of-5 slds-m-right_xx-large">
 			<div class="slds-form-element slds-m-bottom_small">
 				<label class="slds-form-element__label tooltip">
@@ -101,10 +71,10 @@
 					<div class="slds-radio_button-group">
 						<span class="slds-button slds-radio_button">
 							<input type="radio" name="radio" id="java" value="java" class="calc-field"/>
-							<label class="slds-radio_button__label langBtn" for="java">
-								<img src="/images/java.png" width="20px" class="slds-p-left_xx-small"/>
-								<span class="slds-radio_faux">Java</span>
-							</label>
+								<label class="slds-radio_button__label langBtn" for="java">
+									<img src="/images/java.png" width="20px" class="slds-p-left_xx-small"/>
+									<span class="slds-radio_faux">Java</span>
+								</label>
 						</span>
 						<span class="slds-button slds-radio_button">
 							<input type="radio" name="radio" id="golang" value="golang" class="calc-field" />
@@ -144,14 +114,14 @@
 							</label>
 						</span>               
 						<span class="slds-button slds-radio_button">
-							<input type="radio" name="radio" id="python" value="python" class="calc-field">
+							<input type="radio" name="radio" id="python" value="python" class="calc-field"/>
 							<label class="slds-radio_button__label langBtn" for="python">
 								<img src="/images/python.png" width="20px" class="slds-p-left_xx-small"/>   
 								<span class="slds-radio_faux">Python</span>
 							</label>
 						</span>
 						<span class="slds-button slds-radio_button">
-							<input type="radio" name="radio" id="scala" value="scala" class="calc-field">
+							<input type="radio" name="radio" id="scala" value="scala" class="calc-field"/>
 							<label class="slds-radio_button__label langBtn" for="scala">
 								<img src="/images/scala.png" width="20px" class="slds-p-left_xx-small"/>
 								<span class="slds-radio_faux">Scala</span>
@@ -168,7 +138,7 @@
 					</span>            
 				</label>
 				<div class="slds-form-element__control">
-						<input type="checkbox" id="private-space" value="yes" class="calc-field">
+					<input type="checkbox" id="private-space" value="yes" class="calc-field" />
 				</div>
 			</div>
 			<div class="slds-form-element slds-m-bottom_small">
@@ -179,7 +149,7 @@
 					</span>   
 				</label>
 				<div class="slds-form-element__control">
-						<input type="checkbox" id="shield" class="calc-field">
+					<input type="checkbox" id="shield" class="calc-field" />
 				</div>
 			</div>          
 			<div class="slds-form-element slds-m-bottom_small">
@@ -190,7 +160,7 @@
 					</span>              
 				</label>             
 				<div class="slds-form-element__control">
-					<input type="text" id="requests-per-day" class="slds-input calc-field" placeholder="Enter a number">
+					<input type="text" id="requests-per-day" class="slds-input calc-field" placeholder="Enter a number"/>
 				</div> 
 			</div>  
 			<div class="slds-form-element slds-m-bottom_small">
@@ -201,14 +171,14 @@
 					</span>             
 				</label>             
 				<div class="slds-form-element__control">
-					<input type="text" id="time-per-request" class="slds-input calc-field" placeholder="Enter a number">
+					<input type="text" id="time-per-request" class="slds-input calc-field" placeholder="Enter a number"/>
 				</div> 
 			</div>  
 			<div class="slds-form-element slds-m-bottom_small">
 				<label class="slds-form-element__label tooltip" for="dyno-type">
 					Dyno Type
 					<span class="tooltiptext">
-						What size of <a href="https://devcenter.heroku.com/articles/heroku-enterprise#available-dyno-types" target="_blank">dyno</a> is required? If unknown, we will attempt to determine the best fit for your expected load.
+						What size of <a href="https://devcenter.heroku.com/articles/heroku-enterprise#available-dyno-types" target="_blank">dyno</a> is required? If unknown, try selecting different types and see what it does to the output.
 					</span>                  
 				</label>
 				<div class="slds-form-element__control">
@@ -227,7 +197,7 @@
 					</span>              
 				</label>
 				<div class="slds-form-element__control">
-						<input type="checkbox" id="workers">
+					<input type="checkbox" id="workers" />
 				</div>
 			</div> 
 			<div id="number-of-workers-input" class="slds-form-element slds-m-bottom_small  slds-hide">
@@ -238,7 +208,7 @@
 					</span>             
 				</label>             
 				<div class="slds-form-element__control">
-					<input type="text" id="number-of-workers" class="slds-input calc-field" placeholder="Enter a number">
+					<input type="text" id="number-of-workers" class="slds-input calc-field" placeholder="Enter a number" />
 				</div> 
 			</div>       
 			<div class="slds-form-element slds-m-bottom_small">
@@ -249,7 +219,7 @@
 					</span>               
 				</label>             
 				<div class="slds-form-element__control">
-					<input type="text" id="postgres-size" class="slds-input calc-field" placeholder="Enter a number">
+					<input type="text" id="postgres-size" class="slds-input calc-field" placeholder="Enter a number" />
 				</div> 
 			</div>      
 			<div class="slds-form-element slds-m-bottom_small">
@@ -260,7 +230,7 @@
 					</span>
 				</label>
 				<div class="slds-form-element__control">
-						<input type="checkbox" id="heroku-connect">
+					<input type="checkbox" id="heroku-connect" />
 				</div>
 			</div> 
 			<div id="heroku-connect-input" class="slds-form-element slds-m-bottom_medium slds-hide">
@@ -271,7 +241,7 @@
 					</span>               
 				</label>             
 				<div class="slds-form-element__control">
-					<input type="text" id="heroku-connect-rows" class="slds-input calc-field" placeholder="Enter a number">
+					<input type="text" id="heroku-connect-rows" class="slds-input calc-field" placeholder="Enter a number" />
 				</div> 
 			</div>    
 			<div class="slds-form-element slds-m-bottom_small">
@@ -282,18 +252,18 @@
 					</span>  
 				</label>
 				<div class="slds-form-element__control">
-						<input type="checkbox" id="kafka" >
+					<input type="checkbox" id="kafka" />
 				</div>
 			</div>    
 			<div id="kafka-plans-select" class="slds-form-element slds-m-bottom_small slds-hide">
-					<label class="slds-form-element__label" for="kafka-plan">Kafka Plan</label>
-					<div class="slds-form-element__control">
-						<div class="slds-select_container">
-							<select class="slds-select calc-field" id="kafka-plan">
-								<option disabled selected value> -- select an option -- </option>
-							</select>
-						</div>
+				<label class="slds-form-element__label" for="kafka-plan">Kafka Plan</label>
+				<div class="slds-form-element__control">
+					<div class="slds-select_container">
+						<select class="slds-select calc-field" id="kafka-plan">
+							<option disabled selected value> -- select an option -- </option>
+						</select>
 					</div>
+				</div>
 			</div>             
 			<div class="slds-form-element slds-m-bottom_small">
 				<label class="slds-form-element__label tooltip" for="addons">
@@ -303,7 +273,7 @@
 					</span>              
 				</label>             
 				<div class="slds-form-element__control">
-					<input type="text" id="addons" class="slds-input calc-field" placeholder="Enter a number">
+					<input type="text" id="addons" class="slds-input calc-field" placeholder="Enter a number" />
 				</div> 
 			</div>  
 			<div class="slds-form-element slds-m-bottom_small">
@@ -311,7 +281,7 @@
 					Number of Staging Environments
 				</label>             
 				<div class="slds-form-element__control">
-					<input type="text" id="staging-env" class="slds-input calc-field" placeholder="Enter a number">
+					<input type="text" id="staging-env" class="slds-input calc-field" placeholder="Enter a number" />
 				</div> 
 			</div>    
 			<div class="slds-form-element slds-m-bottom_small">
@@ -319,211 +289,280 @@
 					Number of Developer Environments
 				</label>             
 				<div class="slds-form-element__control">
-					<input type="text" id="developer-env" class="slds-input calc-field" placeholder="Enter a number">
+					<input type="text" id="developer-env" class="slds-input calc-field" placeholder="Enter a number" />
 				</div> 
 			</div>  
+			<!--
 			<div class="slds-form-element slds-m-bottom_small slds-align_absolute-center">
-					<button id="calculate" class="slds-button slds-button_neutral">Calculate</button>
+				<button id="calculate" class="slds-button slds-button_neutral">Calculate</button>
 			</div> 
+			-->
 		</div>  
 	</div>                                                 
-
 </div>
 
 <script type="text/javascript">
-   $(document).ready(function() {
-      updateSelectOptions();
+	$(document).ready(function() {
+		updateSelectOptions();
 
-      $("#calculate").click(function() {
+		$("#agree").click(() => {
+			$(".instructions").addClass('slds-hide');
+			$(".calculator").removeClass('slds-hide');
+		});
 
-      });
+		$("#private-space").change(() => {
+			$("#shield").prop('checked', false);
+			updateSelectOptions();
+		});
+		
+		$("#shield").change(() => {
+			$("#private-space").prop('checked', false);
+			updateSelectOptions();
+		});
 
-      $("#agree").click(function() {
-            $(".instructions").addClass('slds-hide');
-            $(".calculator").removeClass('slds-hide');
-      })
-
-      $("#private-space").change(function() {
-         $("#shield").prop('checked', false);
-         updateSelectOptions();
-      });
-      $("#shield").change(function() {
-         $("#private-space").prop('checked', false);
-         updateSelectOptions();
-      });
-      $("#workers").change(function() {
-         if($("#workers").prop('checked')) {
-            $("#number-of-workers-input").removeClass('slds-hide');
-         } else {
-            $("#number-of-workers").val('');
-            $("#number-of-workers-input").addClass('slds-hide');
-         }
-      });
-      $("#heroku-connect").change(function() {
-         if($("#heroku-connect").prop('checked')) {
-            $("#heroku-connect-input").removeClass('slds-hide');
-         } else {
-            $("#heroku-connect-rows").val('');
-            $("#heroku-connect-input").addClass('slds-hide');
-         }
-      });
-
-      $("#kafka").change(function() {
-         if($("#kafka").prop('checked')) {
-            $("#kafka-plans-select").removeClass('slds-hide');
-         } else {
-            $("#kafka-plans-select").addClass('slds-hide');
-         }
-      });
-
-      $("select[class~='calc-field'").change(() => calculate());
-      $("input[class~='calc-field']").change(() => calculate());
-
-      function calculate() {
-         // assumption is for an app that takes 1 second to return, these are good guidelines for amount of requests that a dyno could handle
-
-         /*
-
-		Concurrency defaults
-		PHP - 1x:4, 2x:8, pm:20, pl:48,
-		Node - 1x:1, 2x:2, pm:5, pl:28,
-		Ruby - 1x:2, 2x:4, pm:8, pl:16,
-		Clojure - ?,
-		Go - ?
-		Python - 1x:2, 2x:4, pm:8, pl:11
-		Scala - ?
-		Java - ?
-
-
-
-         var requestsPerSecond = {
-               "java" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
-               "ruby" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
-               "clojure" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
-               "python" : {"1x" : 30, "2x" : 50, "performance-m": 250, "performance-l" : 500, "private-s": 100, "private-m": 250, "private-l" : 500,  "shield-m": 100, "shield-l":300},
-               "node" : {"1x" : 30, "2x" : 50, "performance-m": 250, "performance-l" : 500, "private-s": 100, "private-m": 250, "private-l" : 500,  "shield-m": 100, "shield-l":300},
-               "golang" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
-               "scala" : {"1x" : 30, "2x" : 60, "performance-m": 100, "performance-l" : 300, "private-s": 50, "private-m": 100, "private-l" : 300, "shield-m": 100, "shield-l":300},
-               "php" : {"1x" : 8, "2x" : 16, "performance-m": 40, "performance-l" : 224, "private-s": 20, "private-m": 40, "private-l" : 224, "shield-m": 40, "shield-l":224}
-         }; */
-
-         var requestPerSecond = {"1x" : 30, "2x" : 50, "performance-m" : 250, "performance-l" : 500, "private-s" : 50, "private-m" : 250, "private-l" : 500, "shield-m" : 250, "shield-l" : 500}
-		var concurrency = {
-               "java" : {"1x" : 1, "2x" : 1, "performance-m": 1, "performance-l" : 1, "private-s": 1, "private-m": 1, "private-l" : 1, "shield-m": 1, "shield-l":1},
-               "ruby" : {"1x" : 2, "2x" : 4, "performance-m": 8, "performance-l" : 16, "private-s": 4, "private-m": 8, "private-l" : 16, "shield-m": 8, "shield-l":16},
-               "clojure" : {"1x" : 1, "2x" :1, "performance-m": 1, "performance-l" : 1, "private-s": 1, "private-m": 1, "private-l" : 1, "shield-m": 1, "shield-l":1},
-               "python" : {"1x" : 2, "2x" : 4, "performance-m": 8, "performance-l" : 11, "private-s": 4, "private-m": 8, "private-l" : 11,  "shield-m": 8, "shield-l":11},
-               "node" : {"1x" : 1, "2x" : 2, "performance-m": 5, "performance-l" : 28, "private-s": 2, "private-m": 5, "private-l" : 28,  "shield-m": 5, "shield-l":28},
-               "golang" : {"1x" : 1, "2x" : 1, "performance-m": 1, "performance-l" : 1, "private-s": 1, "private-m": 1, "private-l" : 1, "shield-m": 1, "shield-l":1},
-               "scala" : {"1x" : 1, "2x" : 1, "performance-m": 1, "performance-l" : 1, "private-s": 1, "private-m": 1, "private-l" : 1, "shield-m": 1, "shield-l":1},
-               "php" : {"1x" : 4, "2x" : 8, "performance-m": 20, "performance-l" : 48, "private-s": 8, "private-m": 20, "private-l" : 48, "shield-m": 20, "shield-l":48}
+		$("#workers").change(() => {
+			if($("#workers").prop('checked')) {
+				$("#number-of-workers-input").removeClass('slds-hide');
+			} else {
+				$("#number-of-workers").val('');
+				$("#number-of-workers-input").addClass('slds-hide');
 		}
-         var language = $("input:radio[name ='radio']:checked").val();
-         var privateSpace = $("#private-space").prop('checked');
-         var shield = $("#shield").prop('checked');
-         var reqPerDay = testNumber($("#requests-per-day"));
-         var timePerRequest = testNumber($("#time-per-request"));
-         var requiredPerSecond = Math.floor((reqPerDay / (43200)) * (1000/timePerRequest)); // requests per second * 1/number of seconds a request takes
-         var dynoType = $("#dyno-type").val();
-         var numberOfWorkers = $("#number-of-workers").val();
-         var postgresSize = testNumber($("#postgres-size"));
-         var herokuConnect = testNumber($("#heroku-connect-rows"));
-         var kafkaPlan = $("#kafka-plan").val();
-         var addons = testNumber($("#addons"));
-         var devEnv = testNumber($("#developer-env"));
-         var stagingEnv = testNumber($("#staging-env"));
+	}); // END document.ready()
 
-         console.log(`private-space [${privateSpace}] shield [${shield}] requestsPerDay [${reqPerDay}] requestPerSecond[${requiredPerSecond}] tpr [${timePerRequest}] dt[${dynoType}] numberOfWorkers [${numberOfWorkers}] postgres [${postgresSize}] heroku-connect [${herokuConnect}] kafka [${kafkaPlan}] dev [${devEnv}] staging [${stagingEnv}]`);
+	$("#heroku-connect").change(() => {
+		if($("#heroku-connect").prop('checked')) {
+			$("#heroku-connect-input").removeClass('slds-hide');
+		} else {
+			$("#heroku-connect-rows").val('');
+			$("#heroku-connect-input").addClass('slds-hide');
+		}
+	});
 
-         var numberOfDynos;
-         var dynoUnits;
-         var dataAddons;
-         var connectRows;
-         var partnerAddons;
+	$("#kafka").change(() => {
+		if($("#kafka").prop('checked')) {
+			$("#kafka-plans-select").removeClass('slds-hide');
+		} else {
+			$("#kafka-plans-select").addClass('slds-hide');
+		}
+	});
 
-         if(language && dynoType && reqPerDay && timePerRequest) {
-            console.log('can calculate dyno loads');
+	$("select[class~='calc-field'").change(() => calculate());
+	$("input[class~='calc-field']").change(() => calculate());
 
-			var langConcurrency = concurrency[langauge];
-			var webConccurrency = langConcurrency[dynoType];
-			alert(`we have ${webConccurrency} for this language and dyno type`); 
-            
-         } 
-         if(herokuConnect) {
-            console.log('can estimate HC rows');
-         }
-         if(postgresSize && reqPerDay) {
-            console.log('can estimate postgres DB - think about requests for connection limits');
-         }
-         if(kafkaPlan) {
-            console.log('addon kafka');
-         }
-         if(addons) {
-            console.log('estimate addons');
-         }
-         if(devEnv) {
-            console.log('guess for dev env');
-         }
-         if(stagingEnv) {
-            console.log('guess for staging');
-         }
+	function calculate() {
+		$("#resultsDiv").addClass('slds-hide');
+		let results = {
+			dynos: {
+				web: {
+					number: 0,
+					type: ''
+				},
+				worker: {
+					number: 0,
+					type: ''
+				},
+				units: 0,
+				headroom: ''
+			},
+			addons: {
+				partner: 0,
+				data: 0
+			},
+			privateSpaces: 0,
+			herokuConnectSKUs: 0
+		}
+		// baseline assumption on language - some defaults from WEB_CONCURRENCY defaults
+		let concurrency = {
+			"java" : {"1x" : 1, "2x" : 2, "performance-m": 5, "performance-l" : 12, "private-s": 2, "private-m": 5, "private-l" : 12, "shield-m": 5, "shield-l":12},
+			"ruby" : {"1x" : 2, "2x" : 4, "performance-m": 8, "performance-l" : 16, "private-s": 4, "private-m": 8, "private-l" : 16, "shield-m": 8, "shield-l":16},
+			"clojure" : {"1x" : 1, "2x" :1, "performance-m": 1, "performance-l" : 1, "private-s": 1, "private-m": 1, "private-l" : 1, "shield-m": 1, "shield-l":1},
+			"python" : {"1x" : 2, "2x" : 4, "performance-m": 8, "performance-l" : 11, "private-s": 4, "private-m": 8, "private-l" : 11,  "shield-m": 8, "shield-l":11},
+			"node" : {"1x" : 1, "2x" : 2, "performance-m": 5, "performance-l" : 28, "private-s": 2, "private-m": 5, "private-l" : 28,  "shield-m": 5, "shield-l":28},
+			"golang" : {"1x" : 1, "2x" : 1, "performance-m": 1, "performance-l" : 1, "private-s": 1, "private-m": 1, "private-l" : 1, "shield-m": 1, "shield-l":1},
+			"scala" : {"1x" : 1, "2x" : 1, "performance-m": 1, "performance-l" : 1, "private-s": 1, "private-m": 1, "private-l" : 1, "shield-m": 1, "shield-l":1},
+			"php" : {"1x" : 4, "2x" : 8, "performance-m": 20, "performance-l" : 48, "private-s": 8, "private-m": 20, "private-l" : 48, "shield-m": 20, "shield-l":48}
+		}
+		var language = $("input:radio[name ='radio']:checked").val();
+		var privateSpace = $("#private-space").prop('checked');
+		var shield = $("#shield").prop('checked');
+		var reqPerDay = testNumber($("#requests-per-day"));
+		var timePerRequest = testNumber($("#time-per-request"));
+		var requiredPerSecond = Math.floor((reqPerDay / (43200)) * (1000/timePerRequest)); // requests per second * 1/number of seconds a request takes
+		var dynoType = $("#dyno-type").val();
+		var numberOfWorkers = $("#number-of-workers").val();
+		var postgresSize = testNumber($("#postgres-size"));
+		var herokuConnect = testNumber($("#heroku-connect-rows"));
+		var kafkaPlan = $("#kafka-plan").val();
+		var addons = testNumber($("#addons"));
+		var devEnv = testNumber($("#developer-env"));
+		var stagingEnv = testNumber($("#staging-env"));
 
-      }
+		var dynoCost = {
+			"1x":1, "2x":2, "performance-m":4, "performance-l":8, 
+			"private-s":5, "private-m":10, "private-l":20,
+			"shield-m":6, "shield-l":12
+		}
 
-      function testNumber(field) {
-         
-         var num = Number.parseInt($(field).val());
-         if(Number.isInteger(num)) {
-            $(field).val(num);
-            return num;
-         } else {
-            $(field).val('');
-            return '';
-         }
-      }
-      function updateSelectOptions() {
-   
-         var commonOptions = {"1x (512MB RAM)": "1x",
-            "2x (1GB RAM)": "2x",
-            "Performance - M (2.5GB RAM)": "performance-m",
-            "Performance - L (14GB RAM)": "performance-l"
-         };
-         var privateOptions = {"Private - S (1GB RAM)": "private-s",
-            "Private - M (2.5GB RAM)": "private-m",
-            "Private - L (14GB RAM)": "private-l"
-         };
-         var shieldOptions = {"Shield - M (2.5GB RAM)": "shield-m", "Shield - L (14GB RAM)": "shield-l"};
+		console.log(`private-space [${privateSpace}] shield [${shield}] requestsPerDay [${reqPerDay}] requestPerSecond[${requiredPerSecond}] tpr [${timePerRequest}] dt[${dynoType}] numberOfWorkers [${numberOfWorkers}] postgres [${postgresSize}] heroku-connect [${herokuConnect}] kafka [${kafkaPlan}] dev [${devEnv}] staging [${stagingEnv}]`);
 
-         var kafkaOptions = {"Standard-0":"standard-0", "Standard-1":"standard-1","Standard-2":"standard-2","Extended-0":"extended-0","Extended-1":"extended-1","Extended-2":"extended-2"};
-         var kafkaPrivateOptions = {"Private Standard-0":"private-standard-0", "Private Standard-1":"private-standard-1","Private Standard-2":"private-standard-2","Private Extended-0":"private-extended-0","Private Extended-1":"private-extended-1","Private Extended-2":"private-extended-2"};
+		if(language && dynoType && reqPerDay && timePerRequest) {
+			console.log('can calculate dyno loads');
 
-         $('#dyno-type').empty();
-         $('#kafka-plan').empty();
+			let langConcurrency = concurrency[language];
+			let dynoCapacity = langConcurrency[dynoType];
+			//alert(`we have ${webConccurrency} for this language and dyno type`); 
 
-         $("#dyno-type").append($("<option></option>").attr("disabled","").attr("selected","").text("-- select an option --"));
-         $('#kafka-plan').append($("<option></option>").attr("disabled","").attr("selected","").text("-- select an option --"));
+			/*
+				                  requests per second required X time per request in ms
+				number of Dynos = -----------------------------------------------
+										       		   dynoCapacity X 1000
+			*/
 
-         if($("#private-space").prop('checked')) {
-            $.each(privateOptions, function(key,value) {
-               $("#dyno-type").append($("<option></option>").attr("value", value).text(key));
-            });
-            $.each(kafkaPrivateOptions, function(key,value) {
-               $("#kafka-plan").append($("<option></option>").attr("value", value).text(key));
-            });
-         } else if($("#shield").prop('checked')) {
-            $.each(shieldOptions, function(key,value) {
-               $("#dyno-type").append($("<option></option>").attr("value", value).text(key));
-            });
-            $('#kafka-plan').empty();
-            $('#kafka-plan').append($("<option></option>").attr("disabled","").attr("selected","").text("-- shielded kafka unavailable today --"));
-         } else {
-            $.each(commonOptions, function(key,value) {
-               $("#dyno-type").append($("<option></option>").attr("value", value).text(key));
-            });
-            $.each(kafkaOptions, function(key,value) {
-               $("#kafka-plan").append($("<option></option>").attr("value", value).text(key));
-            });            
-         }
-      }
-   });
+			results.dynos.web.number = Math.ceil(((reqPerDay / 10 / 60 / 60) * timePerRequest ) / (dynoCapacity * 1000));
+			if(results.dynos.web.number == 1) {
+				results.dynos.web.number = 2; //always recommend at least 2 dynos
+			}
+			results.dynos.units += results.dynos.web.number * dynoCost[dynoType];
+			results.dynos.headroom = Math.floor((results.dynos.web.number * dynoCapacity) - ((reqPerDay / 10 / 60 / 60)*(timePerRequest/1000)));
+			results.dynos.web.type = dynoType;
+		} 
+		if(numberOfWorkers > 0) {
+			let dt = 'performance-m';
+			if (privateSpace) {
+				dt = 'private-s';
+			}
+			if (shield) {
+				dt = 'shield-m';
+			}
+			results.dynos.worker.number = numberOfWorkers;
+			results.dynos.worker.type = dt;
+			results.dynos.units += numberOfWorkers * dynoCost[dt];
+		}
+		if(herokuConnect) {
+			results.herokuConnectSKUs = Math.ceil(herokuConnect / 250000);
+		}
+		if(postgresSize && reqPerDay) {
+			console.log('can estimate postgres DB - think about requests for connection limits');
+		}
+		if(kafkaPlan) {
+			console.log('addon kafka');
+		}
+		if(addons) {
+			console.log('estimate addons');
+		}
+		if(devEnv) {
+			console.log('guess for dev env');
+		}
+		if(stagingEnv) {
+			console.log('guess for staging');
+		}
+		renderBOM(results);
+	}
+
+	function renderBOM(results) {
+
+		$("#web-dynos").html(results.dynos.web.number);
+		$("#web-dyno-type").html(results.dynos.web.type);
+		$("#worker-dynos").html(results.dynos.worker.number);
+		$("#worker-dyno-type").html(results.dynos.worker.type);
+		$("#hc-skus").html(results.herokuConnectSKUs);
+		$("#data-addons").html(results.addons.data);
+		$("#partner-addons").html(results.addons.partner);
+		$("#spaces").html(results.privateSpaces);
+		$("#summary-web-dynos").html(results.dynos.web.number);
+		$("#summary-web-dyno-type").html(results.dynos.web.type);
+		$("#headroom").html(results.dynos.headroom);
+		$("#dyno-units").html(results.dynos.units);
+
+		$("#resultsDiv").removeClass('slds-hide');
+/*
+		<span id="web-dynos">0</span> <span id="web-dyno-type">1x</span> web dynos <br />
+		<span id="worker-dynos">0</span> <span id="worker-dyno-type">1x</span> worker dynos <br />
+		<span id="hc-skus">0</span> blocks of Heroku Connect <br />
+		<span id="data-addons">0</span> data addons <br />
+		<span id="partner-addons">0</span> partner addons <br />
+		<span id="spaces">0</span> Private Space(s) <br />
+		<span id="summary-web-dynos">0</span> web <span id="summary-web-dyno-type">1x</span> dynos will leave you with <span id="headroom"></span> requests per second headroom.
+*/
+
+
+	}
+
+	function testNumber(field) {
+
+		var num = Number.parseInt($(field).val());
+		if(Number.isInteger(num)) {
+			$(field).val(num);
+			return num;
+		} else {
+			$(field).val('');
+			return '';
+		}
+	}
+
+	function updateSelectOptions() {
+
+		var commonOptions = {
+			"1x (512MB RAM)": "1x",
+			"2x (1GB RAM)": "2x",
+			"Performance - M (2.5GB RAM)": "performance-m",
+			"Performance - L (14GB RAM)": "performance-l"
+		};
+		var privateOptions = {
+			"Private - S (1GB RAM)": "private-s",
+			"Private - M (2.5GB RAM)": "private-m",
+			"Private - L (14GB RAM)": "private-l"
+		};
+		var shieldOptions = {
+			"Shield - M (2.5GB RAM)": "shield-m", 
+			"Shield - L (14GB RAM)": "shield-l"
+		};
+
+		var kafkaOptions = {
+			"Standard-0":"standard-0", 
+			"Standard-1":"standard-1",
+			"Standard-2":"standard-2",
+			"Extended-0":"extended-0",
+			"Extended-1":"extended-1",
+			"Extended-2":"extended-2"
+		};
+
+		var kafkaPrivateOptions = {
+			"Private Standard-0":"private-standard-0", 
+			"Private Standard-1":"private-standard-1",
+			"Private Standard-2":"private-standard-2",
+			"Private Extended-0":"private-extended-0",
+			"Private Extended-1":"private-extended-1",
+			"Private Extended-2":"private-extended-2"
+		};
+
+		$('#dyno-type').empty();
+		$('#kafka-plan').empty();
+
+		$("#dyno-type").append($("<option></option>").attr("disabled","").attr("selected","").text("-- select an option --"));
+		$('#kafka-plan').append($("<option></option>").attr("disabled","").attr("selected","").text("-- select an option --"));
+
+		if($("#private-space").prop('checked')) {
+			$.each(privateOptions, function(key,value) {
+				$("#dyno-type").append($("<option></option>").attr("value", value).text(key));
+			});
+			$.each(kafkaPrivateOptions, function(key,value) {
+				$("#kafka-plan").append($("<option></option>").attr("value", value).text(key));
+			});
+		} else if($("#shield").prop('checked')) {
+			$.each(shieldOptions, function(key,value) {
+				$("#dyno-type").append($("<option></option>").attr("value", value).text(key));
+			});
+			$('#kafka-plan').empty();
+			$('#kafka-plan').append($("<option></option>").attr("disabled","").attr("selected","").text("-- shielded kafka unavailable today --"));
+		} else {
+			$.each(commonOptions, function(key,value) {
+				$("#dyno-type").append($("<option></option>").attr("value", value).text(key));
+			});
+			$.each(kafkaOptions, function(key,value) {
+				$("#kafka-plan").append($("<option></option>").attr("value", value).text(key));
+			});            
+		}
+	}
+});
 </script>
