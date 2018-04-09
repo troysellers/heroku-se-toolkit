@@ -12,6 +12,7 @@ const uuidV1 = require('uuid/v1');
 // load environment from .env file
 require('dotenv').config();
 
+
 var index = require('./routes/index');
 var architecture = require('./routes/architecture');
 var data = require('./routes/data');
