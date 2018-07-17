@@ -67,5 +67,13 @@
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/1zVCEu31sGXAJH9gpiHK6SMLyvpouKIwv0M27WNYfGg4/edit?usp=sharing",
       "video":"some video url",
       "image":"/images/docker.png"
+      },
+      {
+		"title": "Kafka Airports Demo",
+      "name": "kafka-airports",
+		"description": "Heroku demo simulating passenger foot traffic through a section of an Airport, based on Wifi Triangulation technology such as Cisco Meraki and/or Beacons. Every second the position of all passengers on the airport flow is pushed into a Kafka stream for analysing and event monitoring. Amsterdam Centraal uses similar tech to monitor passenger flow through the train station.",
+      "setup":"https://salesforce.quip.com/BFkRAAdY1bJA",
+      "video":"some video url",
+      "image":"/images/kafka-purple.png"
 	}
 ]
