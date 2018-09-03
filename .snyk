@@ -1,0 +1,102 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.12.0
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:chownr:20180731':
+    - npm > chownr:
+        reason: None given
+        expires: '2018-10-03T22:51:25.343Z'
+    - npm > cacache > chownr:
+        reason: None given
+        expires: '2018-10-03T22:51:25.343Z'
+    - npm > tar > chownr:
+        reason: None given
+        expires: '2018-10-03T22:51:25.343Z'
+    - npm > pacote > cacache > chownr:
+        reason: None given
+        expires: '2018-10-03T22:51:25.343Z'
+    - npm > pacote > tar > chownr:
+        reason: None given
+        expires: '2018-10-03T22:51:25.343Z'
+    - npm > npm-profile > make-fetch-happen > cacache > chownr:
+        reason: None given
+        expires: '2018-10-03T22:51:25.343Z'
+    - npm > libcipm > pacote > cacache > chownr:
+        reason: None given
+        expires: '2018-10-03T22:51:25.343Z'
+    - npm > pacote > make-fetch-happen > cacache > chownr:
+        reason: None given
+        expires: '2018-10-03T22:51:25.343Z'
+    - npm > libcipm > pacote > tar > chownr:
+        reason: None given
+        expires: '2018-10-03T22:51:25.343Z'
+    - npm > npm-registry-fetch > make-fetch-happen > cacache > chownr:
+        reason: None given
+        expires: '2018-10-03T22:51:25.343Z'
+    - npm > libnpmhook > npm-registry-fetch > make-fetch-happen > cacache > chownr:
+        reason: None given
+        expires: '2018-10-03T22:51:25.343Z'
+    - npm > libcipm > pacote > make-fetch-happen > cacache > chownr:
+        reason: None given
+        expires: '2018-10-03T22:51:25.343Z'
+  'npm:mailparser:20180625':
+    - sendgrid > mailparser:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+  'npm:mem:20180117':
+    - npm > libnpx > yargs > os-locale > mem:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+  'snyk:lic:npm:bin-links:Artistic-2.0':
+    - npm > bin-links:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+    - npm > libcipm > bin-links:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+    - npm > bin-links:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+    - npm > libcipm > bin-links:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+  'snyk:lic:npm:gentle-fs:Artistic-2.0':
+    - npm > gentle-fs:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+    - npm > bin-links > gentle-fs:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+    - npm > libcipm > bin-links > gentle-fs:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+    - npm > gentle-fs:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+    - npm > bin-links > gentle-fs:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+    - npm > libcipm > bin-links > gentle-fs:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+  'snyk:lic:npm:npm-lifecycle:Artistic-2.0':
+    - npm > npm-lifecycle:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+    - npm > libcipm > npm-lifecycle:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+    - npm > npm-lifecycle:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+    - npm > libcipm > npm-lifecycle:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+  'snyk:lic:npm:npm:Artistic-2.0':
+    - npm:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+    - npm:
+        reason: None given
+        expires: '2018-10-03T22:51:25.344Z'
+patch: {}
