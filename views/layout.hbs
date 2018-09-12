@@ -36,21 +36,19 @@
                 <div class=" slds-global-header__logo"></div>
             </div>
             <div class="slds-global-header__item slds-text-heading_medium">
-                {{#if redirect}}
-
-                    <span class="slds-icon_container slds-icon-utility-arrowup">
-                    <svg class="slds-icon slds-icon-text-default" aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowup"></use>
-                    </svg>
-                    <span class="slds-assistive-text">Fix your bookmarks! The Heroku Toolkit is now toolkit.heroku.mx</span>
-                    </span>
-
-                    Fix your bookmarks. We are now at https://toolkit.heroku.mx
-                {{else}}
-                    {{title}}
-                {{/if}}   
+                {{title}}
             </div>
-   
+            {{#if redirect}}
+                <div class="slds-global-header__item ">
+                    <span class="slds-icon_container slds-icon-utility-arrowup">
+                        <svg class="slds-icon slds-icon-text-default" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowup"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Fix your bookmarks! The Heroku Toolkit is now toolkit.heroku.mx</span>
+                    </span>
+                    Fix your bookmarks. We are now at https://toolkit.heroku.mx
+                </div>
+            {{/if}}
         </div>
     </header>
 
