@@ -6,14 +6,14 @@
       "vidyard_id":"vidyard_embed_code_Kquvnouipe1SsxkxpmK4ir",
       "vidyard_src":"//play.vidyard.com/Kquvnouipe1SsxkxpmK4ir.js?v=3.1.1&type=lightbox",
       "vidyard_click":"fn_vidyard_Kquvnouipe1SsxkxpmK4ir();",
-      "image":"/images/cli.png"
+      "image":"/static/images/cli.png"
 	},{
 		"title": "Heroku Dashboard (coming soon)",
       "name": "heroku-dashboard-demo",
 		"description": "Come take a tour of the most developer friendly PaaS on the market today. It is hard to understand just how easy it is to manage a complete fleet of production applications unless you have seen it for yourself. Heroku takes the hard work out of it, leaving you to just focus on the features your customers need.",
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/1EdBJVLut09t_seTgHHyj9ujx4dWhXMhgzUIOEp8MnR8/edit?usp=sharing",
       "video":"some video url",
-      "image":"/images/metrics.png"
+      "image":"/staticimages/metrics.png"
 	},{
 		"title": "Heroku Pipelines",
       "name": "heroku-pipelines-demo",
@@ -22,7 +22,7 @@
       "vidyard_id":"vidyard_embed_code_c2w4BcMEUg47B8Ats4AG96",
       "vidyard_src":"//play.vidyard.com/c2w4BcMEUg47B8Ats4AG96.js?v=3.1.1&type=lightbox",
       "vidyard_click":"fn_vidyard_c2w4BcMEUg47B8Ats4AG96();",
-      "image":"/images/pipelines.png"
+      "image":"/static/images/pipelines.png"
 	},{
 		"title": "Heroku Connect",
       "name": "heroku-connect-demo",
@@ -31,42 +31,42 @@
       "vidyard_id":"vidyard_embed_code_2GiwnigiECYm7RbG9pRSjw",
       "vidyard_src":"//play.vidyard.com/2GiwnigiECYm7RbG9pRSjw.js?v=3.1.1&type=lightbox",
       "vidyard_click":"fn_vidyard_2GiwnigiECYm7RbG9pRSjw();",
-      "image":"/images/connect.png"
+      "image":"/static/images/connect.png"
 	},{
 		"title": "Heroku Enterprise (coming soon)",
       "name": "heroku-enterprise-demo",
 		"description": "Heroku have been the choice for startups for 10 years, but now many large scale enterprises are capturing that startup spirit by unleashing their developers on the Heroku Enterprise Platform. In this demo see the Enterprise features that everyone from Toyota to KFC are talking about.",
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/17MgGLRuISuB2tYTSWggCLNIaxqXM1GxY8BG66Nzolb4/edit?usp=sharing",
       "video":"some video url",
-      "image":"/images/enterprise.png"
+      "image":"/static/images/enterprise.png"
 	},{
 		"title": "Heroku Kafka (coming soon)",
       "name": "heroku-kafka-demo",
 		"description": "Event driven architectures are powering some of the largest and most powerful applications of web technology today, quite often backed by Apache Kafka (including the Salesforce event bus, Platform Events!). With this demo we see just how quick and easy setting up your own Kafka instance can be. Oh, just want a little bit? Then perhaps the Multi-Tenant Kafka is for you!",
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/1EfJxUT7iMdC4jah90qdP4JBkYG6P0NyB-YrB__pCQpE/edit?usp=sharing",
       "video":"some video url",
-      "image":"/images/kafka.png"
+      "image":"/static/images/kafka.png"
 	},{
 		"title": "Private Spaces (coming soon)",
       "name": "private-spaces-demo",
 		"description": "Over the last 10 years Heroku have bought the worlds leading startup platform to the Enterprise by adding ever more advanced features that allow control over the Heroku Envrionment. Take a tour of Private Spaces and understand why the largest companies in the world are moving like start ups again.",
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/14TKuAMmxD4IN3b52GULByV7wgl6aPmBXGg-epfZoVI4/edit?usp=sharing",
       "video":"some video url",
-      "image":"/images/spaces.png"
+      "image":"/static/images/spaces.png"
 	},{
 		"title": "Add Ons (coming soon)",
       "name": "heroku-addons-demo",
 		"description": "Never speak to a software vendor again! Well, maybe not but at least your developers will be free to choose from over 150 different addon providers. Whether your app needs a place to send its logs, an email sender, a message queue or perhaps you need a Graph database, Heroku Addons have you covered.",
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/1WkosF-OVzci_okLXitjydNYj44cBeJY1itB8PbmZAqA/edit?usp=sharing",
       "video":"some video url",
-      "image":"/images/level-up.png"
+      "image":"/static/images/level-up.png"
 	},{
 		"title": "Heroku Container Registry (coming soon)",
       "name": "container-registry-demo",
 		"description": "Got containers? Heroku Container Registry allows you to bring your Docker containers to the Heroku Platform. See how easy it is to build and deploy your Docker containers on the Heroku platform.",
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/1zVCEu31sGXAJH9gpiHK6SMLyvpouKIwv0M27WNYfGg4/edit?usp=sharing",
       "video":"some video url",
-      "image":"/images/docker.png"
+      "image":"/static/images/docker.png"
       },
       {
 		"title": "Kafka Airports Demo",
@@ -74,6 +74,6 @@
 		"description": "Heroku demo simulating passenger foot traffic through a section of an Airport, based on Wifi Triangulation technology such as Cisco Meraki and/or Beacons. Every second the position of all passengers on the airport flow is pushed into a Kafka stream for analysing and event monitoring. Amsterdam Centraal uses similar tech to monitor passenger flow through the train station.",
       "setup":"https://salesforce.quip.com/BFkRAAdY1bJA",
       "video":"some video url",
-      "image":"/images/kafka-purple.png"
+      "image":"/static/images/kafka-purple.png"
 	}
 ]

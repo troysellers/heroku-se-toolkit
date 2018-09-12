@@ -2,12 +2,12 @@
 <html>
 <head>
    <title>{{title}}</title>
-   <link rel='stylesheet' href='/stylesheets/style.css' />
-   <link rel='stylesheet' href='/assets/styles/salesforce-lightning-design-system.min.css' />
+   <link rel='stylesheet' href='/static/stylesheets/style.css' />
+   <link rel='stylesheet' type="text/css" href='/assets/styles/salesforce-lightning-design-system.min.css'/>
    <meta charset="utf-8" />
    <meta http-equiv="x-ua-compatible" content="ie=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1" />    
-   <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+   <script type="text/javascript" src="/jquery/jquery.min.js"></script>
    <!-- Google Analytics -->
    <script>
    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -22,18 +22,26 @@
    <!-- End Google Analytics -->   
 </head>
 <body>
-   <header class="slds-global-header_container">
-      <div class="slds-global-header slds-grid">
-         <div class="slds-global-header__item">
-            <div class="slds-global-header__logo">
-               <img src="/assets/images/logo-noname.svg" alt="">
+
+
+
+    <header class="slds-global-header_container">
+        <div class="slds-global-header slds-grid">
+
+            <div class="slds-global-header__item">
+                <div class=" slds-global-header__logo"></div>
             </div>
-         </div>
-         <div class="slds-global-header__item slds-text-heading_small">
-            {{title}}
-         </div>
-      </div>
-   </header>
+            <div class="slds-global-header__item slds-text-heading_medium">
+                {{#if redirected}}
+                    Fix you bookmarks.. we are at a new URL now!
+                {{else}}
+                    {{title}}
+                {{/if}}   
+            </div>
+   
+        </div>
+    </header>
+
    <div class="slds-context-bar">
       <div class="slds-context-bar__primary slds-context-bar__item_divider-right">
          <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover slds-context-bar__item_divider-right">

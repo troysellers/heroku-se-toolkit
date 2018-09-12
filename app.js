@@ -27,18 +27,20 @@ var requestSubmit = require('./routes/requestSubmit');
 var customers = require('./routes/customers');
 
 var resourceFilter = require('./bin/resourceFilter');
+var requireHttpsFilter = require('./bin/requireHttpsFilter');
 
 var app = express();
 
-let redis_url = process.env.REDIS_URL ? process.env.REDIS_URL : 'redis://localhost:6379'
+// let redis_url = process.env.REDIS_URL ? process.env.REDIS_URL : 'redis://localhost:6379'
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 app.use(helmet());
-/*
+
 app.set('trust proxy', 1); // trust first proxy
+/*
 app.use(session({
    secret: 'mySecret',
    name: 'sessionId',
@@ -56,14 +58,22 @@ app.use(session({
    store: new RedisStore({
       url: redis_url
    })
-}));
-*/
+})); */
+
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 //app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+
+// set static routes
+app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use('/assets', express.static(path.join(__dirname, 'node_modules/@salesforce-ux/design-system/assets')));
+app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
+
+
 app.use(resourceFilter); // load resource modal content from JSON file
+app.use(requireHttpsFilter); // redirect to HTTPs (if dev.mode=DEV)
+
 
 app.use('/architecture', architecture);
 app.use('/data', data);
@@ -77,7 +87,6 @@ app.use('/submitForm', requestSubmit);
 app.use('/customers', customers);
 
 app.use('/', index);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

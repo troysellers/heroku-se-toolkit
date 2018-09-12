@@ -2,69 +2,69 @@
 		"title": "Dreamhouse",
 		"description": "DreamHouse is the sample application that demonstrates the unique value proposition of the Salesforce Platform for building apps.",
       "url":"https://developer.salesforce.com/dreamhouse/",
-      "image":"/images/dreamhouse-logo.png"
+      "image":"/static/images/dreamhouse-logo.png"
 	},
 {
 		"title": "Dyno Sizing",
 		"description": "Wondering about what different sizes of dynos exist? Check this page to see all the options for sizing dynos in the Common Runtime",
       "url":"https://devcenter.heroku.com/articles/dyno-types#available-dyno-types",
-      "image":"/images/dyno.png"
+      "image":"/static/images/dyno.png"
 	},
 {
 		"title": "App Sizing",
 		"description": "Need to size an app? Have concrete performance data, and want to be able to come up with a size estimate? (Herokai login required)",
       "url":"https://heroku-quotes.herokuapp.com",
-      "image":"/images/dyno.png"
+      "image":"/static/images/dyno.png"
 	},	
 {
 		"title": "Private Dynos",
 		"description": "Remember that sizing dynos in Private Spaces is a little different, this is your reference when thinking about Private Dynos.",
       "url":"https://devcenter.heroku.com/articles/heroku-enterprise#available-dyno-types",
-      "image":"/images/spaces.png"
+      "image":"/static/images/spaces.png"
 	},{
 		"title": "Postgres Plans",
 		"description": "Deploy the worlds leading open source database hosted by the worlds leading Postgres experts! Get the right size Postgres for your need today.",
       "url":"https://devcenter.heroku.com/articles/heroku-postgres-plans#premium-tier",
-      "image":"/images/postgres.png"
+      "image":"/static/images/postgres.png"
 	},{
 		"title": "Private Postgres Plans",
 		"description": "Just like our Private Dynos, the Private Postgres plans are slightly different, make sure you know yours when thinking about sizing.",
       "url":"https://devcenter.heroku.com/articles/heroku-postgres-and-private-spaces#plans",
-      "image":"/images/postgres.png"
+      "image":"/static/images/postgres.png"
 	},{
 		"title": "Heroku Devcenter",
 		"description": "Pretty much every question you are going to ask about Heroku can be answered by an article found on the Heroku Devcenter. Go on, have a look! ",
       "url":"https://devcenter.heroku.com/categories/reference",
-      "image":"/images/support.png"
+      "image":"/static/images/support.png"
 	},{
 		"title": "Heroku Vimeo Channel",
 		"description": "See all the latest video demos and customer stories curated by the Heroku team on Vimeo.",
       "url":"https://vimeo.com/heroku",
-      "image":"/images/heroku_vimeo.webp"
+      "image":"/static/images/heroku_vimeo.webp"
 	},{
 		"title": "The Nibs Demo",
 		"description": "The classic Heroku demo that was the showcase demo before the Dreamhouse was built. Feeling nostalgic? Head on over and grab some Nibs.",
       "url":"http://heroku.github.io/nibs/",
-      "image":"/images/nibs.png"
+      "image":"/static/images/nibs.png"
 	},{
 		"title": "Heroku Dashboard",
 		"description": "So you have just deployed this app and now you are getting questions about where is it? Head over to your Heroku dashboard and show it off",
       "url":"https://dashboard.heroku.com/apps",
-      "image":"/images/metrics.png"
+      "image":"/static/images/metrics.png"
 	},{
 		"title": "Customer Stories",
 		"description": "The full, publicly available list of customers doing amazing things on the Heroku Platform. Even has a neat search function!",
       "url":"https://www.heroku.com/customers",
-      "image":"/images/user.png"
+      "image":"/static/images/user.png"
 	},{
 		"title": "Supported Languages",
 		"description": "Get started developing on Heroku today in one of eight different languages! Follow the step by step instructions to live deployment in minutes.",
       "url":"https://devcenter.heroku.com/start",
-      "image":"/images/level-up.png"
+      "image":"/static/images/level-up.png"
 	},{
 		"title": "Need an Architect?",
 		"description": "Found a customer who wants to dive into the details about how to build, deploy, scale and manage beautiful web applications? We'll call you, just fill out the form.",
       "url":"/requestAnArchitect",
-      "image":"/images/heroku.png"
+      "image":"/static/images/heroku.png"
 	}
 ]

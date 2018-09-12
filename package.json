@@ -6,28 +6,28 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "@salesforce-ux/design-system": "^2.6.2",
-    "body-parser": "^1.18.2",
-    "connect-redis": "^3.3.0",
-    "cookie-parser": "~1.4.3",
-    "debug": "^2.6.9",
-    "dotenv": "^4.0.0",
-    "express": "^4.16.0",
-    "express-session": "^1.15.3",
-    "hbs": "~4.0.1",
-    "helmet": "^3.13.0",
-    "http": "0.0.0",
-    "jquery": "^3.2.1",
-    "jsonfile": "^3.0.0",
-    "morgan": "^1.9.0",
-    "npm": "^6.4.1",
-    "request": "^2.88.0",
-    "sendgrid": "^5.2.3",
-    "serve-favicon": "^2.4.5",
-    "uuid": "^3.3.2"
+    "@salesforce-ux/design-system": "*",
+    "body-parser": "*",
+    "connect-redis": "*",
+    "cookie-parser": "*",
+    "debug": "^4.0.1",
+    "dotenv": "^6.0.0",
+    "express": "*",
+    "express-session": "*",
+    "hbs": "*",
+    "helmet": "*",
+    "http": "*",
+    "jquery": "*",
+    "jsonfile": "^5.0.0",
+    "morgan": "*",
+    "npm": "*",
+    "request": "*",
+    "sendgrid": "*",
+    "serve-favicon": "*",
+    "uuid": "*"
   },
   "devDependencies": {
-    "mocha": "^3.4.2",
-    "supertest": "^3.1.0"
+    "mocha": "^5.2.0",
+    "supertest": "*"
   }
 }
