@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <head>
    <title>{{title}}</title>
    <link rel='stylesheet' href='/static/stylesheets/style.css' />
@@ -8,18 +8,22 @@
    <meta http-equiv="x-ua-compatible" content="ie=edge" />
    <meta name="viewport" content="width=device-width, initial-scale=1" />    
    <script type="text/javascript" src="/jquery/jquery.min.js"></script>
+  
+    {{#if analytics}}
    <!-- Google Analytics -->
    <script>
+    
    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
+    
    ga('create', '{{analytics}}', 'auto');
    ga('send', 'pageview');
 
    </script>
    <!-- End Google Analytics -->   
+   {{/if}}
 </head>
 <body>
 
@@ -32,8 +36,16 @@
                 <div class=" slds-global-header__logo"></div>
             </div>
             <div class="slds-global-header__item slds-text-heading_medium">
-                {{#if redirected}}
-                    Fix you bookmarks.. we are at a new URL now!
+                {{#if redirect}}
+
+                    <span class="slds-icon_container slds-icon-utility-arrowup">
+                    <svg class="slds-icon slds-icon-text-default" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowup"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Fix your bookmarks! The Heroku Toolkit is now toolkit.heroku.mx</span>
+                    </span>
+
+                    Fix your bookmarks. We are now at https://toolkit.heroku.mx
                 {{else}}
                     {{title}}
                 {{/if}}   
@@ -163,25 +175,25 @@
 
    <script type="text/javascript">
 
-      $(document).ready(function() {
-         ga('send', 'pageview', '{{page}}', { title : '{{title}}', page : '{{page}}'});
-         $("#all-resources-btn").click(function() {
+    $(document).ready(function() {
+        ga('send', 'pageview', '{{page}}', { title : '{{title}}', page : '{{page}}'});
+        $("#all-resources-btn").click(function() {
             toggleModal();
-         });
-         $("#modal-close-btn").click(function() {
+        });
+        $("#modal-close-btn").click(function() {
             toggleModal();
-         });
-         $("li[class~='slds-context-bar__item']").click(function() {
+        });
+        $("li[class~='slds-context-bar__item']").click(function() {
             let selected = this;
             $("li[class~='slds-context-bar__item']").each(function() {
-               if(this == selected) {
-                  $(this).addClass('slds-is-active');
-               } else {
-                  $(this).removeClass('slds-is-active');
-               }
-            })
-         });
-      });
+            if(this == selected) {
+                $(this).addClass('slds-is-active');
+            } else {
+                $(this).removeClass('slds-is-active');
+            }
+        })
+        });
+    });
 
 
    function slides(page) {

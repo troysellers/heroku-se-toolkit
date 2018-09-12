@@ -5,3 +5,4 @@ npm-debug.log
 .DS_Store
 dyno calc.xlsx
 package-lock.json
+.snyk

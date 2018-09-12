@@ -13,7 +13,7 @@
 		"description": "Come take a tour of the most developer friendly PaaS on the market today. It is hard to understand just how easy it is to manage a complete fleet of production applications unless you have seen it for yourself. Heroku takes the hard work out of it, leaving you to just focus on the features your customers need.",
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/1EdBJVLut09t_seTgHHyj9ujx4dWhXMhgzUIOEp8MnR8/edit?usp=sharing",
       "video":"some video url",
-      "image":"/staticimages/metrics.png"
+      "image":"/static/images/metrics.png"
 	},{
 		"title": "Heroku Pipelines",
       "name": "heroku-pipelines-demo",

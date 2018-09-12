@@ -7,6 +7,14 @@
     "REQUEST_ENDPOINT": {
       "description": "The API Endpoint for requesting an architect.",
       "value": "localhost:3001/request"
+    },
+    "MODE": {
+      "description": "If set to dev redirect rules aren't tested",
+      "value": "dev"
+    },
+    "APP_URL": {
+      "description": "This is the URL that users will be redirected to if. Used to prompt users to update ",
+      "value" : "toolkit.heroku.mx"
     }
   },
   "keywords": ["node", "express", "static"]

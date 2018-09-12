@@ -12,7 +12,6 @@ const uuidV1 = require('uuid/v1');
 // load environment from .env file
 require('dotenv').config();
 
-
 var index = require('./routes/index');
 var architecture = require('./routes/architecture');
 var data = require('./routes/data');
@@ -72,7 +71,7 @@ app.use('/jquery', express.static(path.join(__dirname, 'node_modules/jquery/dist
 
 
 app.use(resourceFilter); // load resource modal content from JSON file
-app.use(requireHttpsFilter); // redirect to HTTPs (if dev.mode=DEV)
+app.use(requireHttpsFilter); // redirect to HTTPs (if MODE=dev)
 
 
 app.use('/architecture', architecture);

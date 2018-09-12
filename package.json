@@ -6,28 +6,28 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "@salesforce-ux/design-system": "*",
-    "body-parser": "*",
-    "connect-redis": "*",
-    "cookie-parser": "*",
+    "@salesforce-ux/design-system": "^2.7.*",
+    "body-parser": "^1.*",
+    "connect-redis": "3.*",
+    "cookie-parser": "1.4.*",
     "debug": "^4.0.1",
     "dotenv": "^6.0.0",
-    "express": "*",
-    "express-session": "*",
-    "hbs": "*",
-    "helmet": "*",
-    "http": "*",
-    "jquery": "*",
-    "jsonfile": "^5.0.0",
+    "express": "^4.*",
+    "express-session": "^1.*",
+    "hbs": "^4.*",
+    "helmet": "^3.*",
+    "http": "0.0.0",
+    "jquery": "^3.*",
+    "jsonfile": "^5.*",
     "morgan": "*",
-    "npm": "*",
-    "request": "*",
-    "sendgrid": "*",
-    "serve-favicon": "*",
+    "npm": "^6.*",
+    "request": "^2.*",
+    "sendgrid": "^5.*",
+    "serve-favicon": "^2.*",
     "uuid": "*"
   },
   "devDependencies": {
     "mocha": "^5.2.0",
-    "supertest": "*"
+    "supertest": "^3.*"
   }
 }
