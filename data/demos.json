@@ -46,14 +46,24 @@
       "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/1EfJxUT7iMdC4jah90qdP4JBkYG6P0NyB-YrB__pCQpE/edit?usp=sharing",
       "video":"some video url",
       "image":"/static/images/kafka.png"
-	},{
-		"title": "Private Spaces (coming soon)",
+      },{
+		"title": "Private Spaces (TODO)",
       "name": "private-spaces-demo",
-		"description": "Over the last 10 years Heroku have bought the worlds leading startup platform to the Enterprise by adding ever more advanced features that allow control over the Heroku Envrionment. Take a tour of Private Spaces and understand why the largest companies in the world are moving like start ups again.",
-      "setup":"https://docs.google.com/a/salesforce.com/spreadsheets/d/14TKuAMmxD4IN3b52GULByV7wgl6aPmBXGg-epfZoVI4/edit?usp=sharing",
+		"description": "Over the last 10 years Heroku have bought the worlds leading startup platform to the Enterprise by adding ever more advanced features that allow control over the Heroku Envrionment. Take a tour of Private Spaces and understand why the largest companies in the world are moving like start ups again. ",
+      "setup":"https://docs.google.com/spreadsheets/d/1Uc5pLSlpvC-nY7IcteZN3Yf3SZQ7oste7pHct0CUQlA/edit?usp=sharing",
       "video":"some video url",
       "image":"/static/images/spaces.png"
-	},{
+	},
+      {
+		"title": "Heroku Internal Apps",
+      "name": "private-spaces-demo",
+		"description": "You have a killer idea to distribute to the internal teams, but it is going to require some corporately sensitive data that your IT Sec team aren't comforable with being on the internet. Sounds like the perfect use case for Heroku Internal Apps.",
+      "setup":"https://docs.google.com/spreadsheets/d/1Uc5pLSlpvC-nY7IcteZN3Yf3SZQ7oste7pHct0CUQlA/edit?usp=sharing",
+      "vidyard_id":"vidyard_embed_code_wDc4oa4ppBjiYJzyW89YuY",
+      "vidyard_src":"//play.vidyard.com/wDc4oa4ppBjiYJzyW89YuY.js?v=3.1.1&type=lightbox",
+      "vidyard_click":"fn_vidyard_wDc4oa4ppBjiYJzyW89YuY();",
+      "image":"/static/images/spaces.png"
+      },{
 		"title": "Add Ons (coming soon)",
       "name": "heroku-addons-demo",
 		"description": "Never speak to a software vendor again! Well, maybe not but at least your developers will be free to choose from over 150 different addon providers. Whether your app needs a place to send its logs, an email sender, a message queue or perhaps you need a Graph database, Heroku Addons have you covered.",
@@ -77,3 +87,8 @@
       "image":"/static/images/kafka-purple.png"
 	}
 ]
+
+
+
+
+
